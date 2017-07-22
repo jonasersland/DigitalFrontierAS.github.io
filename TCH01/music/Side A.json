@@ -1,0 +1,174 @@
+{
+  "name" : "Side A",
+  "start" : ["VERSA1"],
+  "circles" : [
+               {
+               "name": "VERSA1",
+               "bpm": 122,
+               "maxRevolutions" : 1,
+               "minRevolutions" : 1,
+               "numBeats" : 24,
+               "next": ["VERSA2"],
+               "bags" : [
+                         {
+                         "beat" : 0,
+                         "samples" : ["a5.wav.mp3", "f5.wav.mp3", "s5.wav.mp3", "z5.wav.mp3"]
+                         }
+                         ]
+               },
+               {
+               "name": "VERSA2",
+               "bpm": 122,
+               "maxRevolutions" : 1,
+               "minRevolutions" : 1,
+               "numBeats" : 36,
+               "next" : ["VERSA3"],
+               "bags" : [
+                         {
+                         "beat" : 0,
+                         "samples" : ["a11.wav.mp3", "f11.wav.mp3", "s11.wav.mp3", "z11.wav.mp3"]
+                         }
+                         ]
+               },
+               {
+               "name": "VERSA3",
+               "bpm": 122,
+               "maxRevolutions" : 1,
+               "minRevolutions" : 1,
+               "numBeats" : 20,
+               "next" : ["VERSA4"],
+               "bags" : [
+                         {
+                         "beat" : 0,
+                         "samples" : ["a20.wav.mp3", "f20.wav.mp3", "s20.wav.mp3", "z20.wav.mp3"]
+                         }
+                         ]
+               },
+               {
+               "name": "VERSA4",
+               "bpm": 122,
+               "maxRevolutions" : 1,
+               "minRevolutions" : 1,
+               "numBeats" : 32,
+               "next" : ["REFA1"],
+               "bags" : [
+                         {
+                         "beat" : 0,
+                         "samples" : ["a25.wav.mp3", "f25.wav.mp3", "s25.wav.mp3", "z25.wav.mp3"]
+                         }
+                         ]
+               },
+               {
+               "name": "REFA1",
+               "bpm": 122,
+               "maxRevolutions" : 1,
+               "minRevolutions" : 1,
+               "numBeats" : 56,
+               "next" : ["REFA2"],
+               "bags" : [
+                         {
+                         "beat" : 0,
+                         "samples" : ["a33.wav.mp3", "f33.wav.mp3", "s33.wav.mp3", "z33.wav.mp3"]
+                         }
+                         ]
+               },
+               {
+               "name": "REFA2",
+               "bpm": 122,
+               "maxRevolutions" : 1,
+               "minRevolutions" : 1,
+               "numBeats" : 24,
+               "next" : ["VERSB1"],
+               "bags" : [
+                         {
+                         "beat" : 0,
+                         "samples" : ["a47.wav.mp3", "f47.wav.mp3", "s47.wav.mp3", "z47.wav.mp3"]
+                         }
+                         ]
+               },
+               {
+               "name": "VERSB1",
+               "bpm": 122,
+               "maxRevolutions" : 1,
+               "minRevolutions" : 1,
+               "numBeats" : 24,
+               "next" : ["VERSB2"],
+               "bags" : [
+                         {
+                         "beat" : 0,
+                         "samples" : ["a53.wav.mp3", "f53.wav.mp3", "s53.wav.mp3", "z53.wav.mp3"]
+                         }
+                         ]
+               },
+               {
+               "name": "VERSB2",
+               "bpm": 122,
+               "maxRevolutions" : 1,
+               "minRevolutions" : 1,
+               "numBeats" : 24,
+               "next" : ["REFB1"],
+               "bags" : [
+                         {
+                         "beat" : 0,
+                         "samples" : ["a59.wav.mp3", "f59.wav.mp3", "s59.wav.mp3", "z59.wav.mp3" ]
+                         }
+                         ]
+               },
+               {
+               "name": "REFB1",
+               "bpm": 122,
+               "maxRevolutions" : 1,
+               "minRevolutions" : 1,
+               "numBeats" : 24,
+               "next" : ["REFB2"],
+               "bags" : [
+                         {
+                         "beat" : 0,
+                         "samples" : ["a65.wav.mp3", "f65.wav.mp3", "s65.wav.mp3", "z65.wav.mp3"]
+                         }
+                         ]
+               },
+               {
+               "name": "REFB2",
+               "bpm": 122,
+               "maxRevolutions" : 1,
+               "minRevolutions" : 1,
+               "numBeats" : 24,
+               "next" : ["REFB3"],
+               "bags" : [
+                         {
+                         "beat" : 0,
+                         "samples" : ["a71.wav.mp3", "f71.wav.mp3", "s71.wav.mp3", "z71.wav.mp3"]
+                         }
+                         ]
+               },
+               {
+               "name": "REFB3",
+               "bpm": 122,
+               "maxRevolutions" : 1,
+               "minRevolutions" : 1,
+               "numBeats" : 8,
+               "next" : ["END"],
+               "bags" : [
+                         {
+                         "beat" : 0,
+                         "samples" : ["a77.wav.mp3", "f77.wav.mp3", "s77.wav.mp3", "z77.wav.mp3"]
+                         }
+                         ]
+               },
+               {
+               "name": "END",
+               "bpm": 122,
+               "maxRevolutions" : 1,
+               "minRevolutions" : 1,
+               "numBeats" : 1,
+               "next" : [],
+               "bags" : [
+                         {
+                         "beat" : 0,
+                         "samples" : ["a79.wav.mp3", "f79.wav.mp3", "s79.wav.mp3", "z79.wav.mp3"]
+                         }
+                         ]
+               }
+               ]
+}

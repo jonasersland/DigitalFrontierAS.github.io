@@ -1,0 +1,95 @@
+<html>
+<head>
+
+<script src="/js-client/player.js" ></script>
+<script>
+
+var player = new Player();
+
+function playSong() {
+	var song = JSON.parse(document.getElementById("input").value);
+	player.load(song);
+	player.onended = function () {
+		console.log("Ended. Duration = " + player._duration);
+	};
+	player.play();
+}
+
+function pauseSong() {
+	player.pause();
+}
+
+function resumeSong() {
+	player.resume();
+}
+
+function stopSong() {
+	player.stop();
+}
+
+function init() {
+	try {
+		var song = JSON.parse(document.getElementById("input").value);
+		player.load(song);
+	}
+	catch (e) {}
+}
+
+</script>
+
+
+</head>
+
+
+
+
+<body onload="init()" valign="top">
+
+	<textarea rows="50" cols="120" id="input" style="vertical-align: top">
+{
+  "name" : "LATENCYTEST",
+  "start" : ["2"],
+  "circles" : [
+    {
+      "name": "2",
+      "bpm": 106,
+      "maxRevolutions" : 30,
+      "minRevolutions" : 5,
+      "numBeats" : 2,
+      "next": ["3"],
+      "bags" : [
+        {
+          "beat" : 0,
+          "samples" : ["latencytest1.wav", "latencytest2.wav", "latencytest3.wav", "latencytest4.wav", "latencytest5.wav", "latencytest6.wav", "latencytest7.wav"]
+        }
+      ]
+    }, 
+	{
+      "name": "3",
+      "bpm": 106,
+      "maxRevolutions" : 4,
+      "minRevolutions" : 1,
+      "numBeats" : 2,
+      "next": ["2"],
+      "bags" : [
+        {
+          "beat" : 0,
+          "samples" : ["latencytestdouble1.wav", "latencytestdouble2.wav", "latencytestdouble3.wav", "latencytestdouble4.wav", "latencytestdouble5.wav", "latencytestdouble6.wav", "latencytestdouble7.wav"]
+        }
+      ]
+    }
+  ]
+}
+
+	</textarea>
+
+	<button type="button" onclick="playSong()" style="vertical-align: top; margin: 20px; margin-top: 200px;">Play</button>
+	
+	<button type="button" onclick="pauseSong()" style="vertical-align: top; margin: 20px; margin-top: 200px;">Pause</button>
+	
+	<button type="button" onclick="resumeSong()" style="vertical-align: top; margin: 20px; margin-top: 200px;">Resume</button>
+	
+	<button type="button" onclick="stopSong()" style="vertical-align: top; margin: 20px; margin-top: 200px;">Stop</button>
+
+</body>
+</html>

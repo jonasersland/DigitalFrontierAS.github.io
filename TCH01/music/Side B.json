@@ -1,0 +1,576 @@
+{
+  "name" : "Side B",
+  "start" : ["Stryk L", "Stryk R", "Stryk L/R", "Chord-Intro", "Chord", "MS", "Coming", "K", "A4"],
+  "circles" : [
+               {
+               "name": "Stryk L",
+               "bpm": 61,
+               "maxRevolutions" : 4,
+               "minRevolutions" : 1,
+               "numBeats" : 24,
+               "next" : ["MS+A4+Stryk L", "Stryk L+R"],
+               "bags" : [
+                         {
+                         "beat" : 0,
+                         "samples" : ["STRYKL1.wav.mp3", "STRYKL2.wav.mp3", "STRYKL3.wav.mp3", "STRYKL4.wav.mp3"]
+                         }
+                         ]
+               },
+               {
+               "name": "Stryk R",
+               "bpm": 61,
+               "maxRevolutions" : 3,
+               "minRevolutions" : 1,
+               "numBeats" : 24,
+               "next" : ["Stryk L+R"],
+               "bags" : [
+                         {
+                         "beat" : 0,
+                         "samples" : ["STRYKR1.wav.mp3", "STRYKR2.wav.mp3", "STRYKR3.wav.mp3", "STRYKR4.wav.mp3"]
+                         }
+                         ]
+               },
+               {
+               "name": "Stryk L/R",
+               "bpm": 61,
+               "maxRevolutions" : 5,
+               "minRevolutions" : 1,
+               "numBeats" : 24,
+               "next" : ["MS+A4+Stryk L/R", "Chord+A4+Stryk L+R", "Stryk L+R"],
+               "bags" : [
+                         {
+                         "beat" : 0,
+                         "samples" : ["STRYKL1.wav.mp3", "STRYKL2.wav.mp3", "STRYKL3.wav.mp3", "STRYKL4.wav.mp3", "STRYKR1.wav.mp3", "STRYKR2.wav.mp3", "STRYKR3.wav.mp3", "STRYKR4.wav.mp3"]
+                         }
+                         ]
+               },
+               {
+               "name": "Stryk L+R",
+               "bpm": 61,
+               "maxRevolutions" : 5,
+               "minRevolutions" : 1,
+               "numBeats" : 24,
+               "next" : ["Chord+A4+Stryk L+R", "Coming+Stryk L+R"],
+               "bags" : [
+                         {
+                         "beat" : 0,
+                         "samples" : ["STRYKL1.wav.mp3", "STRYKL2.wav.mp3", "STRYKL3.wav.mp3", "STRYKL4.wav.mp3"]
+                         },
+                         {
+                         "beat" : 0,
+                         "samples" : ["STRYKR1.wav.mp3", "STRYKR2.wav.mp3", "STRYKR3.wav.mp3", "STRYKR4.wav.mp3"]
+                         }
+                         ]
+               },
+               {
+               "name": "Coming",
+               "bpm": 61,
+               "maxRevolutions" : 7,
+               "minRevolutions" : 1,
+               "numBeats" : 24,
+               "next" : ["Coming+Chord", "Coming+Chord+A4", "Coming+K", "Coming+Stryk L"],
+               "bags" : [
+                         {
+                         "beat" : 0,
+                         "samples" : ["COMING1.wav.mp3", "COMING2.wav.mp3", "COMING3.wav.mp3", "COMING4.wav.mp3"]
+                         }
+                         ]
+               },
+               {
+               "name": "Chord-Intro",
+               "bpm": 61,
+               "maxRevolutions" : 1,
+               "minRevolutions" : 1,
+               "next" : ["Chord+A4", "Chord"],
+               "numBeats" : 24,
+               "bags" : [
+                         {
+                         "beat" : 0,
+                         "samples" : ["chordintro.wav.mp3"]
+                         }
+                         ]
+               },
+               {
+               "name": "Chord",
+               "bpm": 61,
+               "maxRevolutions" : 1,
+               "minRevolutions" : 1,
+               "next" : ["Chord+A4"],
+               "numBeats" : 24,
+               "bags" : [
+                         {
+                         "beat" : 0,
+                         "samples" : ["chord.wav.mp3", "chord2.wav.mp3"]
+                         }
+                         ]
+               },
+               {
+               "name": "Chord+A4",
+               "bpm": 61,
+               "maxRevolutions" : 3,
+               "minRevolutions" : 1,
+               "numBeats" : 24,
+               "next" : ["Chord+A4+Stryk L+R"],
+               "bags" : [
+                         {
+                         "beat" : 0,
+                         "samples" : ["chord.wav.mp3", "chord2.wav.mp3"]
+                         },
+                         {
+                         "beat" : 0,
+                         "samples" : ["H1.wav.mp3", "H2.wav.mp3", "DB.wav.mp3", "AB.wav.mp3", "silence.aiff"]
+                         },
+                         {
+                         "beat" : 8,
+                         "samples" : ["H1.wav.mp3", "H2.wav.mp3", "E.wav.mp3", "G.wav.mp3", "silence.aiff"]
+                         },
+                         {
+                         "beat" : 16,
+                         "samples" : ["H1.wav.mp3", "H2.wav.mp3", "GB.wav.mp3", "silence.aiff"]
+                         }
+                         ]
+               },
+               {
+               "name": "MS",
+               "bpm": 61,
+               "maxRevolutions" : 5,
+               "minRevolutions" : 1,
+               "next" : ["MS+A4"],
+               "numBeats" : 24,
+               "bags" : [
+                         {
+                         "beat" : 0,
+                         "samples" : ["msa1.wav.mp3", "msa2.wav.mp3"]
+                         },
+                         {
+                         "beat" : 8,
+                         "samples" : ["msb1.wav.mp3", "msb2.aif"]
+                         },
+                         {
+                         "beat" : 16,
+                         "samples" : ["msc1.aif", "msc2.aif"]
+                         }
+                         ]
+               },
+               {
+               "name": "MS+A4",
+               "bpm": 61,
+               "maxRevolutions" : 5,
+               "minRevolutions" : 1,
+               "numBeats" : 24,
+               "next" : ["MS+A4+K", "MS+A4+Stryk L/R", "MS+A4+Stryk L", "MS+A4+Stryk R"],
+               "bags" : [
+                         {
+                         "beat" : 0,
+                         "samples" : ["msa1.wav.mp3", "msa2.wav.mp3"]
+                         },
+                         {
+                         "beat" : 0,
+                         "samples" : ["H1.wav.mp3", "H2.wav.mp3", "DB.wav.mp3", "AB.wav.mp3", "silence.aiff"]
+                         },
+                         {
+                         "beat" : 8,
+                         "samples" : ["msb1.wav.mp3", "msb2.aif"]
+                         },
+                         {
+                         "beat" : 8,
+                         "samples" : ["H1.wav.mp3", "H2.wav.mp3", "E.wav.mp3", "G.wav.mp3", "silence.aiff"]
+                         },
+                         {
+                         "beat" : 16,
+                         "samples" : ["msc1.aif", "msc2.aif"]
+                         },
+                         {
+                         "beat" : 16,
+                         "samples" : ["H1.wav.mp3", "H2.wav.mp3", "GB.wav.mp3", "silence.aiff"]
+                         }
+                         ]
+               },
+               {
+               "name": "MS+A4+K",
+               "bpm": 61,
+               "maxRevolutions" : 10,
+               "minRevolutions" : 1,
+               "numBeats" : 24,
+               "next" : ["Coming+K"],
+               "bags" : [
+                         {
+                         "beat" : 0,
+                         "samples" : ["msa1.wav.mp3", "msa2.wav.mp3"]
+                         },
+                         {
+                         "beat" : 0,
+                         "samples" : ["H1.wav.mp3", "H2.wav.mp3", "DB.wav.mp3", "AB.wav.mp3", "silence.aiff"]
+                         },
+                         {
+                         "beat" : 8,
+                         "samples" : ["msb1.wav.mp3", "msb2.aif"]
+                         },
+                         {
+                         "beat" : 8,
+                         "samples" : ["H1.wav.mp3", "H2.wav.mp3", "E.wav.mp3", "G.wav.mp3", "silence.aiff"]
+                         },
+                         {
+                         "beat" : 16,
+                         "samples" : ["msc1.aif", "msc2.aif"]
+                         },
+                         {
+                         "beat" : 16,
+                         "samples" : ["H1.wav.mp3", "H2.wav.mp3", "GB.wav.mp3", "silence.aiff"]
+                         },
+                         {
+                         "beat" : 0,
+                         "samples" : ["K1.wav.mp3", "K2.wav.mp3", "K3.wav.mp3", "K4.wav.mp3", "K5.wav.mp3", "K7.wav.mp3", "K8.wav.mp3", "K9.wav.mp3"]
+                         },
+                         {
+                         "beat" : 8,
+                         "samples" : ["K1.wav.mp3", "K2.wav.mp3", "K3.wav.mp3", "K4.wav.mp3", "K5.wav.mp3", "K7.wav.mp3", "K8.wav.mp3", "K9.wav.mp3"]
+                         },
+                         {
+                         "beat" : 16,
+                         "samples" : ["K1.wav.mp3", "K2.wav.mp3", "K3.wav.mp3", "K4.wav.mp3", "K5.wav.mp3", "K7.wav.mp3", "K8.wav.mp3", "K9.wav.mp3"]
+                         }
+                         ]
+               },
+               {
+               "name": "K",
+               "bpm": 61,
+               "maxRevolutions" : 15,
+               "minRevolutions" : 1,
+               "next" : [],
+               "numBeats" : 24,
+               "bags" : [
+                         {
+                         "beat" : 0,
+                         "samples" : ["K1.wav.mp3", "K2.wav.mp3", "K3.wav.mp3", "K4.wav.mp3", "K5.wav.mp3", "K7.wav.mp3", "K8.wav.mp3", "K9.wav.mp3"]
+                         },
+                         {
+                         "beat" : 8,
+                         "samples" : ["K1.wav.mp3", "K2.wav.mp3", "K3.wav.mp3", "K4.wav.mp3", "K5.wav.mp3", "K7.wav.mp3", "K8.wav.mp3", "K9.wav.mp3"]
+                         },
+                         {
+                         "beat" : 16,
+                         "samples" : ["K1.wav.mp3", "K2.wav.mp3", "K3.wav.mp3", "K4.wav.mp3", "K5.wav.mp3", "K7.wav.mp3", "K8.wav.mp3", "K9.wav.mp3"]
+                         }
+                         ]
+               },
+               {
+               "name": "A4",
+               "bpm": 61,
+               "maxRevolutions" : 1,
+               "minRevolutions" : 1,
+               "numBeats" : 24,
+               "next" : ["MS+A4", "Coming+Chord+A4"],
+               "bags" : [
+                         {
+                         "beat" : 0,
+                         "samples" : ["H1.wav.mp3", "H2.wav.mp3", "DB.wav.mp3", "AB.wav.mp3", "silence.aiff"]
+                         },
+                         {
+                         "beat" : 8,
+                         "samples" : ["H1.wav.mp3", "H2.wav.mp3", "E.wav.mp3", "G.wav.mp3", "silence.aiff"]
+                         },
+                         {
+                         "beat" : 16,
+                         "samples" : ["H1.wav.mp3", "H2.wav.mp3", "GB.wav.mp3", "silence.aiff"]
+                         }
+               ]
+               },
+               {
+               "name": "Chord+A4+Stryk L+R",
+               "bpm": 61,
+               "maxRevolutions" : 7,
+               "minRevolutions" : 1,
+               "numBeats" : 24,
+               "next" : [],
+               "bags" : [
+                         {
+                         "beat" : 0,
+                         "samples" : ["chord.wav.mp3", "chord2.wav.mp3"]
+                         },
+                         {
+                         "beat" : 0,
+                         "samples" : ["H1.wav.mp3", "H2.wav.mp3", "DB.wav.mp3", "AB.wav.mp3", "silence.aiff"]
+                         },
+                         {
+                         "beat" : 8,
+                         "samples" : ["H1.wav.mp3", "H2.wav.mp3", "E.wav.mp3", "G.wav.mp3", "silence.aiff"]
+                         },
+                         {
+                         "beat" : 16,
+                         "samples" : ["H1.wav.mp3", "H2.wav.mp3", "GB.wav.mp3", "silence.aiff"]
+                         },
+                         {
+                         "beat" : 0,
+                         "samples" : ["STRYKL1.wav.mp3", "STRYKL2.wav.mp3", "STRYKL3.wav.mp3", "STRYKL4.wav.mp3"]
+                         },
+                         {
+                         "beat" : 0,
+                         "samples" : ["STRYKR1.wav.mp3", "STRYKR2.wav.mp3", "STRYKR3.wav.mp3", "STRYKR4.wav.mp3"]
+                         }
+
+               ]
+               },
+               {
+               "name": "MS+A4+Stryk L/R",
+               "bpm": 61,
+               "maxRevolutions" : 7,
+               "minRevolutions" : 1,
+               "numBeats" : 24,
+               "next" : [],
+               "bags" : [
+                         {
+                         "beat" : 0,
+                         "samples" : ["msa1.wav.mp3", "msa2.wav.mp3"]
+                         },
+                         {
+                         "beat" : 8,
+                         "samples" : ["msb1.wav.mp3", "msb2.aif"]
+                         },
+                         {
+                         "beat" : 16,
+                         "samples" : ["msc1.aif", "msc2.aif"]
+                         },
+                         {
+                         "beat" : 0,
+                         "samples" : ["H1.wav.mp3", "H2.wav.mp3", "DB.wav.mp3", "AB.wav.mp3", "silence.aiff"]
+                         },
+                         {
+                         "beat" : 8,
+                         "samples" : ["H1.wav.mp3", "H2.wav.mp3", "E.wav.mp3", "G.wav.mp3", "silence.aiff"]
+                         },
+                         {
+                         "beat" : 16,
+                         "samples" : ["H1.wav.mp3", "H2.wav.mp3", "GB.wav.mp3", "silence.aiff"]
+                         },
+                         {
+                         "beat" : 0,
+                         "samples" : ["STRYKL1.wav.mp3", "STRYKL2.wav.mp3", "STRYKL3.wav.mp3", "STRYKL4.wav.mp3", "STRYKR1.wav.mp3", "STRYKR2.wav.mp3", "STRYKR3.wav.mp3", "STRYKR4.wav.mp3"]
+                         }
+               ]
+               },
+               {
+               "name": "MS+A4+Stryk L",
+               "bpm": 61,
+               "maxRevolutions" : 5,
+               "minRevolutions" : 1,
+               "numBeats" : 24,
+               "next" : [],
+               "bags" : [
+                         {
+                         "beat" : 0,
+                         "samples" : ["msa1.wav.mp3", "msa2.wav.mp3"]
+                         },
+                         {
+                         "beat" : 8,
+                         "samples" : ["msb1.wav.mp3", "msb2.aif"]
+                         },
+                         {
+                         "beat" : 16,
+                         "samples" : ["msc1.aif", "msc2.aif"]
+                         },
+                         {
+                         "beat" : 0,
+                         "samples" : ["H1.wav.mp3", "H2.wav.mp3", "DB.wav.mp3", "AB.wav.mp3", "silence.aiff"]
+                         },
+                         {
+                         "beat" : 8,
+                         "samples" : ["H1.wav.mp3", "H2.wav.mp3", "E.wav.mp3", "G.wav.mp3", "silence.aiff"]
+                         },
+                         {
+                         "beat" : 16,
+                         "samples" : ["H1.wav.mp3", "H2.wav.mp3", "GB.wav.mp3", "silence.aiff"]
+                         },
+                         {
+                         "beat" : 0,
+                         "samples" : ["STRYKL1.wav.mp3", "STRYKL2.wav.mp3", "STRYKL3.wav.mp3", "STRYKL4.wav.mp3"]
+                         }
+               ]
+               },
+               {
+               "name": "MS+A4+Stryk R",
+               "bpm": 61,
+               "maxRevolutions" : 5,
+               "minRevolutions" : 1,
+               "numBeats" : 24,
+               "next" : [],
+               "bags" : [
+                         {
+                         "beat" : 0,
+                         "samples" : ["msa1.wav.mp3", "msa2.wav.mp3"]
+                         },
+                         {
+                         "beat" : 8,
+                         "samples" : ["msb1.wav.mp3", "msb2.aif"]
+                         },
+                         {
+                         "beat" : 16,
+                         "samples" : ["msc1.aif", "msc2.aif"]
+                         },
+                         {
+                         "beat" : 0,
+                         "samples" : ["H1.wav.mp3", "H2.wav.mp3", "DB.wav.mp3", "AB.wav.mp3", "silence.aiff"]
+                         },
+                         {
+                         "beat" : 8,
+                         "samples" : ["H1.wav.mp3", "H2.wav.mp3", "E.wav.mp3", "G.wav.mp3", "silence.aiff"]
+                         },
+                         {
+                         "beat" : 16,
+                         "samples" : ["H1.wav.mp3", "H2.wav.mp3", "GB.wav.mp3", "silence.aiff"]
+                         },
+                         {
+                         "beat" : 0,
+                         "samples" : ["STRYKR1.wav.mp3", "STRYKR2.wav.mp3", "STRYKR3.wav.mp3", "STRYKR4.wav.mp3"]
+                         }
+               ]
+               },
+               {
+               "name": "Coming+Chord",
+               "bpm": 61,
+               "maxRevolutions" : 5,
+               "minRevolutions" : 1,
+               "numBeats" : 24,
+               "next" : ["Coming+Chord+A4"],
+               "bags" : [
+                         {
+                         "beat" : 0,
+                         "samples" : ["COMING1.wav.mp3", "COMING2.wav.mp3", "COMING3.wav.mp3", "COMING4.wav.mp3"]
+                         },
+                         {
+                         "beat" : 0,
+                         "samples" : ["chord.wav.mp3", "chord2.wav.mp3"]
+                         }
+               ]
+               },
+               {
+               "name": "Coming+Chord+A4",
+               "bpm": 61,
+               "maxRevolutions" : 7,
+               "minRevolutions" : 1,
+               "numBeats" : 24,
+               "next" : ["Coming+A4+Stryk L"],
+               "bags" : [
+
+                         {
+                         "beat" : 0,
+                         "samples" : ["COMING1.wav.mp3", "COMING2.wav.mp3", "COMING3.wav.mp3", "COMING4.wav.mp3"]
+                         },
+                         {
+                         "beat" : 0,
+                         "samples" : ["chord.wav.mp3", "chord2.wav.mp3"]
+                         },
+                         {
+                         "beat" : 0,
+                         "samples" : ["H1.wav.mp3", "H2.wav.mp3", "DB.wav.mp3", "AB.wav.mp3", "silence.aiff"]
+                         },
+                         {
+                         "beat" : 8,
+                         "samples" : ["H1.wav.mp3", "H2.wav.mp3", "E.wav.mp3", "G.wav.mp3", "silence.aiff"]
+                         },
+                         {
+                         "beat" : 16,
+                         "samples" : ["H1.wav.mp3", "H2.wav.mp3", "GB.wav.mp3", "silence.aiff"]
+                         }
+
+               ]
+               },
+               {
+               "name": "Coming+Stryk L",
+               "bpm": 61,
+               "maxRevolutions" : 3,
+               "minRevolutions" : 1,
+               "numBeats" : 24,
+               "next" : ["Coming+A4+Stryk L"],
+               "bags" : [
+                         {
+                         "beat" : 0,
+                         "samples" : ["COMING1.wav.mp3", "COMING2.wav.mp3", "COMING3.wav.mp3", "COMING4.wav.mp3"]
+                         },
+                         {
+                         "beat" : 0,
+                         "samples" : ["STRYKL1.wav.mp3", "STRYKL2.wav.mp3", "STRYKL3.wav.mp3", "STRYKL4.wav.mp3"]
+                         }
+
+               ]
+               },
+               {
+               "name": "Coming+A4+Stryk L",
+               "bpm": 61,
+               "maxRevolutions" : 5,
+               "minRevolutions" : 1,
+               "numBeats" : 24,
+               "next" : ["Coming+Stryk L+R"],
+               "bags" : [
+                         {
+                         "beat" : 0,
+                         "samples" : ["COMING1.wav.mp3", "COMING2.wav.mp3", "COMING3.wav.mp3", "COMING4.wav.mp3"]
+                         },
+                         {
+                         "beat" : 0,
+                         "samples" : ["STRYKL1.wav.mp3", "STRYKL2.wav.mp3", "STRYKL3.wav.mp3", "STRYKL4.wav.mp3"]
+                         },
+                         {
+                         "beat" : 0,
+                         "samples" : ["H1.wav.mp3", "H2.wav.mp3", "DB.wav.mp3", "AB.wav.mp3", "silence.aiff"]
+                         },
+                         {
+                         "beat" : 8,
+                         "samples" : ["H1.wav.mp3", "H2.wav.mp3", "E.wav.mp3", "G.wav.mp3", "silence.aiff"]
+                         },
+                         {
+                         "beat" : 16,
+                         "samples" : ["H1.wav.mp3", "H2.wav.mp3", "GB.wav.mp3", "silence.aiff"]
+                         }
+               ]
+               },
+               {
+               "name": "Coming+K",
+               "bpm": 61,
+               "maxRevolutions" : 5,
+               "minRevolutions" : 1,
+               "numBeats" : 24,
+               "next" : [],
+               "bags" : [
+                         {
+                         "beat" : 0,
+                         "samples" : ["COMING1.wav.mp3", "COMING2.wav.mp3", "COMING3.wav.mp3", "COMING4.wav.mp3"]
+                         },
+                         {
+                         "beat" : 0,
+                         "samples" : ["K1.wav.mp3", "K2.wav.mp3", "K3.wav.mp3", "K4.wav.mp3", "K5.wav.mp3", "K7.wav.mp3", "K8.wav.mp3", "K9.wav.mp3"]
+                         },
+                         {
+                         "beat" : 8,
+                         "samples" : ["K1.wav.mp3", "K2.wav.mp3", "K3.wav.mp3", "K4.wav.mp3", "K5.wav.mp3", "K7.wav.mp3", "K8.wav.mp3", "K9.wav.mp3"]
+                         },
+                         {
+                         "beat" : 16,
+                         "samples" : ["K3.wav.mp3", "K4.wav.mp3", "K5.wav.mp3", "K7.wav.mp3", "K8.wav.mp3", "K9.wav.mp3"]
+                         }
+                         ]
+               },
+               {
+               "name": "Coming+Stryk L+R",
+               "bpm": 61,
+               "maxRevolutions" : 5,
+               "minRevolutions" : 1,
+               "numBeats" : 24,
+               "next" : [],
+               "bags" : [
+                         {
+                         "beat" : 0,
+                         "samples" : ["COMING1.wav.mp3", "COMING2.wav.mp3", "COMING3.wav.mp3", "COMING4.wav.mp3"]
+                         },
+                         {
+                         "beat" : 0,
+                         "samples" : ["STRYKL1.wav.mp3", "STRYKL2.wav.mp3", "STRYKL3.wav.mp3", "STRYKL4.wav.mp3"]
+                         },
+                         {
+                         "beat" : 0,
+                         "samples" : ["STRYKR1.wav.mp3", "STRYKR2.wav.mp3", "STRYKR3.wav.mp3", "STRYKR4.wav.mp3"]
+                         }
+               ]
+               }
+               ]
+}
