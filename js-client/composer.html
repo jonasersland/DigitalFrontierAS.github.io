@@ -1,0 +1,144 @@
+<html>
+<head>
+
+<link href="jsoneditor/jsoneditor.min.css" rel="stylesheet" type="text/css">
+<script src="jsoneditor/jsoneditor.min.js"></script>
+<script src="FileSaver/FileSaver.min.js"></script>
+
+<script src="player.js" ></script>
+<script>
+
+var player = new Player();
+
+function playSong() {
+	//var song = JSON.parse(document.getElementById("sourceContent").value);
+	var song = editor.get();
+	player.load(song, document.getElementById("baseUrl").value);
+	player.onEnd = function () {
+		console.log("Ended. Duration = " + player._duration);
+	};
+	player.onCircleStart = function (offset, circle, counter, revolutions) {
+		console.log("Circle started at " + offset + ". currentTime = " + player.currentTime() + ", circle: " + circle + ", " + counter + "/" + revolutions);
+	};
+	player.onCircleEnd = function (offset, circle, counter, revolutions) {
+		console.log("Circle ended at " + offset + ". currentTime = " + player.currentTime() + ", circle: " + circle + ", " + counter + "/" + revolutions);
+	};
+	player.onSampleStart = function (offset, sample, buffer) {
+		console.log("Sample started at " + offset + ". currentTime = " + player.currentTime() + ", sample: " + sample + ", numberOfChannels: " + buffer.numberOfChannels);
+	};
+	player.onSampleEnd = function (offset, sample, buffer) {
+		console.log("Sample ended at " + offset + ". currentTime = " + player.currentTime() + ", sample: " + sample + ", numberOfChannels: " + buffer.numberOfChannels);
+	};
+	player.play();
+}
+
+function pauseSong() {
+	player.pause();
+}
+
+function resumeSong() {
+	player.resume();
+}
+
+function stopSong() {
+	player.stop();
+}
+
+function load(sourceUrl, baseUrl) {
+	if (!sourceUrl) {
+		sourceUrl = document.getElementById("sourceUrl").value;
+	} else {
+		document.getElementById("sourceUrl").value = sourceUrl;
+	}
+	if (!baseUrl) {
+		baseUrl = document.getElementById("baseUrl").value;
+	}
+	if (!baseUrl) {
+		var index = sourceUrl.lastIndexOf("/");
+		if (index >= 0) {
+			baseUrl = sourceUrl.substring(0, index+1);
+		}
+	}
+	document.getElementById("baseUrl").value = baseUrl;
+
+	var request = new XMLHttpRequest();
+	request.open('GET', sourceUrl, true);
+	//request.responseType = 'arraybuffer';
+	request.onload = function () {
+		//document.getElementById("sourceContent").value = request.responseText;
+		editor.set(JSON.parse(request.responseText));
+	}
+	request.send();
+}
+
+
+function save() {
+	var fileName = document.getElementById("sourceUrl").value;
+	if (fileName) {
+		var index = fileName.lastIndexOf("/");
+		if (index >= 0) fileName = fileName.substr(index+1);
+	} 
+	if (!fileName) {
+		fileName = "song.json";
+	}
+	var blob = new Blob([JSON.stringify(editor.get(), null, 2)], {type: "text/plain;charset=utf-8"});
+	saveAs(blob, fileName);
+}
+
+
+var editor;
+
+function init() {
+	try {
+		var container = document.getElementById("jsoneditor");
+		var options = {
+			mode: 'tree',
+			modes: ['tree', 'view', 'form', 'code', 'text']
+		};
+		editor = new JSONEditor(container, options);
+		
+		/*
+		var song = JSON.parse(document.getElementById("sourceContent").value);
+		player.load(song);
+		editor.set
+		*/
+	}
+	catch (e) {}
+}
+
+</script>
+
+
+</head>
+
+
+
+
+<body onload="init()" valign="top">
+
+	<div id="loader">
+		<div id="sourceDiv">Source URL: <input type="text" id="sourceUrl" value="/TCH01/music/Side-A_UPDATE.json"></div>
+		<div id="baseUrlDiv">Samples base URL: <input type="text" id="baseUrl"></div>
+		<button type="button" onclick="load()">Load</button>
+		<button type="button" onclick="save()">Save</button>
+	</div>
+
+	<div>
+		<button type="button" onclick="playSong()" style="vertical-align: top; margin: 20px; margin-top: 20px;">Play</button>
+		
+		<button type="button" onclick="pauseSong()" style="vertical-align: top; margin: 20px; margin-top: 20px;">Pause</button>
+		
+		<button type="button" onclick="resumeSong()" style="vertical-align: top; margin: 20px; margin-top: 20px;">Resume</button>
+		
+		<button type="button" onclick="stopSong()" style="vertical-align: top; margin: 20px; margin-top: 20px;">Stop</button>
+	</div>
+
+	<!--
+	<textarea rows="50" cols="120" id="sourceContent" style="vertical-align: top">
+	</textarea>
+	-->
+
+	<div id="jsoneditor" style="width: 600px; height: 800px;"></div>
+
+</body>
+</html>
