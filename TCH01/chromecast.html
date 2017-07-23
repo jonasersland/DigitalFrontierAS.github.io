@@ -39,6 +39,99 @@ limitations under the License.
   <body>
   <div id="message">Talk to me</div>
     <script type="text/javascript" src="//www.gstatic.com/cast/sdk/libs/receiver/2.0.0/cast_receiver.js"></script>
+	
+	
+	
+<script src="/js-client/player.js" ></script>
+<script>
+
+var player = new Player();
+
+player.onEnd = function () {
+	var image = document.getElementById("image");
+	image.src = "TROPICAL-GIF-creditzNY.gif";
+	playing = false;
+};
+
+function playSong() {
+	player.play();
+}
+
+function pauseSong() {
+	player.pause();
+}
+
+function resumeSong() {
+	player.resume();
+}
+
+function stopSong() {
+	player.stop();
+}
+
+function init() {
+	try {
+		var request = new XMLHttpRequest();
+		request.open('GET', "music/Side A.json", true);
+		request.onload = function () {
+			var song = JSON.parse(request.responseText);
+			player.load(song, "music/");
+			var image = document.getElementById("image");
+			image.src = "TCH-COLOUR.gif";
+			ready = true;
+			
+			playSong();
+		}
+		request.send();
+	}
+	catch (e) {}
+}
+
+var ready = false;
+var playing = false;
+
+function imageClicked() {
+	if (!ready) return;
+	
+	var image = document.getElementById("image");
+	if (playing) {
+		image.src = "TROPICAL-GIF-creditzNY.gif";
+		player.stop();
+		playing = false;
+	} else {
+		image.src = "TCH-COLOUR.gif";
+		player.play();
+		playing = true;
+	}
+}
+
+
+// Chromecast stuff
+
+/*
+window['__onGCastApiAvailable'] = function(isAvailable) {
+	console.log("Hei! " + isAvailable);
+  if (isAvailable) {
+    initializeCastApi();
+  }
+};
+
+
+initializeCastApi = function() {
+  cast.framework.CastContext.getInstance().setOptions({
+    receiverApplicationId: "F8F7D2ED",
+    autoJoinPolicy: chrome.cast.AutoJoinPolicy.ORIGIN_SCOPED
+  });
+  
+};
+*/
+
+
+</script>
+
+	
+	
+	
     <script type="text/javascript">
       window.onload = function() {
         cast.receiver.logger.setLevelValue(0);
@@ -89,6 +182,9 @@ limitations under the License.
         // initialize the CastReceiverManager with an application status message
         window.castReceiverManager.start({statusText: 'Application is starting'});
         console.log('Receiver Manager started');
+		
+		
+		init();
       };
 
       // utility function to display the text message in the input field
