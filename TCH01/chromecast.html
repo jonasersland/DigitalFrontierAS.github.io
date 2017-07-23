@@ -1,0 +1,83 @@
+<html>
+<head>
+<script src="https://www.gstatic.com/cast/sdk/libs/receiver/2.0.0/cast_receiver.js" ></script>
+<script src="/js-client/player.js" ></script>
+<script>
+
+var player = new Player();
+
+player.onEnd = function () {
+	var image = document.getElementById("image");
+	image.src = "TROPICAL-GIF-creditzNY.gif";
+	playing = false;
+};
+
+function playSong() {
+	player.play();
+}
+
+function pauseSong() {
+	player.pause();
+}
+
+function resumeSong() {
+	player.resume();
+}
+
+function stopSong() {
+	player.stop();
+}
+
+function init() {
+	try {
+		var request = new XMLHttpRequest();
+		request.open('GET', "music/Side A.json", true);
+		request.onload = function () {
+			var song = JSON.parse(request.responseText);
+			player.load(song, "music/");
+			var image = document.getElementById("image");
+			image.src = "TCH-COLOUR.gif";
+			ready = true;
+			player.play();
+		}
+		request.send();
+	}
+	catch (e) {}
+}
+
+var ready = false;
+var playing = false;
+
+function imageClicked() {
+	if (!ready) return;
+	
+	var image = document.getElementById("image");
+	if (playing) {
+		image.src = "TROPICAL-GIF-creditzNY.gif";
+		player.stop();
+		playing = false;
+	} else {
+		image.src = "TCH-COLOUR.gif";
+		player.play();
+		playing = true;
+	}
+}
+
+
+//window.onload = init();
+
+</script>
+
+
+</head>
+
+
+
+
+<body valign="top">
+
+	<img src="splash.jpg" style="width: 375px" id="image" onclick="imageClicked()"/>
+	Chromecast
+
+</body>
+</html>
