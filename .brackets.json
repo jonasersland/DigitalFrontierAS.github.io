@@ -1,0 +1,46 @@
+{
+    "fonts.fontSize": "12px",
+    "fonts.fontFamily": "'SourceCodePro-Medium', ＭＳ ゴシック, 'MS Gothic', monospace",
+    "livedev.multibrowser": false,
+    "themes.theme": "dark-theme",
+    
+    "language": {
+        "javascript": {
+            "linting.prefer": "JSHint",
+            "linting.usePreferredOnly": true
+        }
+    },
+    
+	"jslint.options": {
+		"ass": false,
+		"bitwise": false,
+		"browser": true,
+		"closure": false,
+		"continue": false,
+		"couch": false,
+		"debug": false,
+		"devel": false,
+		"eqeq": false,
+		"es6": true,
+		"evil": false,
+		"forin": false,
+		"indent": 0,
+		"maxerr": 0,
+		"maxlen": 0,
+		"newcap": false,
+		"node": false,
+		"nomen": true,
+		"passfail": false,
+		"plusplus": true,
+		"regexp": false,
+		"rhino": false,
+		"sloppy": false,
+		"stupid": false,
+		"sub": false,
+		"todo": false,
+		"unparam": false,
+		"vars": true,
+		"white": true
+	}
+
+}
