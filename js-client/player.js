@@ -9,8 +9,7 @@ var DigitalFrontierAS = (function () {
             sequences =  null,
             sampleCache = {},
             duration = 0.0,
-
-            local,
+            destination,
 
             LOAD_AHEAD_TIME = 10.0,
 
@@ -32,9 +31,6 @@ var DigitalFrontierAS = (function () {
         this.onBeat = null;
 
         if (song) { this.load(song, baseUrl); }
-        
-        this.getLocal = function () { return local; };
-        this.setLocal = function (l) { local = l; };
         
         // ------------------------------------------------------------------------------------------------
         // Structure and layout
@@ -164,6 +160,20 @@ var DigitalFrontierAS = (function () {
             if (context.state !== "closed") context.close();
             context = new window.AudioContext();
             context.suspend();
+            
+            /*
+            var compressor = context.createDynamicsCompressor();
+            compressor.threshold.value = -100;
+            compressor.knee.value = 40;
+            compressor.ratio.value = 20;
+            compressor.attack.value = 0;
+            compressor.release.value = 0.25;
+            compressor.connect(context.destination);
+            destination = compressor;
+            */
+            
+            destination = context.destination;
+            
             startTime = context.currentTime;
             this._scheduleLoop();
         };
@@ -246,12 +256,12 @@ var DigitalFrontierAS = (function () {
                 context.resume();
                 return;
             }
-            var nextOffset = offset + sequence.numBeats * 60.0 / sequence.bpm; // Next sequence starts here
+            //var nextOffset = offset + sequence.numBeats * 60.0 / sequence.bpm; // Next sequence starts here
             if (offset - this.currentTime() < LOAD_AHEAD_TIME) {
-                this._scheduleLoop(nextOffset, loop, counter);
+                this._scheduleLoop(offset, loop, counter);
             } else {
                 this.schedule(offset - LOAD_AHEAD_TIME, function () {
-                    player._scheduleLoop(nextOffset, loop, counter);
+                    player._scheduleLoop(offset, loop, counter);
                 });
                 context.resume();
             }
@@ -306,7 +316,7 @@ var DigitalFrontierAS = (function () {
         this.scheduleBuffer = function (sample, buffer, offset) {
             var source = context.createBufferSource();
             source.buffer = buffer;
-            source.connect(context.destination);
+            source.connect(destination);
             var player = this;
             if (this.onSampleStart) this.schedule(offset, function (offs) { player.onSampleStart(offs, sample, buffer); });
             if (this.onSampleEnd) source.onended = function () { player.onSampleEnd(offset + buffer.duration, sample, buffer); };
@@ -318,7 +328,7 @@ var DigitalFrontierAS = (function () {
             if (fn) {
                 var source = context.createBufferSource();
                 source.buffer = TRIGGER_BUFFER;
-                source.connect(context.destination);
+                source.connect(destination);
                 source.onended = function () { fn(offset); };
                 source.start(startTime + offset);
             }
