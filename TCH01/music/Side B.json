@@ -1,7 +1,7 @@
 {
   "name" : "Side B",
   "start" : ["Stryk L", "Stryk R", "Stryk L/R", "Chord-Intro", "Chord", "MS", "Coming", "K", "A4"],
-  "circles" : [
+  "sequences" : [
                {
                "name": "Stryk L",
                "bpm": 61,
@@ -9,7 +9,7 @@
                "minRevolutions" : 1,
                "numBeats" : 24,
                "next" : ["MS+A4+Stryk L", "Stryk L+R"],
-               "bags" : [
+               "groups" : [
                          {
                          "beat" : 0,
                          "samples" : ["STRYKL1.wav.mp3", "STRYKL2.wav.mp3", "STRYKL3.wav.mp3", "STRYKL4.wav.mp3"]
@@ -23,7 +23,7 @@
                "minRevolutions" : 1,
                "numBeats" : 24,
                "next" : ["Stryk L+R"],
-               "bags" : [
+               "groups" : [
                          {
                          "beat" : 0,
                          "samples" : ["STRYKR1.wav.mp3", "STRYKR2.wav.mp3", "STRYKR3.wav.mp3", "STRYKR4.wav.mp3"]
@@ -37,7 +37,7 @@
                "minRevolutions" : 1,
                "numBeats" : 24,
                "next" : ["MS+A4+Stryk L/R", "Chord+A4+Stryk L+R", "Stryk L+R"],
-               "bags" : [
+               "groups" : [
                          {
                          "beat" : 0,
                          "samples" : ["STRYKL1.wav.mp3", "STRYKL2.wav.mp3", "STRYKL3.wav.mp3", "STRYKL4.wav.mp3", "STRYKR1.wav.mp3", "STRYKR2.wav.mp3", "STRYKR3.wav.mp3", "STRYKR4.wav.mp3"]
@@ -51,7 +51,7 @@
                "minRevolutions" : 1,
                "numBeats" : 24,
                "next" : ["Chord+A4+Stryk L+R", "Coming+Stryk L+R"],
-               "bags" : [
+               "groups" : [
                          {
                          "beat" : 0,
                          "samples" : ["STRYKL1.wav.mp3", "STRYKL2.wav.mp3", "STRYKL3.wav.mp3", "STRYKL4.wav.mp3"]
@@ -69,7 +69,7 @@
                "minRevolutions" : 1,
                "numBeats" : 24,
                "next" : ["Coming+Chord", "Coming+Chord+A4", "Coming+K", "Coming+Stryk L"],
-               "bags" : [
+               "groups" : [
                          {
                          "beat" : 0,
                          "samples" : ["COMING1.wav.mp3", "COMING2.wav.mp3", "COMING3.wav.mp3", "COMING4.wav.mp3"]
@@ -83,7 +83,7 @@
                "minRevolutions" : 1,
                "next" : ["Chord+A4", "Chord"],
                "numBeats" : 24,
-               "bags" : [
+               "groups" : [
                          {
                          "beat" : 0,
                          "samples" : ["chordintro.wav.mp3"]
@@ -97,7 +97,7 @@
                "minRevolutions" : 1,
                "next" : ["Chord+A4"],
                "numBeats" : 24,
-               "bags" : [
+               "groups" : [
                          {
                          "beat" : 0,
                          "samples" : ["chord.wav.mp3", "chord2.wav.mp3"]
@@ -111,7 +111,7 @@
                "minRevolutions" : 1,
                "numBeats" : 24,
                "next" : ["Chord+A4+Stryk L+R"],
-               "bags" : [
+               "groups" : [
                          {
                          "beat" : 0,
                          "samples" : ["chord.wav.mp3", "chord2.wav.mp3"]
@@ -137,7 +137,7 @@
                "minRevolutions" : 1,
                "next" : ["MS+A4"],
                "numBeats" : 24,
-               "bags" : [
+               "groups" : [
                          {
                          "beat" : 0,
                          "samples" : ["msa1.wav.mp3", "msa2.wav.mp3"]
@@ -159,7 +159,7 @@
                "minRevolutions" : 1,
                "numBeats" : 24,
                "next" : ["MS+A4+K", "MS+A4+Stryk L/R", "MS+A4+Stryk L", "MS+A4+Stryk R"],
-               "bags" : [
+               "groups" : [
                          {
                          "beat" : 0,
                          "samples" : ["msa1.wav.mp3", "msa2.wav.mp3"]
@@ -193,7 +193,7 @@
                "minRevolutions" : 1,
                "numBeats" : 24,
                "next" : ["Coming+K"],
-               "bags" : [
+               "groups" : [
                          {
                          "beat" : 0,
                          "samples" : ["msa1.wav.mp3", "msa2.wav.mp3"]
@@ -239,7 +239,7 @@
                "minRevolutions" : 1,
                "next" : [],
                "numBeats" : 24,
-               "bags" : [
+               "groups" : [
                          {
                          "beat" : 0,
                          "samples" : ["K1.wav.mp3", "K2.wav.mp3", "K3.wav.mp3", "K4.wav.mp3", "K5.wav.mp3", "K7.wav.mp3", "K8.wav.mp3", "K9.wav.mp3"]
@@ -261,7 +261,7 @@
                "minRevolutions" : 1,
                "numBeats" : 24,
                "next" : ["MS+A4", "Coming+Chord+A4"],
-               "bags" : [
+               "groups" : [
                          {
                          "beat" : 0,
                          "samples" : ["H1.wav.mp3", "H2.wav.mp3", "DB.wav.mp3", "AB.wav.mp3", "silence.aiff"]
@@ -283,7 +283,7 @@
                "minRevolutions" : 1,
                "numBeats" : 24,
                "next" : [],
-               "bags" : [
+               "groups" : [
                          {
                          "beat" : 0,
                          "samples" : ["chord.wav.mp3", "chord2.wav.mp3"]
@@ -318,7 +318,7 @@
                "minRevolutions" : 1,
                "numBeats" : 24,
                "next" : [],
-               "bags" : [
+               "groups" : [
                          {
                          "beat" : 0,
                          "samples" : ["msa1.wav.mp3", "msa2.wav.mp3"]
@@ -356,7 +356,7 @@
                "minRevolutions" : 1,
                "numBeats" : 24,
                "next" : [],
-               "bags" : [
+               "groups" : [
                          {
                          "beat" : 0,
                          "samples" : ["msa1.wav.mp3", "msa2.wav.mp3"]
@@ -394,7 +394,7 @@
                "minRevolutions" : 1,
                "numBeats" : 24,
                "next" : [],
-               "bags" : [
+               "groups" : [
                          {
                          "beat" : 0,
                          "samples" : ["msa1.wav.mp3", "msa2.wav.mp3"]
@@ -432,7 +432,7 @@
                "minRevolutions" : 1,
                "numBeats" : 24,
                "next" : ["Coming+Chord+A4"],
-               "bags" : [
+               "groups" : [
                          {
                          "beat" : 0,
                          "samples" : ["COMING1.wav.mp3", "COMING2.wav.mp3", "COMING3.wav.mp3", "COMING4.wav.mp3"]
@@ -450,7 +450,7 @@
                "minRevolutions" : 1,
                "numBeats" : 24,
                "next" : ["Coming+A4+Stryk L"],
-               "bags" : [
+               "groups" : [
 
                          {
                          "beat" : 0,
@@ -482,7 +482,7 @@
                "minRevolutions" : 1,
                "numBeats" : 24,
                "next" : ["Coming+A4+Stryk L"],
-               "bags" : [
+               "groups" : [
                          {
                          "beat" : 0,
                          "samples" : ["COMING1.wav.mp3", "COMING2.wav.mp3", "COMING3.wav.mp3", "COMING4.wav.mp3"]
@@ -501,7 +501,7 @@
                "minRevolutions" : 1,
                "numBeats" : 24,
                "next" : ["Coming+Stryk L+R"],
-               "bags" : [
+               "groups" : [
                          {
                          "beat" : 0,
                          "samples" : ["COMING1.wav.mp3", "COMING2.wav.mp3", "COMING3.wav.mp3", "COMING4.wav.mp3"]
@@ -531,7 +531,7 @@
                "minRevolutions" : 1,
                "numBeats" : 24,
                "next" : [],
-               "bags" : [
+               "groups" : [
                          {
                          "beat" : 0,
                          "samples" : ["COMING1.wav.mp3", "COMING2.wav.mp3", "COMING3.wav.mp3", "COMING4.wav.mp3"]
@@ -557,7 +557,7 @@
                "minRevolutions" : 1,
                "numBeats" : 24,
                "next" : [],
-               "bags" : [
+               "groups" : [
                          {
                          "beat" : 0,
                          "samples" : ["COMING1.wav.mp3", "COMING2.wav.mp3", "COMING3.wav.mp3", "COMING4.wav.mp3"]

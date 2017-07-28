@@ -1,7 +1,7 @@
 {
   "name" : "Side A",
   "start" : ["VERSA1", "VERSA1_A", "VERSA1_F", "VERSA1_S", "VERSA1_Z"],
-  "circles" : [
+  "sequences" : [
                {
                "name": "VERSA1",
                "bpm": 122,
@@ -9,7 +9,7 @@
                "minRevolutions" : 1,
                "numBeats" : 24,
                "next": ["VERSA2"],
-               "bags" : [
+               "groups" : [
                          {
                          "beat" : 0,
                          "samples" : ["a5.wav.mp3", "f5.wav.mp3", "s5.wav.mp3", "z5.wav.mp3"]
@@ -23,7 +23,7 @@
                "minRevolutions" : 1,
                "numBeats" : 36,
                "next" : ["VERSA3"],
-               "bags" : [
+               "groups" : [
                          {
                          "beat" : 0,
                          "samples" : ["a11.wav.mp3", "f11.wav.mp3", "s11.wav.mp3", "z11.wav.mp3"]
@@ -37,7 +37,7 @@
                "minRevolutions" : 1,
                "numBeats" : 20,
                "next" : ["VERSA4"],
-               "bags" : [
+               "groups" : [
                          {
                          "beat" : 0,
                          "samples" : ["a20.wav.mp3", "f20.wav.mp3", "s20.wav.mp3", "z20.wav.mp3"]
@@ -51,7 +51,7 @@
                "minRevolutions" : 1,
                "numBeats" : 32,
                "next" : ["REFA1"],
-               "bags" : [
+               "groups" : [
                          {
                          "beat" : 0,
                          "samples" : ["a25.wav.mp3", "f25.wav.mp3", "s25.wav.mp3", "z25.wav.mp3"]
@@ -65,7 +65,7 @@
                "minRevolutions" : 1,
                "numBeats" : 56,
                "next" : ["REFA2"],
-               "bags" : [
+               "groups" : [
                          {
                          "beat" : 0,
                          "samples" : ["a33.wav.mp3", "f33.wav.mp3", "s33.wav.mp3", "z33.wav.mp3"]
@@ -79,7 +79,7 @@
                "minRevolutions" : 1,
                "numBeats" : 24,
                "next" : ["VERSB1"],
-               "bags" : [
+               "groups" : [
                          {
                          "beat" : 0,
                          "samples" : ["a47.wav.mp3", "f47.wav.mp3", "s47.wav.mp3", "z47.wav.mp3"]
@@ -93,7 +93,7 @@
                "minRevolutions" : 1,
                "numBeats" : 24,
                "next" : ["VERSB2"],
-               "bags" : [
+               "groups" : [
                          {
                          "beat" : 0,
                          "samples" : ["a53.wav.mp3", "f53.wav.mp3", "s53.wav.mp3", "z53.wav.mp3"]
@@ -107,7 +107,7 @@
                "minRevolutions" : 1,
                "numBeats" : 24,
                "next" : ["REFB1"],
-               "bags" : [
+               "groups" : [
                          {
                          "beat" : 0,
                          "samples" : ["a59.wav.mp3", "f59.wav.mp3", "s59.wav.mp3", "z59.wav.mp3" ]
@@ -121,7 +121,7 @@
                "minRevolutions" : 1,
                "numBeats" : 24,
                "next" : ["REFB2"],
-               "bags" : [
+               "groups" : [
                          {
                          "beat" : 0,
                          "samples" : ["a65.wav.mp3", "f65.wav.mp3", "s65.wav.mp3", "z65.wav.mp3"]
@@ -135,7 +135,7 @@
                "minRevolutions" : 1,
                "numBeats" : 24,
                "next" : ["REFB3"],
-               "bags" : [
+               "groups" : [
                          {
                          "beat" : 0,
                          "samples" : ["a71.wav.mp3", "f71.wav.mp3", "s71.wav.mp3", "z71.wav.mp3"]
@@ -149,7 +149,7 @@
                "minRevolutions" : 1,
                "numBeats" : 8,
                "next" : ["END"],
-               "bags" : [
+               "groups" : [
                          {
                          "beat" : 0,
                          "samples" : ["a77.wav.mp3", "f77.wav.mp3", "s77.wav.mp3", "z77.wav.mp3"]
@@ -163,7 +163,7 @@
                "minRevolutions" : 1,
                "numBeats" : 24,
                "next": ["VERSA2_A"],
-               "bags" : [
+               "groups" : [
                          {
                          "beat" : 0,
                          "samples" : ["a5.wav.mp3"]
@@ -177,7 +177,7 @@
                "minRevolutions" : 1,
                "numBeats" : 36,
                "next" : ["VERSA3_A"],
-               "bags" : [
+               "groups" : [
                          {
                          "beat" : 0,
                          "samples" : ["a11.wav.mp3"]
@@ -191,7 +191,7 @@
                "minRevolutions" : 1,
                "numBeats" : 20,
                "next" : ["VERSA4_A"],
-               "bags" : [
+               "groups" : [
                          {
                          "beat" : 0,
                          "samples" : ["a20.wav.mp3"]
@@ -205,7 +205,7 @@
                "minRevolutions" : 1,
                "numBeats" : 32,
                "next" : ["REFA1_A", "REFA1_F", "REFA1_S", "REFA1_Z", "REFA1"],
-               "bags" : [
+               "groups" : [
                          {
                          "beat" : 0,
                          "samples" : ["a25.wav.mp3"]
@@ -219,7 +219,7 @@
                "minRevolutions" : 1,
                "numBeats" : 56,
                "next" : ["REFA2", "REFA2_A", "REFA2_F", "REFA2_S", "REFA2_Z"],
-               "bags" : [
+               "groups" : [
                          {
                          "beat" : 0,
                          "samples" : ["a33.wav.mp3"]
@@ -233,7 +233,7 @@
                "minRevolutions" : 1,
                "numBeats" : 24,
                "next" : ["VERSB1_A"],
-               "bags" : [
+               "groups" : [
                          {
                          "beat" : 0,
                          "samples" : ["a47.wav.mp3"]
@@ -247,7 +247,7 @@
                "minRevolutions" : 1,
                "numBeats" : 24,
                "next" : ["VERSB2_A"],
-               "bags" : [
+               "groups" : [
                          {
                          "beat" : 0,
                          "samples" : ["a53.wav.mp3"]
@@ -261,7 +261,7 @@
                "minRevolutions" : 1,
                "numBeats" : 24,
                "next" : ["REFB1", "REFB1_A", "REFB1_F", "REFB1_S", "REFB1_Z"],
-               "bags" : [
+               "groups" : [
                          {
                          "beat" : 0,
                          "samples" : ["a59.wav.mp3"]
@@ -275,7 +275,7 @@
                "minRevolutions" : 1,
                "numBeats" : 24,
                "next" : ["REFB2_A"],
-               "bags" : [
+               "groups" : [
                          {
                          "beat" : 0,
                          "samples" : ["a65.wav.mp3"]
@@ -289,7 +289,7 @@
                "minRevolutions" : 1,
                "numBeats" : 24,
                "next" : ["REFB3_A"],
-               "bags" : [
+               "groups" : [
                          {
                          "beat" : 0,
                          "samples" : ["a71.wav.mp3"]
@@ -303,7 +303,7 @@
                "minRevolutions" : 1,
                "numBeats" : 8,
                "next" : ["END"],
-               "bags" : [
+               "groups" : [
                          {
                          "beat" : 0,
                          "samples" : ["a77.wav.mp3"]
@@ -317,7 +317,7 @@
                "minRevolutions" : 1,
                "numBeats" : 24,
                "next": ["VERSA2_F"],
-               "bags" : [
+               "groups" : [
                          {
                          "beat" : 0,
                          "samples" : ["f5.wav.mp3"]
@@ -331,7 +331,7 @@
                "minRevolutions" : 1,
                "numBeats" : 36,
                "next" : ["VERSA3_F"],
-               "bags" : [
+               "groups" : [
                          {
                          "beat" : 0,
                          "samples" : ["f11.wav.mp3"]
@@ -345,7 +345,7 @@
                "minRevolutions" : 1,
                "numBeats" : 20,
                "next" : ["VERSA4_F"],
-               "bags" : [
+               "groups" : [
                          {
                          "beat" : 0,
                          "samples" : ["f20.wav.mp3"]
@@ -359,7 +359,7 @@
                "minRevolutions" : 1,
                "numBeats" : 32,
                "next" : ["REFA1_A", "REFA1_F", "REFA1_S", "REFA1_Z", "REFA1"],
-               "bags" : [
+               "groups" : [
                          {
                          "beat" : 0,
                          "samples" : ["f25.wav.mp3"]
@@ -373,7 +373,7 @@
                "minRevolutions" : 1,
                "numBeats" : 56,
                "next" : ["REFA2", "REFA2_A", "REFA2_F", "REFA2_S", "REFA2_Z"],
-               "bags" : [
+               "groups" : [
                          {
                          "beat" : 0,
                          "samples" : ["f33.wav.mp3"]
@@ -387,7 +387,7 @@
                "minRevolutions" : 1,
                "numBeats" : 24,
                "next" : ["VERSB1_F"],
-               "bags" : [
+               "groups" : [
                          {
                          "beat" : 0,
                          "samples" : ["f47.wav.mp3"]
@@ -401,7 +401,7 @@
                "minRevolutions" : 1,
                "numBeats" : 24,
                "next" : ["VERSB2_F"],
-               "bags" : [
+               "groups" : [
                          {
                          "beat" : 0,
                          "samples" : ["f53.wav.mp3"]
@@ -415,7 +415,7 @@
                "minRevolutions" : 1,
                "numBeats" : 24,
                "next" : ["REFB1", "REFB1_A", "REFB1_F", "REFB1_S", "REFB1_Z"],
-               "bags" : [
+               "groups" : [
                          {
                          "beat" : 0,
                          "samples" : ["f59.wav.mp3"]
@@ -429,7 +429,7 @@
                "minRevolutions" : 1,
                "numBeats" : 24,
                "next" : ["REFB2_F"],
-               "bags" : [
+               "groups" : [
                          {
                          "beat" : 0,
                          "samples" : ["f65.wav.mp3"]
@@ -443,7 +443,7 @@
                "minRevolutions" : 1,
                "numBeats" : 24,
                "next" : ["REFB3_F"],
-               "bags" : [
+               "groups" : [
                          {
                          "beat" : 0,
                          "samples" : ["f71.wav.mp3"]
@@ -457,7 +457,7 @@
                "minRevolutions" : 1,
                "numBeats" : 8,
                "next" : ["END"],
-               "bags" : [
+               "groups" : [
                          {
                          "beat" : 0,
                          "samples" : ["f77.wav.mp3"]
@@ -471,7 +471,7 @@
                "minRevolutions" : 1,
                "numBeats" : 24,
                "next": ["VERSA2_S"],
-               "bags" : [
+               "groups" : [
                          {
                          "beat" : 0,
                          "samples" : ["s5.wav.mp3"]
@@ -485,7 +485,7 @@
                "minRevolutions" : 1,
                "numBeats" : 36,
                "next" : ["VERSA3_S"],
-               "bags" : [
+               "groups" : [
                          {
                          "beat" : 0,
                          "samples" : ["s11.wav.mp3"]
@@ -499,7 +499,7 @@
                "minRevolutions" : 1,
                "numBeats" : 20,
                "next" : ["VERSA4_S"],
-               "bags" : [
+               "groups" : [
                          {
                          "beat" : 0,
                          "samples" : ["s20.wav.mp3"]
@@ -513,7 +513,7 @@
                "minRevolutions" : 1,
                "numBeats" : 32,
                "next" : ["REFA1_A", "REFA1_F", "REFA1_S", "REFA1_Z", "REFA1"],
-               "bags" : [
+               "groups" : [
                          {
                          "beat" : 0,
                          "samples" : ["s25.wav.mp3"]
@@ -527,7 +527,7 @@
                "minRevolutions" : 1,
                "numBeats" : 56,
                "next" : ["REFA2", "REFA2_A", "REFA2_F", "REFA2_S", "REFA2_Z"],
-               "bags" : [
+               "groups" : [
                          {
                          "beat" : 0,
                          "samples" : ["s33.wav.mp3"]
@@ -541,7 +541,7 @@
                "minRevolutions" : 1,
                "numBeats" : 24,
                "next" : ["VERSB1_S"],
-               "bags" : [
+               "groups" : [
                          {
                          "beat" : 0,
                          "samples" : ["s47.wav.mp3"]
@@ -555,7 +555,7 @@
                "minRevolutions" : 1,
                "numBeats" : 24,
                "next" : ["VERSB2_S"],
-               "bags" : [
+               "groups" : [
                          {
                          "beat" : 0,
                          "samples" : ["s53.wav.mp3"]
@@ -569,7 +569,7 @@
                "minRevolutions" : 1,
                "numBeats" : 24,
                "next" : ["REFB1", "REFB1_A", "REFB1_F", "REFB1_S", "REFB1_Z"],
-               "bags" : [
+               "groups" : [
                          {
                          "beat" : 0,
                          "samples" : ["s59.wav.mp3"]
@@ -583,7 +583,7 @@
                "minRevolutions" : 1,
                "numBeats" : 24,
                "next" : ["REFB2_S"],
-               "bags" : [
+               "groups" : [
                          {
                          "beat" : 0,
                          "samples" : ["s65.wav.mp3"]
@@ -597,7 +597,7 @@
                "minRevolutions" : 1,
                "numBeats" : 24,
                "next" : ["REFB3_S"],
-               "bags" : [
+               "groups" : [
                          {
                          "beat" : 0,
                          "samples" : ["s71.wav.mp3"]
@@ -611,7 +611,7 @@
                "minRevolutions" : 1,
                "numBeats" : 8,
                "next" : ["END"],
-               "bags" : [
+               "groups" : [
                          {
                          "beat" : 0,
                          "samples" : ["s77.wav.mp3"]
@@ -625,7 +625,7 @@
                "minRevolutions" : 1,
                "numBeats" : 24,
                "next": ["VERSA2_Z"],
-               "bags" : [
+               "groups" : [
                          {
                          "beat" : 0,
                          "samples" : ["z5.wav.mp3"]
@@ -639,7 +639,7 @@
                "minRevolutions" : 1,
                "numBeats" : 36,
                "next" : ["VERSA3_Z"],
-               "bags" : [
+               "groups" : [
                          {
                          "beat" : 0,
                          "samples" : ["z11.wav.mp3"]
@@ -653,7 +653,7 @@
                "minRevolutions" : 1,
                "numBeats" : 20,
                "next" : ["VERSA4_Z"],
-               "bags" : [
+               "groups" : [
                          {
                          "beat" : 0,
                          "samples" : ["z20.wav.mp3"]
@@ -667,7 +667,7 @@
                "minRevolutions" : 1,
                "numBeats" : 32,
                "next" : ["REFA1_A", "REFA1_F", "REFA1_S", "REFA1_Z", "REFA1"],
-               "bags" : [
+               "groups" : [
                          {
                          "beat" : 0,
                          "samples" : ["z25.wav.mp3"]
@@ -681,7 +681,7 @@
                "minRevolutions" : 1,
                "numBeats" : 56,
                "next" : ["REFA2", "REFA2_A", "REFA2_F", "REFA2_S", "REFA2_Z"],
-               "bags" : [
+               "groups" : [
                          {
                          "beat" : 0,
                          "samples" : ["z33.wav.mp3"]
@@ -695,7 +695,7 @@
                "minRevolutions" : 1,
                "numBeats" : 24,
                "next" : ["VERSB1_Z"],
-               "bags" : [
+               "groups" : [
                          {
                          "beat" : 0,
                          "samples" : ["z47.wav.mp3"]
@@ -709,7 +709,7 @@
                "minRevolutions" : 1,
                "numBeats" : 24,
                "next" : ["VERSB2_Z"],
-               "bags" : [
+               "groups" : [
                          {
                          "beat" : 0,
                          "samples" : ["z53.wav.mp3"]
@@ -723,7 +723,7 @@
                "minRevolutions" : 1,
                "numBeats" : 24,
                "next" : ["REFB1", "REFB1_A", "REFB1_F", "REFB1_S", "REFB1_Z"],
-               "bags" : [
+               "groups" : [
                          {
                          "beat" : 0,
                          "samples" : ["z59.wav.mp3"]
@@ -737,7 +737,7 @@
                "minRevolutions" : 1,
                "numBeats" : 24,
                "next" : ["REFB2_Z"],
-               "bags" : [
+               "groups" : [
                          {
                          "beat" : 0,
                          "samples" : ["z65.wav.mp3"]
@@ -751,7 +751,7 @@
                "minRevolutions" : 1,
                "numBeats" : 24,
                "next" : ["REFB3_Z"],
-               "bags" : [
+               "groups" : [
                          {
                          "beat" : 0,
                          "samples" : ["z71.wav.mp3"]
@@ -765,7 +765,7 @@
                "minRevolutions" : 1,
                "numBeats" : 8,
                "next" : ["END"],
-               "bags" : [
+               "groups" : [
                          {
                          "beat" : 0,
                          "samples" : ["z77.wav.mp3"]
@@ -780,7 +780,7 @@
                "minRevolutions" : 1,
                "numBeats" : 1,
                "next" : [],
-               "bags" : [
+               "groups" : [
                          {
                          "beat" : 0,
                          "samples" : ["a79.wav.mp3", "f79.wav.mp3", "s79.wav.mp3", "z79.wav.mp3"]

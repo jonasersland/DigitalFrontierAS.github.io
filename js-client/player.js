@@ -6,7 +6,7 @@ var DigitalFrontierAS = (function () {
         // Local, "private" variables
         let context = new window.AudioContext(),
             startTime = null,
-            circles =  null,
+            sequences =  null,
             sampleCache = {},
             duration = 0.0,
 
@@ -17,17 +17,16 @@ var DigitalFrontierAS = (function () {
             TRIGGER_BUFFER = context.createBuffer(1, 1, context.sampleRate);
 
 
-        this.currentCircle = null;
-        this.currentCircleCounter = 0;
-        this.currentCircleRevolutions = 0;
+        this.currentSequence = null;
+        this.currentSequenceCounter = 0;
+        this.currentSequenceRevolutions = 0;
 
         // Event handlers
         this.onStart = null;
         this.onEnd = null;
-        this.onCircleStart = null;
-        this.onCircleEnd = null;
-        this.onBagStart = null;
-        this.onBagEnd = null;
+        this.onSequenceStart = null;
+        this.onSequenceEnd = null;
+        this.onGroupStart = null;
         this.onSampleStart = null;
         this.onSampleEnd = null;
         this.onBeat = null;
@@ -41,30 +40,30 @@ var DigitalFrontierAS = (function () {
         // Structure and layout
         // ------------------------------------------------------------------------------------------------
 
-        // Put circles into an object for easy access
-        this.getCircles = function getCircles (song) {
-            var circles = {};
-            for (var i = 0; i < song.circles.length; i++) {
-                var circle = song.circles[i];
-                circles[circle.name] = circle;
+        // Put sequences into an object for easy access
+        this.getSequences = function getSequences (song) {
+            var sequences = {};
+            for (var i = 0; i < song.sequences.length; i++) {
+                var sequence = song.sequences[i];
+                sequences[sequence.name] = sequence;
             }
-            return circles;
+            return sequences;
         };
 
         this.layOutSong = function (song) {
-            var circles = this.getCircles(song);
+            var sequences = this.getSequences(song);
 
             var layout = [];
             var insertionPoint = 0.0;
-            var nextCircleName = this.randomElement(song.start);
-            while (nextCircleName) {
-                var circle = circles[nextCircleName];
-                var revolutions = this.randomNumber(circle.minRevolutions, circle.maxRevolutions);
+            var nextSequenceName = this.randomElement(song.start);
+            while (nextSequenceName) {
+                var sequence = sequences[nextSequenceName];
+                var revolutions = this.randomNumber(sequence.minRevolutions, sequence.maxRevolutions);
                 for (var i = 0; i < revolutions; i++) {
-                    layout = this.layOutCircle(circle, layout, insertionPoint);
-                    insertionPoint += circle.numBeats * 60 / circle.bpm;
+                    layout = this.layOutSequence(sequence, layout, insertionPoint);
+                    insertionPoint += sequence.numBeats * 60 / sequence.bpm;
                 }
-                nextCircleName = this.randomElement(circle.next);
+                nextSequenceName = this.randomElement(sequence.next);
             }
             return this.normalizeLayout(layout);
             //return layout;
@@ -87,42 +86,42 @@ var DigitalFrontierAS = (function () {
         };
 
 
-        this.layOutCircle = function (circle, layout, insertionPoint) {
+        this.layOutSequence = function (sequence, layout, insertionPoint) {
             if (!layout) layout = [];
             if (!insertionPoint) insertionPoint = 0.0;
-            for (var i = 0; i < circle.bags.length; i++) {
-                var bag = circle.bags[i];
+            for (var i = 0; i < sequence.groups.length; i++) {
+                var group = sequence.groups[i];
                 layout.push({
-                    time: insertionPoint + bag.beat * 60 / circle.bpm,
-                    sample: this.randomElement(bag.samples),
-                    description: bag.description
+                    time: insertionPoint + group.beat * 60 / sequence.bpm,
+                    sample: this.randomElement(group.samples),
+                    description: group.description
                 });
             }
             return layout;
         };
 
 
-        this._nextLoop = function (circleName) {
+        this._nextLoop = function (sequenceName) {
             var revolutions = 0;
-            var circle;
-            if (!circleName) {
-                circleName = this.randomElement(this.song.start);
-                if (!circleName) return null;
-                circle = circles[circleName];
-                if (!circle) return null;
-                revolutions = this.randomNumber(circle.minRevolutions, circle.maxRevolutions);
+            var sequence;
+            if (!sequenceName) {
+                sequenceName = this.randomElement(this.song.start);
+                if (!sequenceName) return null;
+                sequence = sequences[sequenceName];
+                if (!sequence) return null;
+                revolutions = this.randomNumber(sequence.minRevolutions, sequence.maxRevolutions);
             } else {
-                circle = circles[circleName];
+                sequence = sequences[sequenceName];
             }
             while (revolutions === 0) {
-                circleName = this.randomElement(circle.next);
-                if (!circleName) return null;
-                circle = circles[circleName];
-                if (circle === null) return null;
-                revolutions = this.randomNumber(circle.minRevolutions, circle.maxRevolutions);
+                sequenceName = this.randomElement(sequence.next);
+                if (!sequenceName) return null;
+                sequence = sequences[sequenceName];
+                if (sequence === null) return null;
+                revolutions = this.randomNumber(sequence.minRevolutions, sequence.maxRevolutions);
             }
             return {
-                circleName: circleName,
+                sequenceName: sequenceName,
                 revolutions: revolutions
             };
         };
@@ -158,7 +157,7 @@ var DigitalFrontierAS = (function () {
             baseUrl = baseUrl.trim();
             if (baseUrl.length > 0 && !baseUrl.endsWith("/")) baseUrl += "/";
 
-            circles = this.getCircles(song);
+            sequences = this.getSequences(song);
         };
 
         this.play = function () {
@@ -203,52 +202,52 @@ var DigitalFrontierAS = (function () {
                 return;
             }
             if (!counter) counter = 0;
-            var circle = circles[loop.circleName];
+            var sequence = sequences[loop.sequenceName];
 
-            var layout = this.layOutCircle(circle);
+            var layout = this.layOutSequence(sequence);
 
             if (offset === undefined) {
-                // Very first circle to be played
+                // Very first sequence to be played
                 offset = 0.0;
                 if (layout[0].time < 0.0) offset -= layout[0].time; // In case of "prelude"
             }
 
-            var nextOffset = offset + circle.numBeats * 60.0 / circle.bpm; // Next circle starts here
+            var nextOffset = offset + sequence.numBeats * 60.0 / sequence.bpm; // Next sequence starts here
             var player = this;
             this.schedule(offset, function () { 
-                player.currentCircle = loop.circleName;
-                player.currentCircleCounter = counter;
-                player.currentCircleRevolutions = loop.revolutions;
-                if (player.onCircleStart) player.onCircleStart(offset, loop.circleName, counter, loop.revolutions);
+                player.currentSequence = loop.sequenceName;
+                player.currentSequenceCounter = counter;
+                player.currentSequenceRevolutions = loop.revolutions;
+                if (player.onSequenceStart) player.onSequenceStart(offset, loop.sequenceName, counter, loop.revolutions);
             });
             this.schedule(nextOffset, function () { 
-                if (player.onCircleEnd) player.onCircleEnd(nextOffset, loop.circleName, counter, loop.revolutions); 
+                if (player.onSequenceEnd) player.onSequenceEnd(nextOffset, loop.sequenceName, counter, loop.revolutions); 
             });
             this.scheduleLayout(layout, offset, function () {
-                player._scheduleNextLoop(nextOffset, circle, loop.revolutions, counter);
+                player._scheduleNextLoop(nextOffset, sequence, loop.revolutions, counter);
             });
         };
 
-        this._scheduleNextLoop = function (offset, circle, revolutions, counter) {
+        this._scheduleNextLoop = function (offset, sequence, revolutions, counter) {
             counter++;
             var loop;
             if (counter == revolutions) {
-                loop = this._nextLoop(circle.name);
+                loop = this._nextLoop(sequence.name);
                 counter = 0;
             }
             var player = this;
             if (!loop) {
                 // Nothing more to play
                 this.schedule(offset, function () { 
-                    player.currentCircle = null;
-                    player.currentCircleCounter = 0;
-                    player.currentCircleRevolutions = 0;
+                    player.currentSequence = null;
+                    player.currentSequenceCounter = 0;
+                    player.currentSequenceRevolutions = 0;
                 });
                 this.schedule(duration, function () { player._finish(); });
                 context.resume();
                 return;
             }
-            var nextOffset = offset + circle.numBeats * 60.0 / circle.bpm; // Next circle starts here
+            var nextOffset = offset + sequence.numBeats * 60.0 / sequence.bpm; // Next sequence starts here
             if (offset - context.currentTime < LOAD_AHEAD_TIME) {
                 this._scheduleLoop(offset, loop, counter);
             } else {

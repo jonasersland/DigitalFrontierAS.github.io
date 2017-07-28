@@ -17,11 +17,11 @@ function playSong() {
 	player.onEnd = function () {
 		console.log("Ended. Duration = " + player._duration);
 	};
-	player.onCircleStart = function (offset, circle, counter, revolutions) {
-		console.log("Circle started at " + offset + ". currentTime = " + player.currentTime() + ", circle: " + circle + ", " + counter + "/" + revolutions);
+	player.onSequenceStart = function (offset, sequence, counter, revolutions) {
+		console.log("Sequence started at " + offset + ". currentTime = " + player.currentTime() + ", sequence: " + sequence + ", " + counter + "/" + revolutions);
 	};
-	player.onCircleEnd = function (offset, circle, counter, revolutions) {
-		console.log("Circle ended at " + offset + ". currentTime = " + player.currentTime() + ", circle: " + circle + ", " + counter + "/" + revolutions);
+	player.onSequenceEnd = function (offset, sequence, counter, revolutions) {
+		console.log("Sequence ended at " + offset + ". currentTime = " + player.currentTime() + ", sequence: " + sequence + ", " + counter + "/" + revolutions);
 	};
 	player.onSampleStart = function (offset, sample, buffer) {
 		console.log("Sample started at " + offset + ". currentTime = " + player.currentTime() + ", sample: " + sample + ", numberOfChannels: " + buffer.numberOfChannels);
