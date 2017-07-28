@@ -224,14 +224,13 @@ var DigitalFrontierAS = (function () {
                 if (player.onSequenceEnd) player.onSequenceEnd(nextOffset, loop.sequenceName, counter, loop.revolutions); 
             });
             this.scheduleLayout(layout, offset, function () {
-                player._scheduleNextLoop(nextOffset, sequence, loop.revolutions, counter);
+                player._scheduleNextLoop(nextOffset, sequence, loop, counter);
             });
         };
 
-        this._scheduleNextLoop = function (offset, sequence, revolutions, counter) {
+        this._scheduleNextLoop = function (offset, sequence, loop, counter) {
             counter++;
-            var loop;
-            if (counter == revolutions) {
+            if (counter == loop.revolutions) {
                 loop = this._nextLoop(sequence.name);
                 counter = 0;
             }
@@ -248,11 +247,11 @@ var DigitalFrontierAS = (function () {
                 return;
             }
             var nextOffset = offset + sequence.numBeats * 60.0 / sequence.bpm; // Next sequence starts here
-            if (offset - context.currentTime < LOAD_AHEAD_TIME) {
-                this._scheduleLoop(offset, loop, counter);
+            if (offset - this.currentTime() < LOAD_AHEAD_TIME) {
+                this._scheduleLoop(nextOffset, loop, counter);
             } else {
                 this.schedule(offset - LOAD_AHEAD_TIME, function () {
-                    player._scheduleLoop(offset, loop, counter);
+                    player._scheduleLoop(nextOffset, loop, counter);
                 });
                 context.resume();
             }
