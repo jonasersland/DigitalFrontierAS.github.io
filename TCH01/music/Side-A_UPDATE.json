@@ -11,7 +11,7 @@
                "next": ["VERSA2"],
                "groups" : [
                          {
-                         "beat" : 0,
+                         "beat" : 1,
                          "samples" : ["a5.wav.mp3", "f5.wav.mp3", "s5.wav.mp3", "z5.wav.mp3"]
                          }
                          ]
@@ -25,7 +25,7 @@
                "next" : ["VERSA3"],
                "groups" : [
                          {
-                         "beat" : 0,
+                         "beat" : 1,
                          "samples" : ["a11.wav.mp3", "f11.wav.mp3", "s11.wav.mp3", "z11.wav.mp3"]
                          }
                          ]
@@ -39,7 +39,7 @@
                "next" : ["VERSA4"],
                "groups" : [
                          {
-                         "beat" : 0,
+                         "beat" : 1,
                          "samples" : ["a20.wav.mp3", "f20.wav.mp3", "s20.wav.mp3", "z20.wav.mp3"]
                          }
                          ]
@@ -53,7 +53,7 @@
                "next" : ["REFA1"],
                "groups" : [
                          {
-                         "beat" : 0,
+                         "beat" : 1,
                          "samples" : ["a25.wav.mp3", "f25.wav.mp3", "s25.wav.mp3", "z25.wav.mp3"]
                          }
                          ]
@@ -67,7 +67,7 @@
                "next" : ["REFA2"],
                "groups" : [
                          {
-                         "beat" : 0,
+                         "beat" : 1,
                          "samples" : ["a33.wav.mp3", "f33.wav.mp3", "s33.wav.mp3", "z33.wav.mp3"]
                          }
                          ]
@@ -81,7 +81,7 @@
                "next" : ["VERSB1"],
                "groups" : [
                          {
-                         "beat" : 0,
+                         "beat" : 1,
                          "samples" : ["a47.wav.mp3", "f47.wav.mp3", "s47.wav.mp3", "z47.wav.mp3"]
                          }
                          ]
@@ -95,7 +95,7 @@
                "next" : ["VERSB2"],
                "groups" : [
                          {
-                         "beat" : 0,
+                         "beat" : 1,
                          "samples" : ["a53.wav.mp3", "f53.wav.mp3", "s53.wav.mp3", "z53.wav.mp3"]
                          }
                          ]
@@ -109,7 +109,7 @@
                "next" : ["REFB1"],
                "groups" : [
                          {
-                         "beat" : 0,
+                         "beat" : 1,
                          "samples" : ["a59.wav.mp3", "f59.wav.mp3", "s59.wav.mp3", "z59.wav.mp3" ]
                          }
                          ]
@@ -123,7 +123,7 @@
                "next" : ["REFB2"],
                "groups" : [
                          {
-                         "beat" : 0,
+                         "beat" : 1,
                          "samples" : ["a65.wav.mp3", "f65.wav.mp3", "s65.wav.mp3", "z65.wav.mp3"]
                          }
                          ]
@@ -137,7 +137,7 @@
                "next" : ["REFB3"],
                "groups" : [
                          {
-                         "beat" : 0,
+                         "beat" : 1,
                          "samples" : ["a71.wav.mp3", "f71.wav.mp3", "s71.wav.mp3", "z71.wav.mp3"]
                          }
                          ]
@@ -151,7 +151,7 @@
                "next" : ["END"],
                "groups" : [
                          {
-                         "beat" : 0,
+                         "beat" : 1,
                          "samples" : ["a77.wav.mp3", "f77.wav.mp3", "s77.wav.mp3", "z77.wav.mp3"]
                          }
                          ]
@@ -165,7 +165,7 @@
                "next": ["VERSA2_A"],
                "groups" : [
                          {
-                         "beat" : 0,
+                         "beat" : 1,
                          "samples" : ["a5.wav.mp3"]
                          }
                          ]
@@ -179,7 +179,7 @@
                "next" : ["VERSA3_A"],
                "groups" : [
                          {
-                         "beat" : 0,
+                         "beat" : 1,
                          "samples" : ["a11.wav.mp3"]
                          }
                          ]
@@ -193,7 +193,7 @@
                "next" : ["VERSA4_A"],
                "groups" : [
                          {
-                         "beat" : 0,
+                         "beat" : 1,
                          "samples" : ["a20.wav.mp3"]
                          }
                          ]
@@ -207,7 +207,7 @@
                "next" : ["REFA1_A", "REFA1_F", "REFA1_S", "REFA1_Z", "REFA1"],
                "groups" : [
                          {
-                         "beat" : 0,
+                         "beat" : 1,
                          "samples" : ["a25.wav.mp3"]
                          }
                          ]
@@ -221,7 +221,7 @@
                "next" : ["REFA2", "REFA2_A", "REFA2_F", "REFA2_S", "REFA2_Z"],
                "groups" : [
                          {
-                         "beat" : 0,
+                         "beat" : 1,
                          "samples" : ["a33.wav.mp3"]
                          }
                          ]
@@ -235,7 +235,7 @@
                "next" : ["VERSB1_A"],
                "groups" : [
                          {
-                         "beat" : 0,
+                         "beat" : 1,
                          "samples" : ["a47.wav.mp3"]
                          }
                          ]
@@ -249,7 +249,7 @@
                "next" : ["VERSB2_A"],
                "groups" : [
                          {
-                         "beat" : 0,
+                         "beat" : 1,
                          "samples" : ["a53.wav.mp3"]
                          }
                          ]
@@ -263,7 +263,7 @@
                "next" : ["REFB1", "REFB1_A", "REFB1_F", "REFB1_S", "REFB1_Z"],
                "groups" : [
                          {
-                         "beat" : 0,
+                         "beat" : 1,
                          "samples" : ["a59.wav.mp3"]
                          }
                          ]
@@ -277,7 +277,7 @@
                "next" : ["REFB2_A"],
                "groups" : [
                          {
-                         "beat" : 0,
+                         "beat" : 1,
                          "samples" : ["a65.wav.mp3"]
                          }
                          ]
@@ -291,7 +291,7 @@
                "next" : ["REFB3_A"],
                "groups" : [
                          {
-                         "beat" : 0,
+                         "beat" : 1,
                          "samples" : ["a71.wav.mp3"]
                          }
                          ]
@@ -305,7 +305,7 @@
                "next" : ["END"],
                "groups" : [
                          {
-                         "beat" : 0,
+                         "beat" : 1,
                          "samples" : ["a77.wav.mp3"]
                          }
                          ]
@@ -319,7 +319,7 @@
                "next": ["VERSA2_F"],
                "groups" : [
                          {
-                         "beat" : 0,
+                         "beat" : 1,
                          "samples" : ["f5.wav.mp3"]
                          }
                          ]
@@ -333,7 +333,7 @@
                "next" : ["VERSA3_F"],
                "groups" : [
                          {
-                         "beat" : 0,
+                         "beat" : 1,
                          "samples" : ["f11.wav.mp3"]
                          }
                          ]
@@ -347,7 +347,7 @@
                "next" : ["VERSA4_F"],
                "groups" : [
                          {
-                         "beat" : 0,
+                         "beat" : 1,
                          "samples" : ["f20.wav.mp3"]
                          }
                          ]
@@ -361,7 +361,7 @@
                "next" : ["REFA1_A", "REFA1_F", "REFA1_S", "REFA1_Z", "REFA1"],
                "groups" : [
                          {
-                         "beat" : 0,
+                         "beat" : 1,
                          "samples" : ["f25.wav.mp3"]
                          }
                          ]
@@ -375,7 +375,7 @@
                "next" : ["REFA2", "REFA2_A", "REFA2_F", "REFA2_S", "REFA2_Z"],
                "groups" : [
                          {
-                         "beat" : 0,
+                         "beat" : 1,
                          "samples" : ["f33.wav.mp3"]
                          }
                          ]
@@ -389,7 +389,7 @@
                "next" : ["VERSB1_F"],
                "groups" : [
                          {
-                         "beat" : 0,
+                         "beat" : 1,
                          "samples" : ["f47.wav.mp3"]
                          }
                          ]
@@ -403,7 +403,7 @@
                "next" : ["VERSB2_F"],
                "groups" : [
                          {
-                         "beat" : 0,
+                         "beat" : 1,
                          "samples" : ["f53.wav.mp3"]
                          }
                          ]
@@ -417,7 +417,7 @@
                "next" : ["REFB1", "REFB1_A", "REFB1_F", "REFB1_S", "REFB1_Z"],
                "groups" : [
                          {
-                         "beat" : 0,
+                         "beat" : 1,
                          "samples" : ["f59.wav.mp3"]
                          }
                          ]
@@ -431,7 +431,7 @@
                "next" : ["REFB2_F"],
                "groups" : [
                          {
-                         "beat" : 0,
+                         "beat" : 1,
                          "samples" : ["f65.wav.mp3"]
                          }
                          ]
@@ -445,7 +445,7 @@
                "next" : ["REFB3_F"],
                "groups" : [
                          {
-                         "beat" : 0,
+                         "beat" : 1,
                          "samples" : ["f71.wav.mp3"]
                          }
                          ]
@@ -459,7 +459,7 @@
                "next" : ["END"],
                "groups" : [
                          {
-                         "beat" : 0,
+                         "beat" : 1,
                          "samples" : ["f77.wav.mp3"]
                          }
                          ]
@@ -473,7 +473,7 @@
                "next": ["VERSA2_S"],
                "groups" : [
                          {
-                         "beat" : 0,
+                         "beat" : 1,
                          "samples" : ["s5.wav.mp3"]
                          }
                          ]
@@ -487,7 +487,7 @@
                "next" : ["VERSA3_S"],
                "groups" : [
                          {
-                         "beat" : 0,
+                         "beat" : 1,
                          "samples" : ["s11.wav.mp3"]
                          }
                          ]
@@ -501,7 +501,7 @@
                "next" : ["VERSA4_S"],
                "groups" : [
                          {
-                         "beat" : 0,
+                         "beat" : 1,
                          "samples" : ["s20.wav.mp3"]
                          }
                          ]
@@ -515,7 +515,7 @@
                "next" : ["REFA1_A", "REFA1_F", "REFA1_S", "REFA1_Z", "REFA1"],
                "groups" : [
                          {
-                         "beat" : 0,
+                         "beat" : 1,
                          "samples" : ["s25.wav.mp3"]
                          }
                          ]
@@ -529,7 +529,7 @@
                "next" : ["REFA2", "REFA2_A", "REFA2_F", "REFA2_S", "REFA2_Z"],
                "groups" : [
                          {
-                         "beat" : 0,
+                         "beat" : 1,
                          "samples" : ["s33.wav.mp3"]
                          }
                          ]
@@ -543,7 +543,7 @@
                "next" : ["VERSB1_S"],
                "groups" : [
                          {
-                         "beat" : 0,
+                         "beat" : 1,
                          "samples" : ["s47.wav.mp3"]
                          }
                          ]
@@ -557,7 +557,7 @@
                "next" : ["VERSB2_S"],
                "groups" : [
                          {
-                         "beat" : 0,
+                         "beat" : 1,
                          "samples" : ["s53.wav.mp3"]
                          }
                          ]
@@ -571,7 +571,7 @@
                "next" : ["REFB1", "REFB1_A", "REFB1_F", "REFB1_S", "REFB1_Z"],
                "groups" : [
                          {
-                         "beat" : 0,
+                         "beat" : 1,
                          "samples" : ["s59.wav.mp3"]
                          }
                          ]
@@ -585,7 +585,7 @@
                "next" : ["REFB2_S"],
                "groups" : [
                          {
-                         "beat" : 0,
+                         "beat" : 1,
                          "samples" : ["s65.wav.mp3"]
                          }
                          ]
@@ -599,7 +599,7 @@
                "next" : ["REFB3_S"],
                "groups" : [
                          {
-                         "beat" : 0,
+                         "beat" : 1,
                          "samples" : ["s71.wav.mp3"]
                          }
                          ]
@@ -613,7 +613,7 @@
                "next" : ["END"],
                "groups" : [
                          {
-                         "beat" : 0,
+                         "beat" : 1,
                          "samples" : ["s77.wav.mp3"]
                          }
                          ]
@@ -627,7 +627,7 @@
                "next": ["VERSA2_Z"],
                "groups" : [
                          {
-                         "beat" : 0,
+                         "beat" : 1,
                          "samples" : ["z5.wav.mp3"]
                          }
                          ]
@@ -641,7 +641,7 @@
                "next" : ["VERSA3_Z"],
                "groups" : [
                          {
-                         "beat" : 0,
+                         "beat" : 1,
                          "samples" : ["z11.wav.mp3"]
                          }
                          ]
@@ -655,7 +655,7 @@
                "next" : ["VERSA4_Z"],
                "groups" : [
                          {
-                         "beat" : 0,
+                         "beat" : 1,
                          "samples" : ["z20.wav.mp3"]
                          }
                          ]
@@ -669,7 +669,7 @@
                "next" : ["REFA1_A", "REFA1_F", "REFA1_S", "REFA1_Z", "REFA1"],
                "groups" : [
                          {
-                         "beat" : 0,
+                         "beat" : 1,
                          "samples" : ["z25.wav.mp3"]
                          }
                          ]
@@ -683,7 +683,7 @@
                "next" : ["REFA2", "REFA2_A", "REFA2_F", "REFA2_S", "REFA2_Z"],
                "groups" : [
                          {
-                         "beat" : 0,
+                         "beat" : 1,
                          "samples" : ["z33.wav.mp3"]
                          }
                          ]
@@ -697,7 +697,7 @@
                "next" : ["VERSB1_Z"],
                "groups" : [
                          {
-                         "beat" : 0,
+                         "beat" : 1,
                          "samples" : ["z47.wav.mp3"]
                          }
                          ]
@@ -711,7 +711,7 @@
                "next" : ["VERSB2_Z"],
                "groups" : [
                          {
-                         "beat" : 0,
+                         "beat" : 1,
                          "samples" : ["z53.wav.mp3"]
                          }
                          ]
@@ -725,7 +725,7 @@
                "next" : ["REFB1", "REFB1_A", "REFB1_F", "REFB1_S", "REFB1_Z"],
                "groups" : [
                          {
-                         "beat" : 0,
+                         "beat" : 1,
                          "samples" : ["z59.wav.mp3"]
                          }
                          ]
@@ -739,7 +739,7 @@
                "next" : ["REFB2_Z"],
                "groups" : [
                          {
-                         "beat" : 0,
+                         "beat" : 1,
                          "samples" : ["z65.wav.mp3"]
                          }
                          ]
@@ -753,7 +753,7 @@
                "next" : ["REFB3_Z"],
                "groups" : [
                          {
-                         "beat" : 0,
+                         "beat" : 1,
                          "samples" : ["z71.wav.mp3"]
                          }
                          ]
@@ -767,7 +767,7 @@
                "next" : ["END"],
                "groups" : [
                          {
-                         "beat" : 0,
+                         "beat" : 1,
                          "samples" : ["z77.wav.mp3"]
                          }
                          ]
@@ -782,7 +782,7 @@
                "next" : [],
                "groups" : [
                          {
-                         "beat" : 0,
+                         "beat" : 1,
                          "samples" : ["a79.wav.mp3", "f79.wav.mp3", "s79.wav.mp3", "z79.wav.mp3"]
                          }
                          ]

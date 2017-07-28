@@ -11,7 +11,7 @@
                "next" : ["MS+A4+Stryk L", "Stryk L+R"],
                "groups" : [
                          {
-                         "beat" : 0,
+                         "beat" : 1,
                          "samples" : ["STRYKL1.wav.mp3", "STRYKL2.wav.mp3", "STRYKL3.wav.mp3", "STRYKL4.wav.mp3"]
                          }
                          ]
@@ -25,7 +25,7 @@
                "next" : ["Stryk L+R"],
                "groups" : [
                          {
-                         "beat" : 0,
+                         "beat" : 1,
                          "samples" : ["STRYKR1.wav.mp3", "STRYKR2.wav.mp3", "STRYKR3.wav.mp3", "STRYKR4.wav.mp3"]
                          }
                          ]
@@ -39,7 +39,7 @@
                "next" : ["MS+A4+Stryk L/R", "Chord+A4+Stryk L+R", "Stryk L+R"],
                "groups" : [
                          {
-                         "beat" : 0,
+                         "beat" : 1,
                          "samples" : ["STRYKL1.wav.mp3", "STRYKL2.wav.mp3", "STRYKL3.wav.mp3", "STRYKL4.wav.mp3", "STRYKR1.wav.mp3", "STRYKR2.wav.mp3", "STRYKR3.wav.mp3", "STRYKR4.wav.mp3"]
                          }
                          ]
@@ -53,11 +53,11 @@
                "next" : ["Chord+A4+Stryk L+R", "Coming+Stryk L+R"],
                "groups" : [
                          {
-                         "beat" : 0,
+                         "beat" : 1,
                          "samples" : ["STRYKL1.wav.mp3", "STRYKL2.wav.mp3", "STRYKL3.wav.mp3", "STRYKL4.wav.mp3"]
                          },
                          {
-                         "beat" : 0,
+                         "beat" : 1,
                          "samples" : ["STRYKR1.wav.mp3", "STRYKR2.wav.mp3", "STRYKR3.wav.mp3", "STRYKR4.wav.mp3"]
                          }
                          ]
@@ -71,7 +71,7 @@
                "next" : ["Coming+Chord", "Coming+Chord+A4", "Coming+K", "Coming+Stryk L"],
                "groups" : [
                          {
-                         "beat" : 0,
+                         "beat" : 1,
                          "samples" : ["COMING1.wav.mp3", "COMING2.wav.mp3", "COMING3.wav.mp3", "COMING4.wav.mp3"]
                          }
                          ]
@@ -85,7 +85,7 @@
                "numBeats" : 24,
                "groups" : [
                          {
-                         "beat" : 0,
+                         "beat" : 1,
                          "samples" : ["chordintro.wav.mp3"]
                          }
                          ]
@@ -99,7 +99,7 @@
                "numBeats" : 24,
                "groups" : [
                          {
-                         "beat" : 0,
+                         "beat" : 1,
                          "samples" : ["chord.wav.mp3", "chord2.wav.mp3"]
                          }
                          ]
@@ -113,19 +113,19 @@
                "next" : ["Chord+A4+Stryk L+R"],
                "groups" : [
                          {
-                         "beat" : 0,
+                         "beat" : 1,
                          "samples" : ["chord.wav.mp3", "chord2.wav.mp3"]
                          },
                          {
-                         "beat" : 0,
+                         "beat" : 1,
                          "samples" : ["H1.wav.mp3", "H2.wav.mp3", "DB.wav.mp3", "AB.wav.mp3", "silence.aiff"]
                          },
                          {
-                         "beat" : 8,
+                         "beat" : 9,
                          "samples" : ["H1.wav.mp3", "H2.wav.mp3", "E.wav.mp3", "G.wav.mp3", "silence.aiff"]
                          },
                          {
-                         "beat" : 16,
+                         "beat" : 17,
                          "samples" : ["H1.wav.mp3", "H2.wav.mp3", "GB.wav.mp3", "silence.aiff"]
                          }
                          ]
@@ -139,15 +139,15 @@
                "numBeats" : 24,
                "groups" : [
                          {
-                         "beat" : 0,
+                         "beat" : 1,
                          "samples" : ["msa1.wav.mp3", "msa2.wav.mp3"]
                          },
                          {
-                         "beat" : 8,
+                         "beat" : 9,
                          "samples" : ["msb1.wav.mp3", "msb2.aif"]
                          },
                          {
-                         "beat" : 16,
+                         "beat" : 17,
                          "samples" : ["msc1.aif", "msc2.aif"]
                          }
                          ]
@@ -161,27 +161,27 @@
                "next" : ["MS+A4+K", "MS+A4+Stryk L/R", "MS+A4+Stryk L", "MS+A4+Stryk R"],
                "groups" : [
                          {
-                         "beat" : 0,
+                         "beat" : 1,
                          "samples" : ["msa1.wav.mp3", "msa2.wav.mp3"]
                          },
                          {
-                         "beat" : 0,
+                         "beat" : 1,
                          "samples" : ["H1.wav.mp3", "H2.wav.mp3", "DB.wav.mp3", "AB.wav.mp3", "silence.aiff"]
                          },
                          {
-                         "beat" : 8,
+                         "beat" : 9,
                          "samples" : ["msb1.wav.mp3", "msb2.aif"]
                          },
                          {
-                         "beat" : 8,
+                         "beat" : 9,
                          "samples" : ["H1.wav.mp3", "H2.wav.mp3", "E.wav.mp3", "G.wav.mp3", "silence.aiff"]
                          },
                          {
-                         "beat" : 16,
+                         "beat" : 17,
                          "samples" : ["msc1.aif", "msc2.aif"]
                          },
                          {
-                         "beat" : 16,
+                         "beat" : 17,
                          "samples" : ["H1.wav.mp3", "H2.wav.mp3", "GB.wav.mp3", "silence.aiff"]
                          }
                          ]
@@ -195,39 +195,39 @@
                "next" : ["Coming+K"],
                "groups" : [
                          {
-                         "beat" : 0,
+                         "beat" : 1,
                          "samples" : ["msa1.wav.mp3", "msa2.wav.mp3"]
                          },
                          {
-                         "beat" : 0,
+                         "beat" : 1,
                          "samples" : ["H1.wav.mp3", "H2.wav.mp3", "DB.wav.mp3", "AB.wav.mp3", "silence.aiff"]
                          },
                          {
-                         "beat" : 8,
+                         "beat" : 9,
                          "samples" : ["msb1.wav.mp3", "msb2.aif"]
                          },
                          {
-                         "beat" : 8,
+                         "beat" : 9,
                          "samples" : ["H1.wav.mp3", "H2.wav.mp3", "E.wav.mp3", "G.wav.mp3", "silence.aiff"]
                          },
                          {
-                         "beat" : 16,
+                         "beat" : 17,
                          "samples" : ["msc1.aif", "msc2.aif"]
                          },
                          {
-                         "beat" : 16,
+                         "beat" : 17,
                          "samples" : ["H1.wav.mp3", "H2.wav.mp3", "GB.wav.mp3", "silence.aiff"]
                          },
                          {
-                         "beat" : 0,
+                         "beat" : 1,
                          "samples" : ["K1.wav.mp3", "K2.wav.mp3", "K3.wav.mp3", "K4.wav.mp3", "K5.wav.mp3", "K7.wav.mp3", "K8.wav.mp3", "K9.wav.mp3"]
                          },
                          {
-                         "beat" : 8,
+                         "beat" : 9,
                          "samples" : ["K1.wav.mp3", "K2.wav.mp3", "K3.wav.mp3", "K4.wav.mp3", "K5.wav.mp3", "K7.wav.mp3", "K8.wav.mp3", "K9.wav.mp3"]
                          },
                          {
-                         "beat" : 16,
+                         "beat" : 17,
                          "samples" : ["K1.wav.mp3", "K2.wav.mp3", "K3.wav.mp3", "K4.wav.mp3", "K5.wav.mp3", "K7.wav.mp3", "K8.wav.mp3", "K9.wav.mp3"]
                          }
                          ]
@@ -241,15 +241,15 @@
                "numBeats" : 24,
                "groups" : [
                          {
-                         "beat" : 0,
+                         "beat" : 1,
                          "samples" : ["K1.wav.mp3", "K2.wav.mp3", "K3.wav.mp3", "K4.wav.mp3", "K5.wav.mp3", "K7.wav.mp3", "K8.wav.mp3", "K9.wav.mp3"]
                          },
                          {
-                         "beat" : 8,
+                         "beat" : 9,
                          "samples" : ["K1.wav.mp3", "K2.wav.mp3", "K3.wav.mp3", "K4.wav.mp3", "K5.wav.mp3", "K7.wav.mp3", "K8.wav.mp3", "K9.wav.mp3"]
                          },
                          {
-                         "beat" : 16,
+                         "beat" : 17,
                          "samples" : ["K1.wav.mp3", "K2.wav.mp3", "K3.wav.mp3", "K4.wav.mp3", "K5.wav.mp3", "K7.wav.mp3", "K8.wav.mp3", "K9.wav.mp3"]
                          }
                          ]
@@ -263,15 +263,15 @@
                "next" : ["MS+A4", "Coming+Chord+A4"],
                "groups" : [
                          {
-                         "beat" : 0,
+                         "beat" : 1,
                          "samples" : ["H1.wav.mp3", "H2.wav.mp3", "DB.wav.mp3", "AB.wav.mp3", "silence.aiff"]
                          },
                          {
-                         "beat" : 8,
+                         "beat" : 9,
                          "samples" : ["H1.wav.mp3", "H2.wav.mp3", "E.wav.mp3", "G.wav.mp3", "silence.aiff"]
                          },
                          {
-                         "beat" : 16,
+                         "beat" : 17,
                          "samples" : ["H1.wav.mp3", "H2.wav.mp3", "GB.wav.mp3", "silence.aiff"]
                          }
                ]
@@ -285,27 +285,27 @@
                "next" : [],
                "groups" : [
                          {
-                         "beat" : 0,
+                         "beat" : 1,
                          "samples" : ["chord.wav.mp3", "chord2.wav.mp3"]
                          },
                          {
-                         "beat" : 0,
+                         "beat" : 1,
                          "samples" : ["H1.wav.mp3", "H2.wav.mp3", "DB.wav.mp3", "AB.wav.mp3", "silence.aiff"]
                          },
                          {
-                         "beat" : 8,
+                         "beat" : 9,
                          "samples" : ["H1.wav.mp3", "H2.wav.mp3", "E.wav.mp3", "G.wav.mp3", "silence.aiff"]
                          },
                          {
-                         "beat" : 16,
+                         "beat" : 17,
                          "samples" : ["H1.wav.mp3", "H2.wav.mp3", "GB.wav.mp3", "silence.aiff"]
                          },
                          {
-                         "beat" : 0,
+                         "beat" : 1,
                          "samples" : ["STRYKL1.wav.mp3", "STRYKL2.wav.mp3", "STRYKL3.wav.mp3", "STRYKL4.wav.mp3"]
                          },
                          {
-                         "beat" : 0,
+                         "beat" : 1,
                          "samples" : ["STRYKR1.wav.mp3", "STRYKR2.wav.mp3", "STRYKR3.wav.mp3", "STRYKR4.wav.mp3"]
                          }
 
@@ -320,31 +320,31 @@
                "next" : [],
                "groups" : [
                          {
-                         "beat" : 0,
+                         "beat" : 1,
                          "samples" : ["msa1.wav.mp3", "msa2.wav.mp3"]
                          },
                          {
-                         "beat" : 8,
+                         "beat" : 9,
                          "samples" : ["msb1.wav.mp3", "msb2.aif"]
                          },
                          {
-                         "beat" : 16,
+                         "beat" : 17,
                          "samples" : ["msc1.aif", "msc2.aif"]
                          },
                          {
-                         "beat" : 0,
+                         "beat" : 1,
                          "samples" : ["H1.wav.mp3", "H2.wav.mp3", "DB.wav.mp3", "AB.wav.mp3", "silence.aiff"]
                          },
                          {
-                         "beat" : 8,
+                         "beat" : 9,
                          "samples" : ["H1.wav.mp3", "H2.wav.mp3", "E.wav.mp3", "G.wav.mp3", "silence.aiff"]
                          },
                          {
-                         "beat" : 16,
+                         "beat" : 17,
                          "samples" : ["H1.wav.mp3", "H2.wav.mp3", "GB.wav.mp3", "silence.aiff"]
                          },
                          {
-                         "beat" : 0,
+                         "beat" : 1,
                          "samples" : ["STRYKL1.wav.mp3", "STRYKL2.wav.mp3", "STRYKL3.wav.mp3", "STRYKL4.wav.mp3", "STRYKR1.wav.mp3", "STRYKR2.wav.mp3", "STRYKR3.wav.mp3", "STRYKR4.wav.mp3"]
                          }
                ]
@@ -358,31 +358,31 @@
                "next" : [],
                "groups" : [
                          {
-                         "beat" : 0,
+                         "beat" : 1,
                          "samples" : ["msa1.wav.mp3", "msa2.wav.mp3"]
                          },
                          {
-                         "beat" : 8,
+                         "beat" : 9,
                          "samples" : ["msb1.wav.mp3", "msb2.aif"]
                          },
                          {
-                         "beat" : 16,
+                         "beat" : 17,
                          "samples" : ["msc1.aif", "msc2.aif"]
                          },
                          {
-                         "beat" : 0,
+                         "beat" : 1,
                          "samples" : ["H1.wav.mp3", "H2.wav.mp3", "DB.wav.mp3", "AB.wav.mp3", "silence.aiff"]
                          },
                          {
-                         "beat" : 8,
+                         "beat" : 9,
                          "samples" : ["H1.wav.mp3", "H2.wav.mp3", "E.wav.mp3", "G.wav.mp3", "silence.aiff"]
                          },
                          {
-                         "beat" : 16,
+                         "beat" : 17,
                          "samples" : ["H1.wav.mp3", "H2.wav.mp3", "GB.wav.mp3", "silence.aiff"]
                          },
                          {
-                         "beat" : 0,
+                         "beat" : 1,
                          "samples" : ["STRYKL1.wav.mp3", "STRYKL2.wav.mp3", "STRYKL3.wav.mp3", "STRYKL4.wav.mp3"]
                          }
                ]
@@ -396,31 +396,31 @@
                "next" : [],
                "groups" : [
                          {
-                         "beat" : 0,
+                         "beat" : 1,
                          "samples" : ["msa1.wav.mp3", "msa2.wav.mp3"]
                          },
                          {
-                         "beat" : 8,
+                         "beat" : 9,
                          "samples" : ["msb1.wav.mp3", "msb2.aif"]
                          },
                          {
-                         "beat" : 16,
+                         "beat" : 17,
                          "samples" : ["msc1.aif", "msc2.aif"]
                          },
                          {
-                         "beat" : 0,
+                         "beat" : 1,
                          "samples" : ["H1.wav.mp3", "H2.wav.mp3", "DB.wav.mp3", "AB.wav.mp3", "silence.aiff"]
                          },
                          {
-                         "beat" : 8,
+                         "beat" : 9,
                          "samples" : ["H1.wav.mp3", "H2.wav.mp3", "E.wav.mp3", "G.wav.mp3", "silence.aiff"]
                          },
                          {
-                         "beat" : 16,
+                         "beat" : 17,
                          "samples" : ["H1.wav.mp3", "H2.wav.mp3", "GB.wav.mp3", "silence.aiff"]
                          },
                          {
-                         "beat" : 0,
+                         "beat" : 1,
                          "samples" : ["STRYKR1.wav.mp3", "STRYKR2.wav.mp3", "STRYKR3.wav.mp3", "STRYKR4.wav.mp3"]
                          }
                ]
@@ -434,11 +434,11 @@
                "next" : ["Coming+Chord+A4"],
                "groups" : [
                          {
-                         "beat" : 0,
+                         "beat" : 1,
                          "samples" : ["COMING1.wav.mp3", "COMING2.wav.mp3", "COMING3.wav.mp3", "COMING4.wav.mp3"]
                          },
                          {
-                         "beat" : 0,
+                         "beat" : 1,
                          "samples" : ["chord.wav.mp3", "chord2.wav.mp3"]
                          }
                ]
@@ -453,23 +453,23 @@
                "groups" : [
 
                          {
-                         "beat" : 0,
+                         "beat" : 1,
                          "samples" : ["COMING1.wav.mp3", "COMING2.wav.mp3", "COMING3.wav.mp3", "COMING4.wav.mp3"]
                          },
                          {
-                         "beat" : 0,
+                         "beat" : 1,
                          "samples" : ["chord.wav.mp3", "chord2.wav.mp3"]
                          },
                          {
-                         "beat" : 0,
+                         "beat" : 1,
                          "samples" : ["H1.wav.mp3", "H2.wav.mp3", "DB.wav.mp3", "AB.wav.mp3", "silence.aiff"]
                          },
                          {
-                         "beat" : 8,
+                         "beat" : 9,
                          "samples" : ["H1.wav.mp3", "H2.wav.mp3", "E.wav.mp3", "G.wav.mp3", "silence.aiff"]
                          },
                          {
-                         "beat" : 16,
+                         "beat" : 17,
                          "samples" : ["H1.wav.mp3", "H2.wav.mp3", "GB.wav.mp3", "silence.aiff"]
                          }
 
@@ -484,11 +484,11 @@
                "next" : ["Coming+A4+Stryk L"],
                "groups" : [
                          {
-                         "beat" : 0,
+                         "beat" : 1,
                          "samples" : ["COMING1.wav.mp3", "COMING2.wav.mp3", "COMING3.wav.mp3", "COMING4.wav.mp3"]
                          },
                          {
-                         "beat" : 0,
+                         "beat" : 1,
                          "samples" : ["STRYKL1.wav.mp3", "STRYKL2.wav.mp3", "STRYKL3.wav.mp3", "STRYKL4.wav.mp3"]
                          }
 
@@ -503,23 +503,23 @@
                "next" : ["Coming+Stryk L+R"],
                "groups" : [
                          {
-                         "beat" : 0,
+                         "beat" : 1,
                          "samples" : ["COMING1.wav.mp3", "COMING2.wav.mp3", "COMING3.wav.mp3", "COMING4.wav.mp3"]
                          },
                          {
-                         "beat" : 0,
+                         "beat" : 1,
                          "samples" : ["STRYKL1.wav.mp3", "STRYKL2.wav.mp3", "STRYKL3.wav.mp3", "STRYKL4.wav.mp3"]
                          },
                          {
-                         "beat" : 0,
+                         "beat" : 1,
                          "samples" : ["H1.wav.mp3", "H2.wav.mp3", "DB.wav.mp3", "AB.wav.mp3", "silence.aiff"]
                          },
                          {
-                         "beat" : 8,
+                         "beat" : 9,
                          "samples" : ["H1.wav.mp3", "H2.wav.mp3", "E.wav.mp3", "G.wav.mp3", "silence.aiff"]
                          },
                          {
-                         "beat" : 16,
+                         "beat" : 17,
                          "samples" : ["H1.wav.mp3", "H2.wav.mp3", "GB.wav.mp3", "silence.aiff"]
                          }
                ]
@@ -533,19 +533,19 @@
                "next" : [],
                "groups" : [
                          {
-                         "beat" : 0,
+                         "beat" : 1,
                          "samples" : ["COMING1.wav.mp3", "COMING2.wav.mp3", "COMING3.wav.mp3", "COMING4.wav.mp3"]
                          },
                          {
-                         "beat" : 0,
+                         "beat" : 1,
                          "samples" : ["K1.wav.mp3", "K2.wav.mp3", "K3.wav.mp3", "K4.wav.mp3", "K5.wav.mp3", "K7.wav.mp3", "K8.wav.mp3", "K9.wav.mp3"]
                          },
                          {
-                         "beat" : 8,
+                         "beat" : 9,
                          "samples" : ["K1.wav.mp3", "K2.wav.mp3", "K3.wav.mp3", "K4.wav.mp3", "K5.wav.mp3", "K7.wav.mp3", "K8.wav.mp3", "K9.wav.mp3"]
                          },
                          {
-                         "beat" : 16,
+                         "beat" : 17,
                          "samples" : ["K3.wav.mp3", "K4.wav.mp3", "K5.wav.mp3", "K7.wav.mp3", "K8.wav.mp3", "K9.wav.mp3"]
                          }
                          ]
@@ -559,15 +559,15 @@
                "next" : [],
                "groups" : [
                          {
-                         "beat" : 0,
+                         "beat" : 1,
                          "samples" : ["COMING1.wav.mp3", "COMING2.wav.mp3", "COMING3.wav.mp3", "COMING4.wav.mp3"]
                          },
                          {
-                         "beat" : 0,
+                         "beat" : 1,
                          "samples" : ["STRYKL1.wav.mp3", "STRYKL2.wav.mp3", "STRYKL3.wav.mp3", "STRYKL4.wav.mp3"]
                          },
                          {
-                         "beat" : 0,
+                         "beat" : 1,
                          "samples" : ["STRYKR1.wav.mp3", "STRYKR2.wav.mp3", "STRYKR3.wav.mp3", "STRYKR4.wav.mp3"]
                          }
                ]

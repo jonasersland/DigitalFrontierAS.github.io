@@ -92,7 +92,7 @@ var DigitalFrontierAS = (function () {
             for (var i = 0; i < sequence.groups.length; i++) {
                 var group = sequence.groups[i];
                 layout.push({
-                    time: insertionPoint + group.beat * 60 / sequence.bpm,
+                    time: insertionPoint + (group.beat-1) * 60 / sequence.bpm,
                     sample: this.randomElement(group.samples),
                     description: group.description
                 });

@@ -11,7 +11,7 @@
                "next": ["VERSA2"],
                "groups" : [
                          {
-                         "beat" : 0,
+                         "beat" : 1,
                          "samples" : ["a5.wav.mp3", "f5.wav.mp3", "s5.wav.mp3", "z5.wav.mp3"]
                          }
                          ]
@@ -25,7 +25,7 @@
                "next" : ["VERSA3"],
                "groups" : [
                          {
-                         "beat" : 0,
+                         "beat" : 1,
                          "samples" : ["a11.wav.mp3", "f11.wav.mp3", "s11.wav.mp3", "z11.wav.mp3"]
                          }
                          ]
@@ -39,7 +39,7 @@
                "next" : ["VERSA4"],
                "groups" : [
                          {
-                         "beat" : 0,
+                         "beat" : 1,
                          "samples" : ["a20.wav.mp3", "f20.wav.mp3", "s20.wav.mp3", "z20.wav.mp3"]
                          }
                          ]
@@ -53,7 +53,7 @@
                "next" : ["REFA1"],
                "groups" : [
                          {
-                         "beat" : 0,
+                         "beat" : 1,
                          "samples" : ["a25.wav.mp3", "f25.wav.mp3", "s25.wav.mp3", "z25.wav.mp3"]
                          }
                          ]
@@ -67,7 +67,7 @@
                "next" : ["REFA2"],
                "groups" : [
                          {
-                         "beat" : 0,
+                         "beat" : 1,
                          "samples" : ["a33.wav.mp3", "f33.wav.mp3", "s33.wav.mp3", "z33.wav.mp3"]
                          }
                          ]
@@ -81,7 +81,7 @@
                "next" : ["VERSB1"],
                "groups" : [
                          {
-                         "beat" : 0,
+                         "beat" : 1,
                          "samples" : ["a47.wav.mp3", "f47.wav.mp3", "s47.wav.mp3", "z47.wav.mp3"]
                          }
                          ]
@@ -95,7 +95,7 @@
                "next" : ["VERSB2"],
                "groups" : [
                          {
-                         "beat" : 0,
+                         "beat" : 1,
                          "samples" : ["a53.wav.mp3", "f53.wav.mp3", "s53.wav.mp3", "z53.wav.mp3"]
                          }
                          ]
@@ -109,7 +109,7 @@
                "next" : ["REFB1"],
                "groups" : [
                          {
-                         "beat" : 0,
+                         "beat" : 1,
                          "samples" : ["a59.wav.mp3", "f59.wav.mp3", "s59.wav.mp3", "z59.wav.mp3" ]
                          }
                          ]
@@ -123,7 +123,7 @@
                "next" : ["REFB2"],
                "groups" : [
                          {
-                         "beat" : 0,
+                         "beat" : 1,
                          "samples" : ["a65.wav.mp3", "f65.wav.mp3", "s65.wav.mp3", "z65.wav.mp3"]
                          }
                          ]
@@ -137,7 +137,7 @@
                "next" : ["REFB3"],
                "groups" : [
                          {
-                         "beat" : 0,
+                         "beat" : 1,
                          "samples" : ["a71.wav.mp3", "f71.wav.mp3", "s71.wav.mp3", "z71.wav.mp3"]
                          }
                          ]
@@ -151,7 +151,7 @@
                "next" : ["END"],
                "groups" : [
                          {
-                         "beat" : 0,
+                         "beat" : 1,
                          "samples" : ["a77.wav.mp3", "f77.wav.mp3", "s77.wav.mp3", "z77.wav.mp3"]
                          }
                          ]
@@ -165,7 +165,7 @@
                "next" : [],
                "groups" : [
                          {
-                         "beat" : 0,
+                         "beat" : 1,
                          "samples" : ["a79.wav.mp3", "f79.wav.mp3", "s79.wav.mp3", "z79.wav.mp3"]
                          }
                          ]
