@@ -1,0 +1,94 @@
+<html>
+<head>
+<script src="https://www.gstatic.com/cv/js/sender/v1/cast_sender.js?loadCastFramework=1" ></script>
+<script src="/js-client/player.js" ></script>
+<script>
+
+var player = new DigitalFrontierAS.Player();
+
+var compositions = ["music/J60_R606_HNRG.json", "music/J60BITALL.json"];
+
+player.onEnd = function () {
+	var image = document.getElementById("image");
+    image.src = "playCROP.png";
+	playing = false;
+};
+
+function playSong() {
+	player.play();
+}
+
+function pauseSong() {
+	player.pause();
+}
+
+function resumeSong() {
+	player.resume();
+}
+
+function stopSong() {
+	player.stop();
+}
+
+function init() {
+	try {
+		var request = new XMLHttpRequest();
+		request.open('GET', "music/Side A.json", true);
+		request.onload = function () {
+			var song = JSON.parse(request.responseText);
+			player.load(song, "music/");
+			var image = document.getElementById("image");
+			image.src = "playCROP.png";
+		}
+		request.send();
+	}
+	catch (e) {}
+}
+
+var playing = false;
+    
+function randomElement(array) {
+    if (!array) return null;
+    if (array.length === 0) return null;
+    var index = Math.floor(Math.random() * array.length);
+    return array[index];
+}
+
+
+function imageClicked() {
+	var image = document.getElementById("image");
+	if (playing) {
+		player.stop();
+		image.src = "playCROP.png";
+		playing = false;
+	} else {
+        var songUrl = randomElement(compositions);
+        try {
+            var request = new XMLHttpRequest();
+            request.open('GET', songUrl, true);
+            request.onload = function () {
+                var song = JSON.parse(request.responseText);
+                player.load(song, "music/");
+                var image = document.getElementById("image");
+                image.src = "stopCROP.png";
+                player.play();
+                playing = true;
+            }
+            request.send();
+        }
+        catch (e) {}
+
+	}
+}
+
+</script>
+
+</head>
+
+
+<body valign="top">
+
+	<img src="playCROP.png" style="width: 375px" id="image" onclick="imageClicked()"/>
+
+</body>
+</html>

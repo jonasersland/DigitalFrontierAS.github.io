@@ -1,7 +1,7 @@
 {
   "name" : "J60_R606_NRG",
   "start" : ["I-III-IV-VII"],
-  "circles" : [
+  "sequences" : [
                {
                "name": "I-III-IV-VII",
                "bpm": 106,
@@ -9,7 +9,7 @@
                "minRevolutions" : 1,
                "numBeats" : 8,
                "next": ["I-III-IV-VII"],
-               "bags" : [
+               "groups" : [
                          {
                          "beat" : 0,
                          "samples" : ["J60BITI1.wav", "J60BITI2.wav", "J60BITI3.wav", "J60BITI4.wav", "J60BITI5.wav", "J60BITI6.wav", "J60BITI7.wav", "J60BITI8.wav", "J60BITI9.wav", "J60BITI10.wav"]
