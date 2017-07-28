@@ -3,7 +3,7 @@
   "start": [
     "VERSA1"
   ],
-  "circles": [
+  "sequences": [
     {
       "name": "VERSA1",
       "bpm": 122,
@@ -11,7 +11,7 @@
       "minRevolutions": 1,
       "numBeats": 24,
       "next": [],
-      "bags": [
+      "groups": [
         {
           "beat": 0,
           "samples": [
@@ -32,7 +32,7 @@
       "next": [
         "VERSA3"
       ],
-      "bags": [
+      "groups": [
         {
           "beat": 0,
           "samples": [
@@ -53,7 +53,7 @@
       "next": [
         "VERSA4"
       ],
-      "bags": [
+      "groups": [
         {
           "beat": 0,
           "samples": [
@@ -74,7 +74,7 @@
       "next": [
         "REFA1"
       ],
-      "bags": [
+      "groups": [
         {
           "beat": 0,
           "samples": [
@@ -95,7 +95,7 @@
       "next": [
         "REFA2"
       ],
-      "bags": [
+      "groups": [
         {
           "beat": 0,
           "samples": [
@@ -116,7 +116,7 @@
       "next": [
         "VERSB1"
       ],
-      "bags": [
+      "groups": [
         {
           "beat": 0,
           "samples": [
@@ -137,7 +137,7 @@
       "next": [
         "VERSB2"
       ],
-      "bags": [
+      "groups": [
         {
           "beat": 0,
           "samples": [
@@ -158,7 +158,7 @@
       "next": [
         "REFB1"
       ],
-      "bags": [
+      "groups": [
         {
           "beat": 0,
           "samples": [
@@ -179,7 +179,7 @@
       "next": [
         "REFB2"
       ],
-      "bags": [
+      "groups": [
         {
           "beat": 0,
           "samples": [
@@ -200,7 +200,7 @@
       "next": [
         "REFB3"
       ],
-      "bags": [
+      "groups": [
         {
           "beat": 0,
           "samples": [
@@ -221,7 +221,7 @@
       "next": [
         "END"
       ],
-      "bags": [
+      "groups": [
         {
           "beat": 0,
           "samples": [
@@ -242,7 +242,7 @@
       "next": [
         "VERSA2_A"
       ],
-      "bags": [
+      "groups": [
         {
           "beat": 0,
           "samples": [
@@ -260,7 +260,7 @@
       "next": [
         "VERSA3_A"
       ],
-      "bags": [
+      "groups": [
         {
           "beat": 0,
           "samples": [
@@ -278,7 +278,7 @@
       "next": [
         "VERSA4_A"
       ],
-      "bags": [
+      "groups": [
         {
           "beat": 0,
           "samples": [
@@ -300,7 +300,7 @@
         "REFA1_Z",
         "REFA1"
       ],
-      "bags": [
+      "groups": [
         {
           "beat": 0,
           "samples": [
@@ -322,7 +322,7 @@
         "REFA2_S",
         "REFA2_Z"
       ],
-      "bags": [
+      "groups": [
         {
           "beat": 0,
           "samples": [
@@ -340,7 +340,7 @@
       "next": [
         "VERSB1_A"
       ],
-      "bags": [
+      "groups": [
         {
           "beat": 0,
           "samples": [
@@ -358,7 +358,7 @@
       "next": [
         "VERSB2_A"
       ],
-      "bags": [
+      "groups": [
         {
           "beat": 0,
           "samples": [
@@ -380,7 +380,7 @@
         "REFB1_S",
         "REFB1_Z"
       ],
-      "bags": [
+      "groups": [
         {
           "beat": 0,
           "samples": [
@@ -398,7 +398,7 @@
       "next": [
         "REFB2_A"
       ],
-      "bags": [
+      "groups": [
         {
           "beat": 0,
           "samples": [
@@ -416,7 +416,7 @@
       "next": [
         "REFB3_A"
       ],
-      "bags": [
+      "groups": [
         {
           "beat": 0,
           "samples": [
@@ -434,7 +434,7 @@
       "next": [
         "END"
       ],
-      "bags": [
+      "groups": [
         {
           "beat": 0,
           "samples": [
@@ -452,7 +452,7 @@
       "next": [
         "VERSA2_F"
       ],
-      "bags": [
+      "groups": [
         {
           "beat": 0,
           "samples": [
@@ -470,7 +470,7 @@
       "next": [
         "VERSA3_F"
       ],
-      "bags": [
+      "groups": [
         {
           "beat": 0,
           "samples": [
@@ -488,7 +488,7 @@
       "next": [
         "VERSA4_F"
       ],
-      "bags": [
+      "groups": [
         {
           "beat": 0,
           "samples": [
@@ -510,7 +510,7 @@
         "REFA1_Z",
         "REFA1"
       ],
-      "bags": [
+      "groups": [
         {
           "beat": 0,
           "samples": [
@@ -532,7 +532,7 @@
         "REFA2_S",
         "REFA2_Z"
       ],
-      "bags": [
+      "groups": [
         {
           "beat": 0,
           "samples": [
@@ -550,7 +550,7 @@
       "next": [
         "VERSB1_F"
       ],
-      "bags": [
+      "groups": [
         {
           "beat": 0,
           "samples": [
@@ -568,7 +568,7 @@
       "next": [
         "VERSB2_F"
       ],
-      "bags": [
+      "groups": [
         {
           "beat": 0,
           "samples": [
@@ -590,7 +590,7 @@
         "REFB1_S",
         "REFB1_Z"
       ],
-      "bags": [
+      "groups": [
         {
           "beat": 0,
           "samples": [
@@ -608,7 +608,7 @@
       "next": [
         "REFB2_F"
       ],
-      "bags": [
+      "groups": [
         {
           "beat": 0,
           "samples": [
@@ -626,7 +626,7 @@
       "next": [
         "REFB3_F"
       ],
-      "bags": [
+      "groups": [
         {
           "beat": 0,
           "samples": [
@@ -644,7 +644,7 @@
       "next": [
         "END"
       ],
-      "bags": [
+      "groups": [
         {
           "beat": 0,
           "samples": [
@@ -662,7 +662,7 @@
       "next": [
         "VERSA2_S"
       ],
-      "bags": [
+      "groups": [
         {
           "beat": 0,
           "samples": [
@@ -680,7 +680,7 @@
       "next": [
         "VERSA3_S"
       ],
-      "bags": [
+      "groups": [
         {
           "beat": 0,
           "samples": [
@@ -698,7 +698,7 @@
       "next": [
         "VERSA4_S"
       ],
-      "bags": [
+      "groups": [
         {
           "beat": 0,
           "samples": [
@@ -720,7 +720,7 @@
         "REFA1_Z",
         "REFA1"
       ],
-      "bags": [
+      "groups": [
         {
           "beat": 0,
           "samples": [
@@ -742,7 +742,7 @@
         "REFA2_S",
         "REFA2_Z"
       ],
-      "bags": [
+      "groups": [
         {
           "beat": 0,
           "samples": [
@@ -760,7 +760,7 @@
       "next": [
         "VERSB1_S"
       ],
-      "bags": [
+      "groups": [
         {
           "beat": 0,
           "samples": [
@@ -778,7 +778,7 @@
       "next": [
         "VERSB2_S"
       ],
-      "bags": [
+      "groups": [
         {
           "beat": 0,
           "samples": [
@@ -800,7 +800,7 @@
         "REFB1_S",
         "REFB1_Z"
       ],
-      "bags": [
+      "groups": [
         {
           "beat": 0,
           "samples": [
@@ -818,7 +818,7 @@
       "next": [
         "REFB2_S"
       ],
-      "bags": [
+      "groups": [
         {
           "beat": 0,
           "samples": [
@@ -836,7 +836,7 @@
       "next": [
         "REFB3_S"
       ],
-      "bags": [
+      "groups": [
         {
           "beat": 0,
           "samples": [
@@ -854,7 +854,7 @@
       "next": [
         "END"
       ],
-      "bags": [
+      "groups": [
         {
           "beat": 0,
           "samples": [
@@ -872,7 +872,7 @@
       "next": [
         "VERSA2_Z"
       ],
-      "bags": [
+      "groups": [
         {
           "beat": 0,
           "samples": [
@@ -890,7 +890,7 @@
       "next": [
         "VERSA3_Z"
       ],
-      "bags": [
+      "groups": [
         {
           "beat": 0,
           "samples": [
@@ -908,7 +908,7 @@
       "next": [
         "VERSA4_Z"
       ],
-      "bags": [
+      "groups": [
         {
           "beat": 0,
           "samples": [
@@ -930,7 +930,7 @@
         "REFA1_Z",
         "REFA1"
       ],
-      "bags": [
+      "groups": [
         {
           "beat": 0,
           "samples": [
@@ -952,7 +952,7 @@
         "REFA2_S",
         "REFA2_Z"
       ],
-      "bags": [
+      "groups": [
         {
           "beat": 0,
           "samples": [
@@ -970,7 +970,7 @@
       "next": [
         "VERSB1_Z"
       ],
-      "bags": [
+      "groups": [
         {
           "beat": 0,
           "samples": [
@@ -988,7 +988,7 @@
       "next": [
         "VERSB2_Z"
       ],
-      "bags": [
+      "groups": [
         {
           "beat": 0,
           "samples": [
@@ -1010,7 +1010,7 @@
         "REFB1_S",
         "REFB1_Z"
       ],
-      "bags": [
+      "groups": [
         {
           "beat": 0,
           "samples": [
@@ -1028,7 +1028,7 @@
       "next": [
         "REFB2_Z"
       ],
-      "bags": [
+      "groups": [
         {
           "beat": 0,
           "samples": [
@@ -1046,7 +1046,7 @@
       "next": [
         "REFB3_Z"
       ],
-      "bags": [
+      "groups": [
         {
           "beat": 0,
           "samples": [
@@ -1064,7 +1064,7 @@
       "next": [
         "END"
       ],
-      "bags": [
+      "groups": [
         {
           "beat": 0,
           "samples": [
@@ -1080,7 +1080,7 @@
       "minRevolutions": 1,
       "numBeats": 1,
       "next": [],
-      "bags": [
+      "groups": [
         {
           "beat": 0,
           "samples": [

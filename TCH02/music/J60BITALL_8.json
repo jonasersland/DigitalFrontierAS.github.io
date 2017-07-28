@@ -1,7 +1,7 @@
 {
   "name" : "TCH02",
   "start" : ["VII"],
-  "circles" : [
+  "sequences" : [
                {
                "name": "VII",
                "bpm": 106,
@@ -9,7 +9,7 @@
                "minRevolutions" : 1,
                "numBeats" : 8,
                "next": ["VII"],
-               "bags" : [
+               "groups" : [
                          {
                          "beat" : 0,
                          "samples" : ["J60BITI1.wav", "J60BITI2.wav", "J60BITI3.wav", "J60BITI4.wav", "J60BITI5.wav", "J60BITI6.wav", "J60BITI7.wav", "J60BITI8.wav", "J60BITI9.wav", "J60BITI10.wav", "J60BITIII1.wav", "J60BITIII2.wav", "J60BITIII3.wav", "J60BITIII4.wav", "J60BITIII5.wav", "J60BITIII6.wav", "J60BITIII7.wav", "J60BITIII8.wav", "J60BITIII9.wav", "J60BITIII10.wav", "J60BITIV1.wav", "J60BITIV2.wav", "J60BITIV3.wav", "J60BITIV4.wav", "J60BITIV5.wav", "J60BITIV6.wav", "J60BITIV7.wav", "J60BITIV8.wav", "J60BITIV9.wav", "J60BITIV10.wav", "J60BITVII1.wav", "J60BITVII2.wav", "J60BITVII3.wav", "J60BITVII4.wav", "J60BITVII5.wav", "J60BITVII6.wav", "J60BITVII7.wav", "J60BITVII8.wav", "J60BITVII9.wav", "J60BITVII10.wav"]
