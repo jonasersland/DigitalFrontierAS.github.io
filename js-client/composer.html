@@ -85,7 +85,6 @@ function save() {
 	saveAs(blob, fileName);
 }
 
-
 var editor;
 
 function init() {
@@ -104,6 +103,10 @@ function init() {
 		*/
 	}
 	catch (e) {}
+}
+
+function compressor() {
+    player.refreshCompressor(editor.get().compressor);
 }
 
 </script>
@@ -131,12 +134,9 @@ function init() {
 		<button type="button" onclick="resumeSong()" style="vertical-align: top; margin: 20px; margin-top: 20px;">Resume</button>
 		
 		<button type="button" onclick="stopSong()" style="vertical-align: top; margin: 20px; margin-top: 20px;">Stop</button>
+		
+		<button type="button" onclick="compressor()" style="vertical-align: top; margin: 20px; margin-top: 20px;">Compressor</button>
 	</div>
-
-	<!--
-	<textarea rows="50" cols="120" id="sourceContent" style="vertical-align: top">
-	</textarea>
-	-->
 
 	<div id="jsoneditor" style="width: 600px; height: 800px;"></div>
 

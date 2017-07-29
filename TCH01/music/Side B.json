@@ -1,5 +1,12 @@
 {
   "name" : "Side B",
+  "compressor" : {
+	"threshold" : -50,
+	"knee" : 40,
+	"ratio" : 1,
+	"attack" : 0,
+	"release" : 0.25
+  },
   "start" : ["Stryk L", "Stryk R", "Stryk L/R", "Chord-Intro", "Chord", "MS", "Coming", "K", "A4"],
   "sequences" : [
                {

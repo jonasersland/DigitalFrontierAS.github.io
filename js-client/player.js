@@ -9,6 +9,7 @@ var DigitalFrontierAS = (function () {
             sequences =  null,
             sampleCache = {},
             duration = 0.0,
+            compressorNode,
             destination,
 
             LOAD_AHEAD_TIME = 10.0,
@@ -161,18 +162,13 @@ var DigitalFrontierAS = (function () {
             context = new window.AudioContext();
             context.suspend();
             
-            /*
-            var compressor = context.createDynamicsCompressor();
-            compressor.threshold.value = -100;
-            compressor.knee.value = 40;
-            compressor.ratio.value = 20;
-            compressor.attack.value = 0;
-            compressor.release.value = 0.25;
-            compressor.connect(context.destination);
-            destination = compressor;
-            */
+            compressorNode = context.createDynamicsCompressor();
+            compressorNode.connect(context.destination);
             
-            destination = context.destination;
+            destination = compressorNode;
+            this.refreshCompressor();
+            
+            //destination = context.destination;
             
             startTime = context.currentTime;
             this._scheduleLoop();
@@ -198,6 +194,19 @@ var DigitalFrontierAS = (function () {
 
         this.currentTime = function () {
             return context.currentTime - startTime;
+        };
+        
+        this.refreshCompressor = function (c) {
+            if (!c) c = this.song.compressor;
+            if (c) {
+                compressorNode.threshold.value = (c.threshold === undefined) ? -50 : c.threshold;
+                compressorNode.knee.value = (c.knee === undefined) ? 40 : c.knee;
+                compressorNode.ratio.value = (c.ratio === undefined) ? 12 : c.ratio;
+                compressorNode.attack.value = (c.attack === undefined) ? 0 : c.attack;
+                compressorNode.release.value = (c.release === undefined) ? 0.25 : c.release;
+            } else {
+                compressorNode.ratio.value = 1;
+            }
         };
 
 
