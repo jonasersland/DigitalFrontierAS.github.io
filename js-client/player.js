@@ -7,6 +7,7 @@ var DigitalFrontierAS = (function () {
         let context = new window.AudioContext(),
             startTime = null,
             sequences =  null,
+            groups = null,
             sampleCache = {},
             duration = 0.0,
             compressorNode,
@@ -16,6 +17,7 @@ var DigitalFrontierAS = (function () {
 
             TRIGGER_BUFFER = context.createBuffer(1, 1, context.sampleRate);
 
+        this.song = null;
 
         this.currentSequence = null;
         this.currentSequenceCounter = 0;
@@ -38,14 +40,28 @@ var DigitalFrontierAS = (function () {
         // ------------------------------------------------------------------------------------------------
 
         // Put sequences into an object for easy access
-        this.getSequences = function getSequences (song) {
-            var sequences = {};
-            for (var i = 0; i < song.sequences.length; i++) {
-                var sequence = song.sequences[i];
+        function prepare(player) {
+            sequences = {};
+            groups = {};
+            for (let i = 0; i < player.song.sequences.length; i++) {
+                const sequence = player.song.sequences[i];
                 sequences[sequence.name] = sequence;
+                for (let j = 0; j < sequence.groups.length; j++) {
+                    const group = sequence.groups[j];
+                    if (!group.name) group.name = "" + j;
+                    const key = sequence.name + "." + group.name;
+                    groups[key] = group;
+                }
             }
-            return sequences;
-        };
+        }
+        
+        function tearDown(player) {
+            Object.keys(groups).forEach(function (key) {
+                const group = groups[key];
+                if (group.gainNode) group.gainNode = undefined;
+            });
+            if (context.state != "closed") context.close();
+        }
 
         this.layOutSong = function (song) {
             var sequences = this.getSequences(song);
@@ -90,8 +106,9 @@ var DigitalFrontierAS = (function () {
                 var group = sequence.groups[i];
                 layout.push({
                     time: insertionPoint + (group.beat-1) * 60 / sequence.bpm,
-                    sample: this.randomElement(group.samples),
-                    description: group.description
+                    sequence: sequence,
+                    group: group,
+                    sample: this.randomElement(group.samples)
                 });
             }
             return layout;
@@ -154,7 +171,7 @@ var DigitalFrontierAS = (function () {
             baseUrl = baseUrl.trim();
             if (baseUrl.length > 0 && !baseUrl.endsWith("/")) baseUrl += "/";
 
-            sequences = this.getSequences(song);
+            prepare(this);
         };
 
         this.play = function () {
@@ -175,7 +192,7 @@ var DigitalFrontierAS = (function () {
         };
 
         this.stop = function () {
-            if (context.state != "closed") context.close();
+            tearDown(this);
         };
 
         this.pause = function () {
@@ -293,12 +310,12 @@ var DigitalFrontierAS = (function () {
             var sample = element.sample;
             var buffer = sampleCache[sample];
             if (buffer) {
-                this.scheduleBuffer(sample, buffer, offset + element.time);
+                this.scheduleBuffer(element.sequence, element.group, sample, buffer, offset + element.time);
                 if (ondone) ondone();
             } else {
                 var player = this;
                 this.loadSample(sample, function (buffer) {
-                    player.scheduleBuffer(sample, buffer, offset + element.time);
+                    player.scheduleBuffer(element.sequence, element.group, sample, buffer, offset + element.time);
                     if (ondone) ondone();
                 });
             }
@@ -321,11 +338,22 @@ var DigitalFrontierAS = (function () {
             request.send();
         };
 
+        function getGainNode(sequenceName, groupName) {
+            const key = sequenceName + "." + groupName;
+            const group = groups[key];
+            if (!group.gainNode) {
+                window.console.log("Creating gain node for " + key);
+                group.gainNode = context.createGain();
+                group.gainNode.gain.value = (group.gain === undefined) ? 1.0 : group.gain;
+                group.gainNode.connect(destination);
+            }
+            return group.gainNode;
+        }
 
-        this.scheduleBuffer = function (sample, buffer, offset) {
+        this.scheduleBuffer = function (sequence, group, sample, buffer, offset) {
             var source = context.createBufferSource();
             source.buffer = buffer;
-            source.connect(destination);
+            source.connect(getGainNode(sequence.name, group.name));
             var player = this;
             if (this.onSampleStart) this.schedule(offset, function (offs) { player.onSampleStart(offs, sample, buffer); });
             if (this.onSampleEnd) source.onended = function () { player.onSampleEnd(offset + buffer.duration, sample, buffer); };
