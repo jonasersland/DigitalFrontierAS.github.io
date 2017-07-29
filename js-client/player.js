@@ -213,12 +213,39 @@ var DigitalFrontierAS = (function () {
             return context.currentTime - startTime;
         };
         
+        this.refresh = function (composition) {
+            this.refreshCompressor(composition.compressor);
+            //refreshGain
+            for (let i = 0; i < composition.sequences.length; i++) {
+                const sequence = composition.sequences[i];
+                for (let j = 0; j < sequence.groups.length; j++) {
+                    const group = sequence.groups[j];
+                    let groupName = group.name;
+                    if (!groupName) groupName = "" + j;
+                    this.refreshGain(sequence.name, groupName, group.gain);
+                }
+            }
+        };
+        
+        this.refreshGain = function (sequenceName, groupName, gain) {
+            const key = sequenceName + "." + groupName;
+            const group = groups[key];
+            if (group && group.gainNode) {
+                if (gain === undefined) {
+                    group.gainNode.gain.value = 1;
+                } else {
+                    window.console.log("Setting gain for " + key + ": " + gain);
+                    group.gainNode.gain.value = gain;
+                }
+            }
+        };
+        
         this.refreshCompressor = function (c) {
             if (!c) c = this.song.compressor;
             if (c) {
                 compressorNode.threshold.value = (c.threshold === undefined) ? -50 : c.threshold;
                 compressorNode.knee.value = (c.knee === undefined) ? 40 : c.knee;
-                compressorNode.ratio.value = (c.ratio === undefined) ? 12 : c.ratio;
+                compressorNode.ratio.value = (!c.ratio) ? 12 : c.ratio;
                 compressorNode.attack.value = (c.attack === undefined) ? 0 : c.attack;
                 compressorNode.release.value = (c.release === undefined) ? 0.25 : c.release;
             } else {

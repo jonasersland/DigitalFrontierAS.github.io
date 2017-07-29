@@ -92,7 +92,11 @@ function init() {
 		var container = document.getElementById("jsoneditor");
 		var options = {
 			mode: 'tree',
-			modes: ['tree', 'view', 'form', 'code', 'text']
+			modes: ['tree', 'view', 'form', 'code', 'text'],
+            onChange: function () {
+                console.log("Change!");
+                player.refresh(editor.get());
+            }
 		};
 		editor = new JSONEditor(container, options);
 		
@@ -103,10 +107,6 @@ function init() {
 		*/
 	}
 	catch (e) {}
-}
-
-function compressor() {
-    player.refreshCompressor(editor.get().compressor);
 }
 
 </script>
@@ -134,11 +134,10 @@ function compressor() {
 		<button type="button" onclick="resumeSong()" style="vertical-align: top; margin: 20px; margin-top: 20px;">Resume</button>
 		
 		<button type="button" onclick="stopSong()" style="vertical-align: top; margin: 20px; margin-top: 20px;">Stop</button>
-		
-		<button type="button" onclick="compressor()" style="vertical-align: top; margin: 20px; margin-top: 20px;">Compressor</button>
 	</div>
 
 	<div id="jsoneditor" style="width: 600px; height: 800px;"></div>
 
 </body>
+
 </html>
