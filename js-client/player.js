@@ -2,7 +2,7 @@
 var DigitalFrontierAS = (function () {
     "use strict";
 
-    function Player(song, baseUrl) {
+    function Player(composition, baseUrl) {
         // Local, "private" variables
         let context = new window.AudioContext(),
             startTime = null,
@@ -17,7 +17,7 @@ var DigitalFrontierAS = (function () {
 
             TRIGGER_BUFFER = context.createBuffer(1, 1, context.sampleRate);
 
-        this.song = null;
+        this.composition = null;
 
         this.currentSequence = null;
         this.currentSequenceCounter = 0;
@@ -33,7 +33,7 @@ var DigitalFrontierAS = (function () {
         this.onSampleEnd = null;
         this.onBeat = null;
 
-        if (song) { this.load(song, baseUrl); }
+        if (composition) { this.load(composition, baseUrl); }
         
         // ------------------------------------------------------------------------------------------------
         // Structure and layout
@@ -43,8 +43,8 @@ var DigitalFrontierAS = (function () {
         function prepare(player) {
             sequences = {};
             groups = {};
-            for (let i = 0; i < player.song.sequences.length; i++) {
-                const sequence = player.song.sequences[i];
+            for (let i = 0; i < player.composition.sequences.length; i++) {
+                const sequence = player.composition.sequences[i];
                 sequences[sequence.name] = sequence;
                 for (let j = 0; j < sequence.groups.length; j++) {
                     const group = sequence.groups[j];
@@ -63,12 +63,12 @@ var DigitalFrontierAS = (function () {
             if (context.state != "closed") context.close();
         }
 
-        this.layOutSong = function (song) {
-            var sequences = this.getSequences(song);
+        this.layOutComposition = function (composition) {
+            var sequences = this.getSequences(composition);
 
             var layout = [];
             var insertionPoint = 0.0;
-            var nextSequenceName = this.randomElement(song.start);
+            var nextSequenceName = this.randomElement(composition.start);
             while (nextSequenceName) {
                 var sequence = sequences[nextSequenceName];
                 var revolutions = this.randomNumber(sequence.minRevolutions, sequence.maxRevolutions);
@@ -82,7 +82,7 @@ var DigitalFrontierAS = (function () {
             //return layout;
         };
 
-        // Sort samples and make sure the song starts at time = 0.0
+        // Sort samples and make sure the composition starts at time = 0.0
         this.normalizeLayout = function (layout) {
             layout = layout.sort(function (a,b) {
                 if (a.time < b.time) return -1;
@@ -119,7 +119,7 @@ var DigitalFrontierAS = (function () {
             var revolutions = 0;
             var sequence;
             if (!sequenceName) {
-                sequenceName = this.randomElement(this.song.start);
+                sequenceName = this.randomElement(this.composition.start);
                 if (!sequenceName) return null;
                 sequence = sequences[sequenceName];
                 if (!sequence) return null;
@@ -131,7 +131,7 @@ var DigitalFrontierAS = (function () {
                 sequenceName = this.randomElement(sequence.next);
                 if (!sequenceName) return null;
                 sequence = sequences[sequenceName];
-                if (sequence === null) return null;
+                if (!sequence) throw Error("Could not find sequence '" + sequenceName + "'");
                 revolutions = this.randomNumber(sequence.minRevolutions, sequence.maxRevolutions);
             }
             return {
@@ -164,8 +164,8 @@ var DigitalFrontierAS = (function () {
         // ------------------------------------------------------------------------------------------------
 
 
-        this.load = function (song, baseUrl) {
-            this.song = song;
+        this.load = function (composition, baseUrl) {
+            this.composition = composition;
             this.baseUrl = baseUrl;
             if (!baseUrl) baseUrl = "";
             baseUrl = baseUrl.trim();
@@ -214,8 +214,8 @@ var DigitalFrontierAS = (function () {
         };
         
         this.refresh = function (composition) {
+            if (!this.composition) return;
             this.refreshCompressor(composition.compressor);
-            //refreshGain
             for (let i = 0; i < composition.sequences.length; i++) {
                 const sequence = composition.sequences[i];
                 for (let j = 0; j < sequence.groups.length; j++) {
@@ -234,22 +234,23 @@ var DigitalFrontierAS = (function () {
                 if (gain === undefined) {
                     group.gainNode.gain.value = 1;
                 } else {
-                    window.console.log("Setting gain for " + key + ": " + gain);
                     group.gainNode.gain.value = gain;
                 }
             }
         };
         
         this.refreshCompressor = function (c) {
-            if (!c) c = this.song.compressor;
-            if (c) {
-                compressorNode.threshold.value = (c.threshold === undefined) ? -50 : c.threshold;
-                compressorNode.knee.value = (c.knee === undefined) ? 40 : c.knee;
-                compressorNode.ratio.value = (!c.ratio) ? 12 : c.ratio;
-                compressorNode.attack.value = (c.attack === undefined) ? 0 : c.attack;
-                compressorNode.release.value = (c.release === undefined) ? 0.25 : c.release;
-            } else {
-                compressorNode.ratio.value = 1;
+            if (compressorNode) {
+                if (!c) c = this.composition || this.composition.compressor;
+                if (c) {
+                    compressorNode.threshold.value = (c.threshold === undefined) ? -50 : c.threshold;
+                    compressorNode.knee.value = (c.knee === undefined) ? 40 : c.knee;
+                    compressorNode.ratio.value = (!c.ratio) ? 12 : c.ratio;
+                    compressorNode.attack.value = (c.attack === undefined) ? 0 : c.attack;
+                    compressorNode.release.value = (c.release === undefined) ? 0.25 : c.release;
+                } else {
+                    compressorNode.ratio.value = 1;
+                }
             }
         };
 
@@ -369,7 +370,6 @@ var DigitalFrontierAS = (function () {
             const key = sequenceName + "." + groupName;
             const group = groups[key];
             if (!group.gainNode) {
-                window.console.log("Creating gain node for " + key);
                 group.gainNode = context.createGain();
                 group.gainNode.gain.value = (group.gain === undefined) ? 1.0 : group.gain;
                 group.gainNode.connect(destination);
@@ -406,4 +406,3 @@ var DigitalFrontierAS = (function () {
     };
 	
 })();
-
