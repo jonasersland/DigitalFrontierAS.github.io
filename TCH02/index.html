@@ -6,7 +6,7 @@
 
 var player = new DigitalFrontierAS.Player();
 
-var compositions = ["music/J60_R606_HNRG.json", "music/J60BITALL.json", "music/J60BITALL_6.json", "music/J60BITALL_8.json", "music/J60BITALL_10.json"];
+var compositions = ["music/J60_R606_HNRG.json", "music/J60BITALL.json", "music/J60BITALL_6.json", "music/J60BITALL_8.json", "music/J60BITALL_10.json", "music/STATISK.json"];
 
 player.onEnd = function () {
 	var image = document.getElementById("image");
@@ -46,7 +46,7 @@ function init() {
 }
 
 var playing = false;
-    
+
 function randomElement(array) {
     if (!array) return null;
     if (array.length === 0) return null;
