@@ -1,7 +1,9 @@
 ﻿{
   "name": "J60_R606_NRG_Z",
   "start": [
-    "I-III-IV-VII"
+    "I-III-IV-VII",
+    "ALL",
+    "I-III-IV-VII_Z3"
   ],
   "sequences": [
     {
@@ -11,7 +13,8 @@
       "minRevolutions": 12,
       "numBeats": 8,
       "next": [
-        "I-III-IV-VII_Z3"
+        "I-III-IV-VII_Z3",
+        "VII-I_Z"
       ],
       "groups": [
         {
@@ -286,7 +289,8 @@
       "minRevolutions": 1,
       "numBeats": 8,
       "next": [
-        "VII-I_Z"
+        "VII-I_Z",
+        "ALL"
       ],
       "groups": [
         {
@@ -433,11 +437,12 @@
     {
       "name": "VII-I_Z",
       "bpm": 106,
-      "maxRevolutions": 6,
+      "maxRevolutions": 20,
       "minRevolutions": 1,
       "numBeats": 8,
       "next": [
-        "I-III-IV-VII"
+        "I-III-IV-VII",
+        "ALL"
       ],
       "groups": [
         {
@@ -566,6 +571,30 @@
             "Z501_VII-I_1.wav",
             "Z501_VII-I_2.wav",
             "Z501_VII-I_3.wav"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ALL",
+      "bpm": 106,
+      "maxRevolutions": 24,
+      "minRevolutions": 4,
+      "numBeats": 2,
+      "next": [
+        "I-III-IV-VII",
+        "I-III-IV-VII_Z3"
+      ],
+      "groups": [
+        {
+          "beat": 1,
+          "samples": [
+            "J60BITIII1.wav",
+            "J60BITIII4.wav",
+            "J60BITIII10.wav",
+            "J60BITIV1.wav",
+            "J60BITVII6.wav",
+            "J60BITVII10.wav"
           ]
         }
       ]
