@@ -148,8 +148,37 @@ var DigitalFrontierAS = (function () {
         this.randomElement = function (array) {
             if (!array) return null;
             if (array.length === 0) return null;
-            var index = Math.floor(Math.random() * array.length);
-            return array[index];
+
+            let sumProb = 0;
+            let noProbCount = 0;
+            let randomNumber = Math.random() * 100;
+
+            for (let i = 0; i < array.length; i++) {
+                let element = array[i];
+                if (element.value === undefined) {
+                    element = { value : element };
+                    noProbCount++;
+                    array[i] = element;
+                } else if (element.probability === undefined) {
+                    noProbCount++;
+                } else {
+                    sumProb += element.probability;   
+                }
+            }
+
+            if (sumProb > 100) throw Error("Sum of probability > 100: " + JSON.stringify(array, null, 2));
+            if (sumProb < 100 && noProbCount === 0) throw Error("Sum of probability < 100: " + JSON.stringify(array, null, 2));
+
+            let leftProb = (noProbCount === 0) ? 0.0 : (100.0 - sumProb) / noProbCount;
+            sumProb = 0.0;
+            for (let i = 0; i < array.length; i++) {
+                let element = array[i];
+                if (element.probability === undefined) element.probability = leftProb;
+                sumProb += element.probability;
+                if (randomNumber < sumProb) return element.value;
+            }
+
+            return null;
         };
 
 
