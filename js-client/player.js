@@ -166,8 +166,8 @@ var DigitalFrontierAS = (function () {
                 }
             }
 
-            if (sumProb > 100) throw Error("Sum of probability > 100: " + JSON.stringify(array, null, 2));
-            if (sumProb < 100 && noProbCount === 0) throw Error("Sum of probability < 100: " + JSON.stringify(array, null, 2));
+            if (Math.round(sumProb) > 100) throw Error("Sum of probability > 100: " + JSON.stringify(array, null, 2));
+            if (Math.round(sumProb) < 100 && noProbCount === 0) throw Error("Sum of probability < 100: " + JSON.stringify(array, null, 2));
 
             let leftProb = (noProbCount === 0) ? 0.0 : (100.0 - sumProb) / noProbCount;
             sumProb = 0.0;
