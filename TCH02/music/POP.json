@@ -1,0 +1,169 @@
+﻿{
+  "name": "POP",
+  "start": [
+    "intro"
+  ],
+  "sequences": [
+    {
+      "name": 24,
+      "bpm": 106,
+      "maxRevolutions": 1,
+      "minRevolutions": 5,
+      "numBeats": 24,
+      "next": [
+        ""
+      ],
+      "groups": [
+        {
+          "beat": 1,
+          "samples": [
+            "VC10_Gm1.wav",
+            "VC10_Gm2.wav",
+            "VC10_Gm3.wav",
+            "VC10_Gm4.wav"
+          ]
+        },
+        {
+          "beat": 9,
+          "samples": [
+            "VC10_Gm1.wav",
+            "VC10_Gm2.wav",
+            "VC10_Gm3.wav",
+            "VC10_Gm4.wav"
+          ]
+        },
+        {
+          "beat": 17,
+          "samples": [
+            "VC10_Gm1.wav",
+            "VC10_Gm2.wav",
+            "VC10_Gm3.wav",
+            "VC10_Gm4.wav"
+          ]
+        },
+        {
+          "beat": 5,
+          "samples": [
+            "VC10_Fm1.wav",
+            "VC10_Fm2.wav",
+            "VC10_Fm3.wav",
+            "VC10_Fm4.wav"
+          ]
+        },
+        {
+          "beat": 13,
+          "samples": [
+            "VC10_Fm1.wav",
+            "VC10_Fm2.wav",
+            "VC10_Fm3.wav",
+            "VC10_Fm4.wav"
+          ]
+        },
+        {
+          "beat": 21,
+          "samples": [
+            "VC10_Fm1.wav",
+            "VC10_Fm2.wav",
+            "VC10_Fm3.wav",
+            "VC10_Fm4.wav"
+          ]
+        },
+        {
+          "gain": 2,
+          "beat": 1,
+          "samples": [
+            "V_ADLIB1.wav",
+            "V_ADLIB2.wav",
+            "V_ADLIB3.wav"
+          ]
+        },
+        {
+          "gain": 0.8,
+          "beat": 1,
+          "samples": [
+            "Z_Gm.wav"
+          ]
+        },
+        {
+          "gain": 0.8,
+          "beat": 5,
+          "samples": [
+            "Z_Fm.wav"
+          ]
+        },
+        {
+          "gain": 0.8,
+          "beat": 9,
+          "samples": [
+            "Z_Gm.wav"
+          ]
+        },
+        {
+          "gain": 0.8,
+          "beat": 13,
+          "samples": [
+            "Z_Fm.wav"
+          ]
+        },
+        {
+          "gain": 1,
+          "beat": 17,
+          "samples": [
+            "Z_Gm.wav",
+            {
+              "value": "Z_B.wav",
+              "probability": 75
+            }
+          ]
+        },
+        {
+          "gain": 0.8,
+          "beat": 21,
+          "samples": [
+            "Z_Fm.wav"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "intro",
+      "bpm": 106,
+      "maxRevolutions": 2,
+      "minRevolutions": 1,
+      "numBeats": 8,
+      "next": [
+        24,
+        ""
+      ],
+      "groups": [
+        {
+          "beat": 1,
+          "samples": [
+            "VC10_Gm1.wav",
+            "VC10_Gm2.wav",
+            "VC10_Gm3.wav",
+            "VC10_Gm4.wav"
+          ]
+        },
+        {
+          "beat": 5,
+          "samples": [
+            "VC10_Fm1.wav",
+            "VC10_Fm2.wav",
+            "VC10_Fm3.wav",
+            "VC10_Fm4.wav"
+          ]
+        },
+        {
+          "gain": 2,
+          "beat": 1,
+          "samples": [
+            "V_ADLIB1.wav",
+            "V_ADLIB2.wav",
+            "V_ADLIB3.wav"
+          ]
+        }
+      ]
+    }
+  ]
+}
