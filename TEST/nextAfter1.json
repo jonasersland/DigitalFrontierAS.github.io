@@ -1,0 +1,39 @@
+{
+  "name" : "nextAfter test 1",
+  "start" : ["Intro"],
+  "sequences": [
+    {
+      "name": "Intro",
+      "bpm": 106,
+      "maxRevolutions": 10,
+      "minRevolutions": 10,
+      "numBeats": 4,
+      "next": [
+          "Intro"
+      ],
+      "groups": [
+        {
+          "beat": 1,
+          "samples": [
+            "J60BITI2.wav"
+          ]
+        }
+       ]
+    },
+    {
+        "name": "Done",
+        "bpm": 122,
+        "maxRevolutions" : 1,
+        "minRevolutions" : 1,
+        "numBeats" : 4,
+        "next": [],
+        "nextAfter": 20,
+        "groups" : [
+             {
+             "beat" : 1,
+             "samples" : ["B_HOOK_1.wav"]
+             }
+             ]
+        }
+   ]
+}

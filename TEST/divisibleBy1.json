@@ -1,0 +1,25 @@
+{
+  "name" : "divisibleBy test 1",
+  "start" : ["Intro"],
+  "sequences": [
+    {
+      "name": "Intro",
+      "bpm": 106,
+      "minRevolutions": 2,
+      "maxRevolutions": 6,
+      "divisibleBy": 2,
+      "numBeats": 4,
+      "next": [
+          "Intro"
+      ],
+      "groups": [
+        {
+          "beat": 1,
+          "samples": [
+            "J60BITI2.wav"
+          ]
+        }
+       ]
+    }
+   ]
+}

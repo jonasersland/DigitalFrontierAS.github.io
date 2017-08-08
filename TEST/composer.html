@@ -1,11 +1,11 @@
 <html>
 <head>
 
-    <link href="jsoneditor/jsoneditor.min.css" rel="stylesheet" type="text/css">
-    <script src="jsoneditor/jsoneditor.min.js"></script>
-    <script src="FileSaver/FileSaver.min.js"></script>
+    <link href="/js-client/jsoneditor/jsoneditor.min.css" rel="stylesheet" type="text/css">
+    <script src="/js-client/jsoneditor/jsoneditor.min.js"></script>
+    <script src="/js-client/FileSaver/FileSaver.min.js"></script>
 
-    <script src="player.js" ></script>
+    <script src="/js-client/player.js" ></script>
     <script>
 
     var player = new DigitalFrontierAS.Player();
@@ -179,11 +179,15 @@
 
 <body onload="init()" valign="top">
 
+	<div id="tests">
+		<button type="button" onclick="load('nextAfter1.json', '/TCH02/music/')">nextAfter1</button>
+		<button type="button" onclick="load('divisibleBy1.json', '/TCH02/music/')">divisibleBy1</button>
+	</div>
+
 	<div id="loader">
 		<div id="sourceDiv"><span class="prompt">Source URL:</span> <input type="text" id="sourceUrl" value="/TCH01/music/Side-A_UPDATE.json"></div>
 		<div id="baseUrlDiv"><span class="prompt">Samples base URL:</span> <input type="text" id="baseUrl"></div>
 		<button type="button" onclick="load()">Load</button>
-		<button type="button" onclick="save()">Save</button>
 	</div>
 
 	<div id="controls">

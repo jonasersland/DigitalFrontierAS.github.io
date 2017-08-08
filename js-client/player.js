@@ -8,6 +8,7 @@ var DigitalFrontierAS = (function () {
             startTime = null,
             sequences =  null,
             groups = null,
+            nextAfter = null,
             sampleCache = {},
             duration = 0.0,
             compressorNode,
@@ -16,6 +17,12 @@ var DigitalFrontierAS = (function () {
             LOAD_AHEAD_TIME = 10.0,
 
             TRIGGER_BUFFER = context.createBuffer(1, 1, context.sampleRate);
+        
+        function byTime(a,b) {
+            if (a.time < b.time) return -1;
+            if (a.time > b.time) return 1;
+            return 0;
+        }
 
         this.composition = null;
 
@@ -43,9 +50,13 @@ var DigitalFrontierAS = (function () {
         function prepare(player) {
             sequences = {};
             groups = {};
+            nextAfter = [];
             for (let i = 0; i < player.composition.sequences.length; i++) {
                 const sequence = player.composition.sequences[i];
                 sequences[sequence.name] = sequence;
+                if (sequence.nextAfter) {
+                    nextAfter.push({sequenceName: sequence.name, time: sequence.nextAfter});
+                }
                 for (let j = 0; j < sequence.groups.length; j++) {
                     const group = sequence.groups[j];
                     if (!group.name) group.name = "" + j;
@@ -53,7 +64,9 @@ var DigitalFrontierAS = (function () {
                     groups[key] = group;
                 }
             }
+            nextAfter = nextAfter.sort(byTime).reverse();
         }
+
         
         function tearDown(player) {
             Object.keys(groups).forEach(function (key) {
@@ -63,42 +76,7 @@ var DigitalFrontierAS = (function () {
             if (context.state != "closed") context.close();
         }
 
-        this.layOutComposition = function (composition) {
-            var sequences = this.getSequences(composition);
-
-            var layout = [];
-            var insertionPoint = 0.0;
-            var nextSequenceName = this.randomElement(composition.start);
-            while (nextSequenceName) {
-                var sequence = sequences[nextSequenceName];
-                var revolutions = this.randomNumber(sequence.minRevolutions, sequence.maxRevolutions);
-                for (var i = 0; i < revolutions; i++) {
-                    layout = this.layOutSequence(sequence, layout, insertionPoint);
-                    insertionPoint += sequence.numBeats * 60 / sequence.bpm;
-                }
-                nextSequenceName = this.randomElement(sequence.next);
-            }
-            return this.normalizeLayout(layout);
-            //return layout;
-        };
-
-        // Sort samples and make sure the composition starts at time = 0.0
-        this.normalizeLayout = function (layout) {
-            layout = layout.sort(function (a,b) {
-                if (a.time < b.time) return -1;
-                if (a.time > b.time) return 1;
-                return 0;
-            });
-            if (layout.length > 0) {
-                const offset = layout[0].time;
-                for (var i = 0; i < layout.length; i++) {
-                    layout[i].time -= offset;
-                }
-            }
-            return layout;
-        };
-
-
+        
         this.layOutSequence = function (sequence, layout, insertionPoint) {
             if (!layout) layout = [];
             if (!insertionPoint) insertionPoint = 0.0;
@@ -108,32 +86,43 @@ var DigitalFrontierAS = (function () {
                     time: insertionPoint + (group.beat-1) * 60 / sequence.bpm,
                     sequence: sequence,
                     group: group,
-                    sample: this.randomElement(group.samples)
+                    sample: randomElement(group.samples)
                 });
             }
             return layout;
         };
 
 
-        this._nextLoop = function (sequenceName) {
-            var revolutions = 0;
-            var sequence;
-            if (!sequenceName) {
-                sequenceName = this.randomElement(this.composition.start);
-                if (!sequenceName) return null;
-                sequence = sequences[sequenceName];
-                if (!sequence) return null;
-                revolutions = this.randomNumber(sequence.minRevolutions, sequence.maxRevolutions);
-            } else {
-                sequence = sequences[sequenceName];
-            }
-            while (revolutions === 0) {
-                sequenceName = this.randomElement(sequence.next);
+        this._nextLoop = function (offset, sequenceName) {
+            if (!offset) offset = 0;
+            let revolutions = 0;
+            let sequence;
+            do {
+                if (nextAfter.length > 0 && nextAfter[nextAfter.length-1].time <= offset) {
+                    sequenceName = nextAfter.pop().sequenceName;
+                } else if (!sequenceName) {
+                    sequenceName = randomElement(this.composition.start);
+                } else {
+                    if (!sequence) sequence = sequences[sequenceName];
+                    if (!sequence) throw Error("Could not find sequence '" + sequenceName + "'");
+                    sequenceName = randomElement(sequence.next);
+                }
                 if (!sequenceName) return null;
                 sequence = sequences[sequenceName];
                 if (!sequence) throw Error("Could not find sequence '" + sequenceName + "'");
-                revolutions = this.randomNumber(sequence.minRevolutions, sequence.maxRevolutions);
-            }
+                
+                let nextAfterTime = nextAfter.length > 0 ? nextAfter[nextAfter.length-1].time - offset : Infinity;
+                let divisibleBy = sequence.divisibleBy ? sequence.divisibleBy : 1;
+                if (nextAfterTime <= 0.0) {
+                    revolutions = divisibleBy;
+                } else {
+                    let sequenceLength = 60 * sequence.numBeats / sequence.bpm;
+                    let maxFromNextAfterTime = (Math.floor(nextAfterTime / sequenceLength) + 1) * divisibleBy;
+                    revolutions = randomNumber(sequence.minRevolutions, sequence.maxRevolutions, divisibleBy);
+                    revolutions = Math.min(revolutions, maxFromNextAfterTime);
+                }
+            } while (revolutions === 0);
+            
             return {
                 sequenceName: sequenceName,
                 revolutions: revolutions
@@ -145,7 +134,7 @@ var DigitalFrontierAS = (function () {
         // Utilities
         // ------------------------------------------------------------------------------------------------
 
-        this.randomElement = function (array) {
+        function randomElement (array) {
             if (!array) return null;
             if (array.length === 0) return null;
 
@@ -179,12 +168,13 @@ var DigitalFrontierAS = (function () {
             }
 
             return array[array.length-1];
-        };
+        }
 
 
-        this.randomNumber = function (fromInclusive, toInclusive) {
-            return fromInclusive + Math.floor(Math.random() * (toInclusive - fromInclusive + 1));
-        };
+        function randomNumber(fromInclusive, toInclusive, divisibleBy) {
+            if (!divisibleBy) divisibleBy = 1;
+            return fromInclusive + Math.floor(Math.random() * (toInclusive - fromInclusive + divisibleBy) / divisibleBy) * divisibleBy;
+        }
 
 
 
@@ -289,7 +279,7 @@ var DigitalFrontierAS = (function () {
         // ------------------------------------------------------------------------------------------------
 
         this._scheduleLoop = function (offset, loop, counter) {
-            if (!loop) loop = this._nextLoop();
+            if (!loop) loop = this._nextLoop(offset);
             if (!loop) {
                 this._finish();
                 return;
@@ -324,7 +314,7 @@ var DigitalFrontierAS = (function () {
         this._scheduleNextLoop = function (offset, sequence, loop, counter) {
             counter++;
             if (counter == loop.revolutions) {
-                loop = this._nextLoop(sequence.name);
+                loop = this._nextLoop(offset, sequence.name);
                 counter = 0;
             }
             var player = this;
