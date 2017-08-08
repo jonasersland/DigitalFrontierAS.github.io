@@ -11,8 +11,8 @@
     {
       "name": "VII6",
       "bpm": 106,
-      "maxRevolutions": 636,
-      "minRevolutions": 25,
+      "maxRevolutions": 50,
+      "minRevolutions": 4,
       "numBeats": 2,
       "next": [
         "III2",
@@ -74,8 +74,8 @@
     {
       "name": "III2",
       "bpm": 106,
-      "maxRevolutions": 636,
-      "minRevolutions": 25,
+      "maxRevolutions": 50,
+      "minRevolutions": 4,
       "numBeats": 2,
       "next": [
         "VII6",
@@ -137,8 +137,8 @@
     {
       "name": "III4",
       "bpm": 106,
-      "maxRevolutions": 636,
-      "minRevolutions": 25,
+      "maxRevolutions": 50,
+      "minRevolutions": 4,
       "numBeats": 2,
       "next": [
         "VII6",
@@ -200,8 +200,8 @@
     {
       "name": "IV1",
       "bpm": 106,
-      "maxRevolutions": 636,
-      "minRevolutions": 25,
+      "maxRevolutions": 50,
+      "minRevolutions": 4,
       "numBeats": 2,
       "next": [
         "VII6",
@@ -263,8 +263,8 @@
     {
       "name": "IV2",
       "bpm": 106,
-      "maxRevolutions": 636,
-      "minRevolutions": 25,
+      "maxRevolutions": 50,
+      "minRevolutions": 4,
       "numBeats": 2,
       "next": [
         "VII6",

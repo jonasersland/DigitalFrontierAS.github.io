@@ -33,6 +33,16 @@
         {
           "beat": 1,
           "samples": [
+            "J60BITI1.wav",
+            {
+              "value": "S.wav",
+              "probability": 10
+            }
+          ]
+        },
+        {
+          "beat": 1,
+          "samples": [
             {
               "value": "P_X.wav",
               "probability": 20
@@ -70,6 +80,16 @@
             {
               "value": "S.wav",
               "probability": 50
+            }
+          ]
+        },
+        {
+          "beat": 9,
+          "samples": [
+            "J60BITI1.wav",
+            {
+              "value": "S.wav",
+              "probability": 10
             }
           ]
         },
@@ -123,8 +143,21 @@
               "value": "VC10_8_2.wav",
               "probability": 10
             },
-            "VC10_8_3.wav",
-            "S.wav"
+            {
+              "value": "S.wav",
+              "probability": 75
+            },
+            "VC10_8_3.wav"
+          ]
+        },
+        {
+          "beat": 1,
+          "samples": [
+            "J60BITI1.wav",
+            {
+              "value": "S.wav",
+              "probability": 10
+            }
           ]
         },
         {
@@ -240,6 +273,17 @@
       ],
       "groups": [
         {
+          "gain": 0.8,
+          "beat": 1,
+          "samples": [
+            "J60BITI1.wav",
+            {
+              "value": "S.wav",
+              "probability": 10
+            }
+          ]
+        },
+        {
           "gain": 1,
           "beat": 1,
           "samples": [
@@ -253,6 +297,31 @@
           "samples": [
             "VC10_12_1.wav",
             "S.wav"
+          ]
+        },
+        {
+          "gain": 0.8,
+          "beat": 5,
+          "samples": [
+            "J60BITI1.wav",
+            "J60BITIII4.wav",
+            "J60BITVII6.wav",
+            "J60BITVII10.wav",
+            {
+              "value": "S.wav",
+              "probability": 10
+            }
+          ]
+        },
+        {
+          "beat": 9,
+          "samples": [
+            "J60BITI1.wav",
+            "J60BITIV1.wav",
+            {
+              "value": "S.wav",
+              "probability": 10
+            }
           ]
         }
       ]
@@ -284,14 +353,22 @@
           "samples": [
             "S.wav",
             {
-              "value": "P_X.wav",
-              "probability": 40
+              "value": "J60BITI1.wav",
+              "probability": 90
             }
           ]
         },
         {
-          "gain": 7,
-          "beat": 1,
+          "gain": 1,
+          "beat": 7,
+          "samples": [
+            "J60BITI1.wav",
+            "S.wav"
+          ]
+        },
+        {
+          "gain": 1,
+          "beat": 13,
           "samples": [
             "S.wav",
             {
@@ -342,6 +419,29 @@
             "VC10_6_3.wav",
             "VC10_6_X.wav",
             "VC10_6_X2.wav"
+          ]
+        },
+        {
+          "beat": 15,
+          "samples": [
+            "J60BITI1.wav",
+            "J60BITIII4.wav",
+            {
+              "value": "S.wav",
+              "probability": 10
+            }
+          ]
+        },
+        {
+          "beat": 17,
+          "samples": [
+            "J60BITI1.wav",
+            "J60BITVII6.wav",
+            "J60BITVII10.wav",
+            {
+              "value": "S.wav",
+              "probability": 10
+            }
           ]
         }
       ]
