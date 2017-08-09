@@ -261,6 +261,26 @@
       ]
     },
     {
+      "name": "END",
+      "bpm": 106,
+      "maxRevolutions": 1,
+      "minRevolutions": 1,
+      "numBeats": 4,
+      "nextAfter": 180,
+      "next": [
+        ""
+      ],
+      "groups": [
+        {
+          "gain": 1,
+          "beat": 1,
+          "samples": [
+            "S.wav"
+          ]
+        }
+      ]
+    },
+    {
       "name": "IV2",
       "bpm": 106,
       "maxRevolutions": 50,

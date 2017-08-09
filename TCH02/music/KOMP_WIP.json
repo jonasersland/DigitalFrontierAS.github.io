@@ -10,8 +10,9 @@
     {
       "name": "8+6",
       "bpm": 106,
-      "maxRevolutions": 2,
+      "maxRevolutions": 8,
       "minRevolutions": 2,
+      "divisibleBy": 2,
       "numBeats": 14,
       "next": [
         12
@@ -128,7 +129,8 @@
     {
       "name": "PIANO",
       "bpm": 106,
-      "maxRevolutions": 2,
+      "maxRevolutions": 8,
+      "divisibleBy": 2,
       "minRevolutions": 2,
       "numBeats": 14,
       "next": [
@@ -331,7 +333,7 @@
       "bpm": 106,
       "maxRevolutions": 1,
       "minRevolutions": 1,
-      "numBeats": 18,
+      "numBeats": 16,
       "next": [
         "8 BREAK"
       ],
@@ -454,8 +456,7 @@
       "numBeats": 8,
       "next": [
         "PIANO",
-        "8+6",
-        "END"
+        "8+6"
       ],
       "groups": [
         {
@@ -477,6 +478,7 @@
       "maxRevolutions": 1,
       "minRevolutions": 1,
       "numBeats": 4,
+      "nextAfter": 120,
       "next": [
         ""
       ],
