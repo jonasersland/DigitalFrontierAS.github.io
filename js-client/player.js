@@ -80,13 +80,15 @@ var DigitalFrontierAS = (function () {
         this.layOutSequence = function (sequence, layout, insertionPoint) {
             if (!layout) layout = [];
             if (!insertionPoint) insertionPoint = 0.0;
-            for (var i = 0; i < sequence.groups.length; i++) {
-                var group = sequence.groups[i];
+            for (let i = 0; i < sequence.groups.length; i++) {
+                let group = sequence.groups[i];
+                let beat = group.beat;
+                if (beat > 0) beat--;
                 layout.push({
-                    time: insertionPoint + (group.beat-1) * 60 / sequence.bpm,
+                    time:     insertionPoint + beat * 60 / sequence.bpm,
                     sequence: sequence,
-                    group: group,
-                    sample: randomElement(group.samples)
+                    group:    group,
+                    sample:   randomElement(group.samples)
                 });
             }
             return layout;
