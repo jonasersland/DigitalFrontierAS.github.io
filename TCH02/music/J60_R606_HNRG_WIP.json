@@ -1,13 +1,59 @@
 ﻿{
+  "compressor": {
+    "threshold": -30,
+    "knee": 30,
+    "ratio": 17,
+    "attack": 0.01,
+    "release": 0.25
+  },
   "name": "J60_R606_NRG",
   "start": [
+    "INTRO 1",
     "R606_VC10",
     "8 CS",
     "8 Z501 CS",
     "R606",
-    "R606 VII-I CS"
+    "R606 VII-I CS",
+    "PIANOBEAT",
+    12,
+    "6+6+6",
+    {
+      "value": "6+6+6 BEAT",
+      "probability": 10
+    }
   ],
   "sequences": [
+    {
+      "name": "INTRO 1",
+      "bpm": 106,
+      "maxRevolutions": 8,
+      "minRevolutions": 1,
+      "numBeats": 8,
+      "next": [
+        "R606 VII-I",
+        "R606 VII-I CS",
+        "R606",
+        "6+6+6"
+      ],
+      "groups": [
+        {
+          "gain": 0.5,
+          "beat": 1,
+          "samples": [
+            "P_X.wav",
+            "A4_6_X.wav"
+          ]
+        },
+        {
+          "gain": 1,
+          "beat": 1,
+          "samples": [
+            "VC10_8_X.wav",
+            "VC10_8_X2.wav"
+          ]
+        }
+      ]
+    },
     {
       "name": "R606",
       "bpm": 106,
@@ -16,9 +62,10 @@
       "divisibleBy": 2,
       "numBeats": 2,
       "next": [
-        8,
         "8 CS",
-        "R606_VC10"
+        "R606_VC10",
+        "8 Z501 CS",
+        "R606 VII-I CS"
       ],
       "groups": [
         {
@@ -47,13 +94,15 @@
     {
       "name": 8,
       "bpm": 106,
-      "maxRevolutions": 16,
+      "maxRevolutions": 12,
       "minRevolutions": 4,
       "divisibleBy": 4,
       "numBeats": 8,
       "next": [
         "P_4",
-        "R606_VC10"
+        "8 CS",
+        "R606_VC10",
+        12
       ],
       "groups": [
         {
@@ -234,6 +283,93 @@
       ]
     },
     {
+      "name": "8_1R",
+      "bpm": 106,
+      "maxRevolutions": 1,
+      "minRevolutions": 1,
+      "divisibleBy": 1,
+      "numBeats": 8,
+      "next": [
+        "R606_VC10",
+        8,
+        "8 CS",
+        "INTRO 1"
+      ],
+      "groups": [
+        {
+          "gain": 1.5,
+          "beat": 1,
+          "samples": [
+            "VC10_6_X2.wav",
+            "VC10_8_1.wav",
+            "VC10_8_2.wav",
+            "VC10_8_3.wav",
+            "VC10_8_X.wav",
+            "VC10_8_X2.wav"
+          ]
+        },
+        {
+          "beat": 7,
+          "samples": [
+            "J60BITVII1.wav",
+            "J60BITVII2.wav",
+            "J60BITVII3.wav",
+            "J60BITVII4.wav",
+            "J60BITVII5.wav",
+            "J60BITVII6.wav",
+            "J60BITVII7.wav",
+            "J60BITVII8.wav",
+            "J60BITVII9.wav",
+            "J60BITVII10.wav",
+            {
+              "value": "S.wav",
+              "probability": 50
+            }
+          ]
+        },
+        {
+          "gain": 2,
+          "beat": 1,
+          "samples": [
+            "R606_7.wav",
+            "R606_8.wav",
+            "R606_10.wav",
+            "R606_13.wav"
+          ]
+        },
+        {
+          "gain": 2,
+          "beat": 3,
+          "samples": [
+            "R606_7.wav",
+            "R606_8.wav",
+            "R606_10.wav",
+            "R606_13.wav"
+          ]
+        },
+        {
+          "gain": 2,
+          "beat": 5,
+          "samples": [
+            "R606_7.wav",
+            "R606_8.wav",
+            "R606_10.wav",
+            "R606_13.wav"
+          ]
+        },
+        {
+          "gain": 2,
+          "beat": 7,
+          "samples": [
+            "R606_7.wav",
+            "R606_8.wav",
+            "R606_10.wav",
+            "R606_13.wav"
+          ]
+        }
+      ]
+    },
+    {
       "name": "8 CS",
       "bpm": 106,
       "maxRevolutions": 16,
@@ -242,7 +378,7 @@
       "numBeats": 8,
       "next": [
         "P_4",
-        "R606_VC10"
+        12
       ],
       "groups": [
         {
@@ -284,7 +420,7 @@
           "samples": [
             {
               "value": "J60BITI1.wav",
-              "probability": 40
+              "probability": 20
             },
             "J60BITI2.wav",
             "J60BITI3.wav",
@@ -295,10 +431,13 @@
             "J60BITI8.wav",
             {
               "value": "J60BITI9.wav",
-              "probability": 40
+              "probability": 20
             },
             "J60BITI10.wav",
-            "S.wav"
+            {
+              "value": "S.wav",
+              "probability": 40
+            }
           ]
         },
         {
@@ -435,16 +574,16 @@
     {
       "name": "R606_VC10",
       "bpm": 106,
-      "maxRevolutions": 8,
+      "maxRevolutions": 6,
       "minRevolutions": 2,
       "divisibleBy": 2,
       "numBeats": 8,
       "next": [
         "8 Z501",
-        "8 Z501 CS",
         8,
         "8 CS",
-        24
+        24,
+        12
       ],
       "groups": [
         {
@@ -731,7 +870,10 @@
       "numBeats": 8,
       "next": [
         "8 CS",
-        "8 Z501 VII-I CS"
+        "8 Z501 VII-I CS",
+        "8 Z501 VII-I CS",
+        "6+6+6 BEAT",
+        "R606"
       ],
       "groups": [
         {
@@ -913,6 +1055,454 @@
       ]
     },
     {
+      "name": "6+6+6",
+      "bpm": 106,
+      "maxRevolutions": 1,
+      "minRevolutions": 1,
+      "numBeats": 18,
+      "next": [
+        "8_1R"
+      ],
+      "groups": [
+        {
+          "gain": 1,
+          "beat": 1,
+          "samples": [
+            "B_HOOK_1.wav",
+            {
+              "value": "S.wav",
+              "probability": 65
+            }
+          ]
+        },
+        {
+          "gain": 1,
+          "beat": 1,
+          "samples": [
+            "S.wav",
+            {
+              "value": "J60BITI1.wav",
+              "probability": 90
+            }
+          ]
+        },
+        {
+          "gain": 1,
+          "beat": 7,
+          "samples": [
+            "J60BITI1.wav",
+            "S.wav"
+          ]
+        },
+        {
+          "gain": 1,
+          "beat": 13,
+          "samples": [
+            "S.wav",
+            {
+              "value": "P_X.wav",
+              "probability": 40
+            }
+          ]
+        },
+        {
+          "gain": 1,
+          "beat": 13,
+          "samples": [
+            "S.wav",
+            {
+              "value": "P_X.wav",
+              "probability": 40
+            }
+          ]
+        },
+        {
+          "gain": 1,
+          "beat": 1,
+          "samples": [
+            "A4_6_1.wav",
+            "A4_6_2.wav",
+            "A4_6_3.wav"
+          ]
+        },
+        {
+          "gain": 1,
+          "beat": 7,
+          "samples": [
+            "A4_6_1.wav",
+            "A4_6_2.wav",
+            "A4_6_3.wav"
+          ]
+        },
+        {
+          "gain": 1,
+          "beat": 13,
+          "samples": [
+            "A4_6_1.wav",
+            "A4_6_2.wav",
+            "A4_6_3.wav",
+            "A4_6_3.wav",
+            "VC10_6_1.wav",
+            "VC10_6_2.wav",
+            "VC10_6_3.wav",
+            "VC10_6_X.wav",
+            "VC10_6_X2.wav"
+          ]
+        },
+        {
+          "beat": 15,
+          "samples": [
+            "J60BITI1.wav",
+            "J60BITIII4.wav",
+            {
+              "value": "S.wav",
+              "probability": 10
+            }
+          ]
+        },
+        {
+          "beat": 17,
+          "samples": [
+            "J60BITI1.wav",
+            "J60BITVII6.wav",
+            "J60BITVII10.wav",
+            {
+              "value": "S.wav",
+              "probability": 10
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "6+6+6 BEAT",
+      "bpm": 106,
+      "maxRevolutions": 1,
+      "minRevolutions": 1,
+      "numBeats": 18,
+      "next": [
+        "8_1R",
+        "R606"
+      ],
+      "groups": [
+        {
+          "gain": 1,
+          "beat": 1,
+          "samples": [
+            "B_HOOK_1.wav",
+            {
+              "value": "S.wav",
+              "probability": 65
+            }
+          ]
+        },
+        {
+          "gain": 1,
+          "beat": 1,
+          "samples": [
+            "S.wav",
+            {
+              "value": "J60BITI1.wav",
+              "probability": 90
+            }
+          ]
+        },
+        {
+          "gain": 1,
+          "beat": 7,
+          "samples": [
+            "J60BITI1.wav",
+            "S.wav"
+          ]
+        },
+        {
+          "gain": 1,
+          "beat": 13,
+          "samples": [
+            "S.wav",
+            {
+              "value": "P_X.wav",
+              "probability": 40
+            }
+          ]
+        },
+        {
+          "gain": 1,
+          "beat": 13,
+          "samples": [
+            "S.wav",
+            {
+              "value": "P_X.wav",
+              "probability": 40
+            }
+          ]
+        },
+        {
+          "gain": 1,
+          "beat": 1,
+          "samples": [
+            "A4_6_1.wav",
+            "A4_6_2.wav",
+            "A4_6_3.wav"
+          ]
+        },
+        {
+          "gain": 1,
+          "beat": 7,
+          "samples": [
+            "A4_6_1.wav",
+            "A4_6_2.wav",
+            "A4_6_3.wav"
+          ]
+        },
+        {
+          "gain": 1,
+          "beat": 13,
+          "samples": [
+            "A4_6_1.wav",
+            "A4_6_2.wav",
+            "A4_6_3.wav",
+            "A4_6_3.wav",
+            "VC10_6_1.wav",
+            "VC10_6_2.wav",
+            "VC10_6_3.wav",
+            "VC10_6_X.wav",
+            "VC10_6_X2.wav"
+          ]
+        },
+        {
+          "beat": 15,
+          "samples": [
+            "J60BITI1.wav",
+            "J60BITIII4.wav",
+            {
+              "value": "S.wav",
+              "probability": 10
+            }
+          ]
+        },
+        {
+          "gain": 2,
+          "beat": 1,
+          "samples": [
+            {
+              "value": "R606_1.wav",
+              "probability": 40
+            },
+            "R606_2.wav",
+            {
+              "value": "R606_3.wav",
+              "probability": 40
+            },
+            "R606_4.wav",
+            "R606_5.wav",
+            "R606_6.wav",
+            "R606_7.wav",
+            "R606_8.wav",
+            "R606_9.wav",
+            "R606_10.wav",
+            "R606_11.wav",
+            "R606_12.wav",
+            "R606_13.wav",
+            "R606_14.wav",
+            "R606_15.wav"
+          ]
+        },
+        {
+          "gain": 2,
+          "beat": 3,
+          "samples": [
+            "R606_1.wav",
+            "R606_2.wav",
+            "R606_3.wav",
+            "R606_4.wav",
+            "R606_5.wav",
+            "R606_6.wav",
+            "R606_7.wav",
+            "R606_8.wav",
+            "R606_9.wav",
+            "R606_10.wav",
+            "R606_11.wav",
+            "R606_12.wav",
+            "R606_13.wav",
+            "R606_14.wav",
+            "R606_15.wav"
+          ]
+        },
+        {
+          "gain": 2,
+          "beat": 5,
+          "samples": [
+            "R606_1.wav",
+            "R606_2.wav",
+            "R606_3.wav",
+            "R606_4.wav",
+            "R606_5.wav",
+            "R606_6.wav",
+            "R606_7.wav",
+            "R606_8.wav",
+            "R606_9.wav",
+            "R606_10.wav",
+            "R606_11.wav",
+            "R606_12.wav",
+            "R606_13.wav",
+            "R606_14.wav",
+            "R606_15.wav"
+          ]
+        },
+        {
+          "gain": 2,
+          "beat": 7,
+          "samples": [
+            {
+              "value": "R606_1.wav",
+              "probability": 40
+            },
+            "R606_2.wav",
+            {
+              "value": "R606_3.wav",
+              "probability": 40
+            },
+            "R606_4.wav",
+            "R606_5.wav",
+            "R606_6.wav",
+            "R606_7.wav",
+            "R606_8.wav",
+            "R606_9.wav",
+            "R606_10.wav",
+            "R606_11.wav",
+            "R606_12.wav",
+            "R606_13.wav",
+            "R606_14.wav",
+            "R606_15.wav"
+          ]
+        },
+        {
+          "gain": 2,
+          "beat": 9,
+          "samples": [
+            "R606_1.wav",
+            "R606_2.wav",
+            "R606_3.wav",
+            "R606_4.wav",
+            "R606_5.wav",
+            "R606_6.wav",
+            "R606_7.wav",
+            "R606_8.wav",
+            "R606_9.wav",
+            "R606_10.wav",
+            "R606_11.wav",
+            "R606_12.wav",
+            "R606_13.wav",
+            "R606_14.wav",
+            "R606_15.wav"
+          ]
+        },
+        {
+          "gain": 2,
+          "beat": 11,
+          "samples": [
+            "R606_1.wav",
+            "R606_2.wav",
+            "R606_3.wav",
+            "R606_4.wav",
+            "R606_5.wav",
+            "R606_6.wav",
+            "R606_7.wav",
+            "R606_8.wav",
+            "R606_9.wav",
+            "R606_10.wav",
+            "R606_11.wav",
+            "R606_12.wav",
+            "R606_13.wav",
+            "R606_14.wav",
+            "R606_15.wav"
+          ]
+        },
+        {
+          "gain": 2,
+          "beat": 13,
+          "samples": [
+            {
+              "value": "R606_1.wav",
+              "probability": 40
+            },
+            "R606_2.wav",
+            {
+              "value": "R606_3.wav",
+              "probability": 40
+            },
+            "R606_4.wav",
+            "R606_5.wav",
+            "R606_6.wav",
+            "R606_7.wav",
+            "R606_8.wav",
+            "R606_9.wav",
+            "R606_10.wav",
+            "R606_11.wav",
+            "R606_12.wav",
+            "R606_13.wav",
+            "R606_14.wav",
+            "R606_15.wav"
+          ]
+        },
+        {
+          "gain": 2,
+          "beat": 15,
+          "samples": [
+            "R606_1.wav",
+            "R606_2.wav",
+            "R606_3.wav",
+            "R606_4.wav",
+            "R606_5.wav",
+            "R606_6.wav",
+            "R606_7.wav",
+            "R606_8.wav",
+            "R606_9.wav",
+            "R606_10.wav",
+            "R606_11.wav",
+            "R606_12.wav",
+            "R606_13.wav",
+            "R606_14.wav",
+            "R606_15.wav"
+          ]
+        },
+        {
+          "gain": 2,
+          "beat": 17,
+          "samples": [
+            "R606_1.wav",
+            "R606_2.wav",
+            "R606_3.wav",
+            "R606_4.wav",
+            "R606_5.wav",
+            "R606_6.wav",
+            "R606_7.wav",
+            "R606_8.wav",
+            "R606_9.wav",
+            "R606_10.wav",
+            "R606_11.wav",
+            "R606_12.wav",
+            "R606_13.wav",
+            "R606_14.wav",
+            "R606_15.wav"
+          ]
+        },
+        {
+          "beat": 17,
+          "samples": [
+            "J60BITI1.wav",
+            "J60BITVII6.wav",
+            "J60BITVII10.wav",
+            {
+              "value": "S.wav",
+              "probability": 10
+            }
+          ]
+        }
+      ]
+    },
+    {
       "name": "R606 VII-I",
       "bpm": 106,
       "maxRevolutions": 16,
@@ -1024,9 +1614,9 @@
     {
       "name": "R606 VII-I CS",
       "bpm": 106,
-      "maxRevolutions": 8,
+      "maxRevolutions": 2,
       "minRevolutions": 2,
-      "divisibleBy": 1,
+      "divisibleBy": 2,
       "numBeats": 16,
       "next": [
         "8 CS",
@@ -1056,7 +1646,10 @@
           "gain": 0.5,
           "beat": 1,
           "samples": [
-            "CS_8C_1.wav",
+            {
+              "value": "CS_8C_1.wav",
+              "probability": 80
+            },
             "CS_8C_2.wav"
           ]
         },
@@ -1064,10 +1657,12 @@
           "gain": 0.5,
           "beat": 9,
           "samples": [
+            {
+              "value": "CS_8C_1.wav",
+              "probability": 60
+            },
             "CS_8C_1.wav",
-            "CS_8C_2.wav",
-            "CS_8C_3.wav",
-            "CS_8C_4.wav"
+            "CS_8C_2.wav"
           ]
         },
         {
@@ -1277,17 +1872,17 @@
               "value": "J60BITI1.wav",
               "probability": 40
             },
-            "J60BITI2.wav",
-            "J60BITI3.wav",
-            "J60BITI5.wav",
-            "J60BITI6.wav",
-            "J60BITI7.wav",
-            "J60BITI8.wav",
+            "J60BITIII2.wav",
+            "J60BITIII3.wav",
+            "J60BITIII5.wav",
+            "J60BITIII6.wav",
+            "J60BITIII7.wav",
+            "J60BITIII8.wav",
             {
               "value": "J60BITI9.wav",
               "probability": 40
             },
-            "J60BITI10.wav",
+            "J60BITIII10.wav",
             "S.wav"
           ]
         },
@@ -1317,22 +1912,22 @@
           "gain": 0.5,
           "beat": 5,
           "samples": [
-            "J60BITIV1.wav",
-            "J60BITIV2.wav",
-            "J60BITIV3.wav",
-            "J60BITIV4.wav",
-            "J60BITIV5.wav",
-            "J60BITIV6.wav",
+            "J60BITIII1.wav",
+            "J60BITIII2.wav",
+            "J60BITIII3.wav",
+            "J60BITIII4.wav",
+            "J60BITIII5.wav",
+            "J60BITIII6.wav",
             {
-              "value": "J60BITIV7.wav",
+              "value": "J60BITIII7.wav",
               "probability": 40
             },
-            "J60BITIV8.wav",
+            "J60BITIII8.wav",
             {
-              "value": "J60BITIV9.wav",
+              "value": "J60BITIII9.wav",
               "probability": 40
             },
-            "J60BITIV10.wav"
+            "J60BITIII10.wav"
           ]
         },
         {
@@ -1428,12 +2023,14 @@
       "minRevolutions": 2,
       "numBeats": 8,
       "next": [
-        8
+        24,
+        "R606_VC10",
+        "R606"
       ],
       "groups": [
         {
           "gain": 0.45,
-          "beat": 7,
+          "beat": -2,
           "samples": [
             "Z501_VII-I_1.wav",
             "Z501_VII-I_2.wav",
@@ -1449,9 +2046,7 @@
           "beat": 1,
           "samples": [
             "CS_8C_1.wav",
-            "CS_8C_2.wav",
-            "CS_8C_3.wav",
-            "CS_8C_4.wav"
+            "CS_8C_2.wav"
           ]
         },
         {
@@ -1462,17 +2057,17 @@
               "value": "J60BITI1.wav",
               "probability": 40
             },
-            "J60BITI2.wav",
-            "J60BITI3.wav",
-            "J60BITI5.wav",
-            "J60BITI6.wav",
-            "J60BITI7.wav",
-            "J60BITI8.wav",
+            "J60BITIII2.wav",
+            "J60BITIII3.wav",
+            "J60BITIII5.wav",
+            "J60BITIII6.wav",
+            "J60BITIII7.wav",
+            "J60BITIII8.wav",
             {
-              "value": "J60BITI9.wav",
+              "value": "J60BITIII9.wav",
               "probability": 40
             },
-            "J60BITI10.wav",
+            "J60BITIII10.wav",
             "S.wav"
           ]
         },
@@ -1502,22 +2097,22 @@
           "gain": 0.5,
           "beat": 5,
           "samples": [
-            "J60BITIV1.wav",
-            "J60BITIV2.wav",
-            "J60BITIV3.wav",
-            "J60BITIV4.wav",
-            "J60BITIV5.wav",
-            "J60BITIV6.wav",
+            "J60BITIII1.wav",
+            "J60BITIII2.wav",
+            "J60BITIII3.wav",
+            "J60BITIII4.wav",
+            "J60BITIII5.wav",
+            "J60BITIII6.wav",
             {
               "value": "J60BITIV7.wav",
               "probability": 40
             },
-            "J60BITIV8.wav",
+            "J60BITIII8.wav",
             {
               "value": "J60BITIV9.wav",
               "probability": 40
             },
-            "J60BITIV10.wav"
+            "J60BITIII10.wav"
           ]
         },
         {
@@ -1607,9 +2202,305 @@
       ]
     },
     {
+      "name": 12,
+      "bpm": 106,
+      "maxRevolutions": 1,
+      "minRevolutions": 1,
+      "numBeats": 12,
+      "next": [
+        "PIANO",
+        "PIANOBEAT",
+        "8 CS",
+        8,
+        "6+6+6 BEAT",
+        "6+6+6"
+      ],
+      "groups": [
+        {
+          "gain": 0.75,
+          "beat": 1,
+          "samples": [
+            "J60BITI1.wav",
+            {
+              "value": "S.wav",
+              "probability": 10
+            }
+          ]
+        },
+        {
+          "gain": 1,
+          "beat": 1,
+          "samples": [
+            "A4_12_1.wav",
+            "Z_12_1.wav"
+          ]
+        },
+        {
+          "gain": 1.25,
+          "beat": 1,
+          "samples": [
+            "VC10_12_1.wav",
+            "S.wav"
+          ]
+        },
+        {
+          "gain": 0.5,
+          "beat": 1,
+          "samples": [
+            "CS_12_1.wav",
+            "CS_12_3.wav",
+            "S.wav"
+          ]
+        },
+        {
+          "gain": 0.75,
+          "beat": 5,
+          "samples": [
+            "J60BITI1.wav",
+            "J60BITIII4.wav",
+            "J60BITVII6.wav",
+            "J60BITVII10.wav",
+            {
+              "value": "S.wav",
+              "probability": 10
+            }
+          ]
+        },
+        {
+          "gain": 0.8,
+          "beat": 9,
+          "samples": [
+            "J60BITI1.wav",
+            "J60BITIV1.wav",
+            {
+              "value": "S.wav",
+              "probability": 10
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "12 BEAT",
+      "bpm": 106,
+      "maxRevolutions": 1,
+      "minRevolutions": 1,
+      "numBeats": 12,
+      "next": [
+        "PIANO",
+        "PIANOBEAT",
+        "8 CS",
+        8,
+        "6+6+6 BEAT",
+        "6+6+6"
+      ],
+      "groups": [
+        {
+          "gain": 0.75,
+          "beat": 1,
+          "samples": [
+            "J60BITI1.wav",
+            {
+              "value": "S.wav",
+              "probability": 10
+            }
+          ]
+        },
+        {
+          "gain": 1,
+          "beat": 1,
+          "samples": [
+            "A4_12_1.wav",
+            "Z_12_1.wav"
+          ]
+        },
+        {
+          "gain": 1.25,
+          "beat": 1,
+          "samples": [
+            "VC10_12_1.wav",
+            "S.wav"
+          ]
+        },
+        {
+          "gain": 0.5,
+          "beat": 1,
+          "samples": [
+            "CS_12_1.wav",
+            "CS_12_3.wav",
+            "S.wav"
+          ]
+        },
+        {
+          "gain": 2,
+          "beat": 1,
+          "samples": [
+            {
+              "value": "R606_1.wav",
+              "probability": 40
+            },
+            "R606_2.wav",
+            {
+              "value": "R606_3.wav",
+              "probability": 40
+            },
+            "R606_4.wav",
+            "R606_5.wav",
+            "R606_6.wav",
+            "R606_7.wav",
+            "R606_8.wav",
+            "R606_9.wav",
+            "R606_10.wav",
+            "R606_11.wav",
+            "R606_12.wav",
+            "R606_13.wav",
+            "R606_14.wav",
+            "R606_15.wav"
+          ]
+        },
+        {
+          "gain": 2,
+          "beat": 3,
+          "samples": [
+            "R606_1.wav",
+            "R606_2.wav",
+            "R606_3.wav",
+            "R606_4.wav",
+            "R606_5.wav",
+            "R606_6.wav",
+            "R606_7.wav",
+            "R606_8.wav",
+            "R606_9.wav",
+            "R606_10.wav",
+            "R606_11.wav",
+            "R606_12.wav",
+            "R606_13.wav",
+            "R606_14.wav",
+            "R606_15.wav"
+          ]
+        },
+        {
+          "gain": 2,
+          "beat": 5,
+          "samples": [
+            "R606_1.wav",
+            "R606_2.wav",
+            "R606_3.wav",
+            "R606_4.wav",
+            "R606_5.wav",
+            "R606_6.wav",
+            "R606_7.wav",
+            "R606_8.wav",
+            "R606_9.wav",
+            "R606_10.wav",
+            "R606_11.wav",
+            "R606_12.wav",
+            "R606_13.wav",
+            "R606_14.wav",
+            "R606_15.wav"
+          ]
+        },
+        {
+          "gain": 2,
+          "beat": 7,
+          "samples": [
+            "R606_1.wav",
+            "R606_2.wav",
+            "R606_3.wav",
+            "R606_4.wav",
+            "R606_5.wav",
+            "R606_6.wav",
+            "R606_7.wav",
+            "R606_8.wav",
+            "R606_9.wav",
+            "R606_10.wav",
+            "R606_11.wav",
+            "R606_12.wav",
+            "R606_13.wav",
+            "R606_14.wav",
+            "R606_15.wav"
+          ]
+        },
+        {
+          "gain": 2,
+          "beat": 9,
+          "samples": [
+            {
+              "value": "R606_1.wav",
+              "probability": 40
+            },
+            "R606_2.wav",
+            {
+              "value": "R606_3.wav",
+              "probability": 40
+            },
+            "R606_4.wav",
+            "R606_5.wav",
+            "R606_6.wav",
+            "R606_7.wav",
+            "R606_8.wav",
+            "R606_9.wav",
+            "R606_10.wav",
+            "R606_11.wav",
+            "R606_12.wav",
+            "R606_13.wav",
+            "R606_14.wav",
+            "R606_15.wav"
+          ]
+        },
+        {
+          "gain": 2,
+          "beat": 11,
+          "samples": [
+            "R606_1.wav",
+            "R606_2.wav",
+            "R606_3.wav",
+            "R606_4.wav",
+            "R606_5.wav",
+            "R606_6.wav",
+            "R606_7.wav",
+            "R606_8.wav",
+            "R606_9.wav",
+            "R606_10.wav",
+            "R606_11.wav",
+            "R606_12.wav",
+            "R606_13.wav",
+            "R606_14.wav",
+            "R606_15.wav"
+          ]
+        },
+        {
+          "gain": 0.75,
+          "beat": 5,
+          "samples": [
+            "J60BITI1.wav",
+            "J60BITIII4.wav",
+            "J60BITVII6.wav",
+            "J60BITVII10.wav",
+            {
+              "value": "S.wav",
+              "probability": 10
+            }
+          ]
+        },
+        {
+          "gain": 0.8,
+          "beat": 9,
+          "samples": [
+            "J60BITI1.wav",
+            "J60BITIV1.wav",
+            {
+              "value": "S.wav",
+              "probability": 10
+            }
+          ]
+        }
+      ]
+    },
+    {
       "name": 24,
       "bpm": 106,
-      "maxRevolutions": 4,
+      "maxRevolutions": 3,
       "minRevolutions": 1,
       "numBeats": 24,
       "next": [
@@ -2046,86 +2937,439 @@
       ]
     },
     {
-      "name": "8_1R",
+      "name": "PIANO",
       "bpm": 106,
-      "maxRevolutions": 1,
-      "minRevolutions": 1,
-      "divisibleBy": 1,
-      "numBeats": 8,
+      "maxRevolutions": 4,
+      "divisibleBy": 2,
+      "minRevolutions": 2,
+      "numBeats": 14,
       "next": [
-        "R606_VC10",
-        8
+        8,
+        "8 CS",
+        "6+6+6",
+        "6+6+6 BEAT"
       ],
       "groups": [
         {
-          "gain": 1.5,
           "beat": 1,
           "samples": [
-            "VC10_6_X2.wav",
             "VC10_8_1.wav",
-            "VC10_8_2.wav",
-            "VC10_8_3.wav",
-            "VC10_8_X.wav",
-            "VC10_8_X2.wav"
+            {
+              "value": "VC10_8_2.wav",
+              "probability": 10
+            },
+            {
+              "value": "S.wav",
+              "probability": 75
+            },
+            "VC10_8_3.wav"
+          ]
+        },
+        {
+          "beat": 1,
+          "samples": [
+            "J60BITI1.wav",
+            {
+              "value": "S.wav",
+              "probability": 10
+            }
+          ]
+        },
+        {
+          "gain": 0.75,
+          "beat": 1,
+          "samples": [
+            "P_8_1.wav",
+            "P_8_2.wav",
+            "P_8_3.wav"
+          ]
+        },
+        {
+          "beat": 1,
+          "samples": [
+            {
+              "value": "P_X.wav",
+              "probability": 80
+            },
+            "B_Gm1.wav",
+            "B_Gm2.wav",
+            "B_Gm3.wav",
+            {
+              "value": "S.wav",
+              "probability": 15
+            }
+          ]
+        },
+        {
+          "beat": 1,
+          "samples": [
+            "A4_8_1.wav",
+            "A4_8_3.wav",
+            "A4_8_X.wav"
           ]
         },
         {
           "beat": 7,
           "samples": [
-            "J60BITVII1.wav",
-            "J60BITVII2.wav",
-            "J60BITVII3.wav",
-            "J60BITVII4.wav",
-            "J60BITVII5.wav",
-            "J60BITVII6.wav",
-            "J60BITVII7.wav",
-            "J60BITVII8.wav",
-            "J60BITVII9.wav",
-            "J60BITVII10.wav",
+            "B_Fm1.wav",
+            "B_Fm2.wav",
+            "B_Fm3.wav",
             {
               "value": "S.wav",
-              "probability": 50
+              "probability": 90
             }
+          ]
+        },
+        {
+          "beat": 9,
+          "samples": [
+            "VC10_6_1.wav",
+            "VC10_6_2.wav",
+            "VC10_6_3.wav",
+            "VC10_6_X.wav",
+            "VC10_6_X2.wav"
+          ]
+        },
+        {
+          "gain": 0.75,
+          "beat": 9,
+          "samples": [
+            "P_6_1.wav",
+            "P_6_2.wav"
+          ]
+        },
+        {
+          "gain": 0.25,
+          "beat": 9,
+          "samples": [
+            "Z501_I-III-IV_1.wav",
+            "Z501_I-III-IV_2.wav",
+            "Z501_I-III-IV_3.wav",
+            "Z501_I-III-IV_4.wav",
+            "Z501_I-III-IV_5.wav",
+            "Z501_I-III-IV_6.wav",
+            {
+              "value": "S.wav",
+              "probability": 60
+            }
+          ]
+        },
+        {
+          "beat": 9,
+          "samples": [
+            "A4_6_1.wav",
+            "A4_6_2.wav",
+            "A4_6_3.wav",
+            "S.wav"
+          ]
+        },
+        {
+          "beat": 9,
+          "samples": [
+            "B_Gm1.wav",
+            "B_Gm2.wav",
+            "B_Gm3.wav",
+            "P_X.wav",
+            "S.wav"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "PIANOBEAT",
+      "bpm": 106,
+      "maxRevolutions": 4,
+      "divisibleBy": 2,
+      "minRevolutions": 2,
+      "numBeats": 14,
+      "next": [
+        8,
+        "6+6+6 BEAT",
+        "8 Z501 VII-I",
+        "R606",
+        "8 Z501"
+      ],
+      "groups": [
+        {
+          "beat": 1,
+          "samples": [
+            "VC10_8_1.wav",
+            {
+              "value": "VC10_8_2.wav",
+              "probability": 10
+            },
+            {
+              "value": "S.wav",
+              "probability": 75
+            },
+            "VC10_8_3.wav"
+          ]
+        },
+        {
+          "beat": 1,
+          "samples": [
+            "J60BITI1.wav",
+            {
+              "value": "S.wav",
+              "probability": 10
+            }
+          ]
+        },
+        {
+          "gain": 0.75,
+          "beat": 1,
+          "samples": [
+            "P_8_1.wav",
+            "P_8_2.wav",
+            "P_8_3.wav"
+          ]
+        },
+        {
+          "beat": 1,
+          "samples": [
+            {
+              "value": "P_X.wav",
+              "probability": 80
+            },
+            "B_Gm1.wav",
+            "B_Gm2.wav",
+            "B_Gm3.wav",
+            {
+              "value": "S.wav",
+              "probability": 15
+            }
+          ]
+        },
+        {
+          "beat": 1,
+          "samples": [
+            "A4_8_1.wav",
+            "A4_8_3.wav",
+            "A4_8_X.wav"
           ]
         },
         {
           "gain": 2,
           "beat": 1,
           "samples": [
+            {
+              "value": "R606_1.wav",
+              "probability": 40
+            },
+            "R606_2.wav",
+            {
+              "value": "R606_3.wav",
+              "probability": 40
+            },
+            "R606_4.wav",
+            "R606_5.wav",
+            "R606_6.wav",
             "R606_7.wav",
             "R606_8.wav",
+            "R606_9.wav",
             "R606_10.wav",
-            "R606_13.wav"
+            "R606_11.wav",
+            "R606_12.wav",
+            "R606_13.wav",
+            "R606_14.wav",
+            "R606_15.wav"
           ]
         },
         {
           "gain": 2,
           "beat": 3,
           "samples": [
+            "R606_1.wav",
+            "R606_2.wav",
+            "R606_3.wav",
+            "R606_4.wav",
+            "R606_5.wav",
+            "R606_6.wav",
             "R606_7.wav",
             "R606_8.wav",
+            "R606_9.wav",
             "R606_10.wav",
-            "R606_13.wav"
+            "R606_11.wav",
+            "R606_12.wav",
+            "R606_13.wav",
+            "R606_14.wav",
+            "R606_15.wav"
           ]
         },
         {
           "gain": 2,
           "beat": 5,
           "samples": [
+            "R606_1.wav",
+            "R606_2.wav",
+            "R606_3.wav",
+            "R606_4.wav",
+            "R606_5.wav",
+            "R606_6.wav",
             "R606_7.wav",
             "R606_8.wav",
+            "R606_9.wav",
             "R606_10.wav",
-            "R606_13.wav"
+            "R606_11.wav",
+            "R606_12.wav",
+            "R606_13.wav",
+            "R606_14.wav",
+            "R606_15.wav"
           ]
         },
         {
           "gain": 2,
           "beat": 7,
           "samples": [
+            "R606_1.wav",
+            "R606_2.wav",
+            "R606_3.wav",
+            "R606_4.wav",
+            "R606_5.wav",
+            "R606_6.wav",
             "R606_7.wav",
             "R606_8.wav",
+            "R606_9.wav",
             "R606_10.wav",
-            "R606_13.wav"
+            "R606_11.wav",
+            "R606_12.wav",
+            "R606_13.wav",
+            "R606_14.wav",
+            "R606_15.wav"
+          ]
+        },
+        {
+          "gain": 2,
+          "beat": 9,
+          "samples": [
+            {
+              "value": "R606_1.wav",
+              "probability": 40
+            },
+            "R606_2.wav",
+            {
+              "value": "R606_3.wav",
+              "probability": 40
+            },
+            "R606_4.wav",
+            "R606_5.wav",
+            "R606_6.wav",
+            "R606_7.wav",
+            "R606_8.wav",
+            "R606_9.wav",
+            "R606_10.wav",
+            "R606_11.wav",
+            "R606_12.wav",
+            "R606_13.wav",
+            "R606_14.wav",
+            "R606_15.wav"
+          ]
+        },
+        {
+          "gain": 2,
+          "beat": 11,
+          "samples": [
+            "R606_1.wav",
+            "R606_2.wav",
+            "R606_3.wav",
+            "R606_4.wav",
+            "R606_5.wav",
+            "R606_6.wav",
+            "R606_7.wav",
+            "R606_8.wav",
+            "R606_9.wav",
+            "R606_10.wav",
+            "R606_11.wav",
+            "R606_12.wav",
+            "R606_13.wav",
+            "R606_14.wav",
+            "R606_15.wav"
+          ]
+        },
+        {
+          "gain": 2,
+          "beat": 13,
+          "samples": [
+            "R606_1.wav",
+            "R606_2.wav",
+            "R606_3.wav",
+            "R606_4.wav",
+            "R606_5.wav",
+            "R606_6.wav",
+            "R606_7.wav",
+            "R606_8.wav",
+            "R606_9.wav",
+            "R606_10.wav",
+            "R606_11.wav",
+            "R606_12.wav",
+            "R606_13.wav",
+            "R606_14.wav",
+            "R606_15.wav"
+          ]
+        },
+        {
+          "beat": 7,
+          "samples": [
+            "B_Fm1.wav",
+            "B_Fm2.wav",
+            "B_Fm3.wav",
+            {
+              "value": "S.wav",
+              "probability": 90
+            }
+          ]
+        },
+        {
+          "beat": 9,
+          "samples": [
+            "VC10_6_1.wav",
+            "VC10_6_2.wav",
+            "VC10_6_3.wav",
+            "VC10_6_X.wav",
+            "VC10_6_X2.wav"
+          ]
+        },
+        {
+          "gain": 0.75,
+          "beat": 9,
+          "samples": [
+            "P_6_1.wav",
+            "P_6_2.wav"
+          ]
+        },
+        {
+          "gain": 0.25,
+          "beat": 9,
+          "samples": [
+            "Z501_I-III-IV_1.wav",
+            "Z501_I-III-IV_2.wav",
+            "Z501_I-III-IV_3.wav",
+            "Z501_I-III-IV_4.wav",
+            "Z501_I-III-IV_5.wav",
+            "Z501_I-III-IV_6.wav",
+            {
+              "value": "S.wav",
+              "probability": 60
+            }
+          ]
+        },
+        {
+          "beat": 9,
+          "samples": [
+            "A4_6_1.wav",
+            "A4_6_2.wav",
+            "A4_6_3.wav",
+            "S.wav"
+          ]
+        },
+        {
+          "beat": 9,
+          "samples": [
+            "B_Gm1.wav",
+            "B_Gm2.wav",
+            "B_Gm3.wav",
+            "P_X.wav",
+            "S.wav"
           ]
         }
       ]
@@ -2165,17 +3409,46 @@
       "bpm": 106,
       "maxRevolutions": 8,
       "minRevolutions": 1,
-      "numBeats": 4,
-      "nextAfter": 120,
+      "numBeats": 8,
+      "nextAfter": 440,
+      "next": [
+        "END 2"
+      ],
+      "groups": [
+        {
+          "gain": 0.5,
+          "beat": 1,
+          "samples": [
+            "P_X.wav",
+            "A4_6_X.wav"
+          ]
+        },
+        {
+          "gain": 1,
+          "beat": 1,
+          "samples": [
+            "VC10_8_X.wav",
+            "VC10_8_X2.wav"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "END 2",
+      "bpm": 106,
+      "maxRevolutions": 3,
+      "minRevolutions": 1,
+      "numBeats": 8,
+      "nextAfter": 840,
       "next": [
         ""
       ],
       "groups": [
         {
-          "gain": 1,
+          "gain": 0.5,
           "beat": 1,
           "samples": [
-            "J60BITI9.wav"
+            "P_X.wav"
           ]
         }
       ]
