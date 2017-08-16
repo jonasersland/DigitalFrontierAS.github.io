@@ -29,10 +29,21 @@ var DigitalFrontierAS = (function () {
         this.currentSequence = null;
         this.currentSequenceCounter = 0;
         this.currentSequenceRevolutions = 0;
+        
+        this.ended = false;
+        this.playing = false;
+        this.paused = true;
+        this.readyState = 0; // TODO
 
         // Event handlers
-        this.onStart = null;
-        this.onEnd = null;
+        this.onCanPlay = null; // TODO
+        this.onEnded = null;
+        this.onPause = null; // TODO
+        this.onPlay = null; // TODO
+        this.onPlaying = null;
+        this.onWaiting = null; // TODO
+        
+        
         this.onSequenceStart = null;
         this.onSequenceEnd = null;
         this.onGroupStart = null;
@@ -188,6 +199,7 @@ var DigitalFrontierAS = (function () {
         this.load = function (composition, baseUrl) {
             this.composition = composition;
             this.baseUrl = baseUrl;
+            this.paused = true;
             if (!baseUrl) baseUrl = "";
             baseUrl = baseUrl.trim();
             if (baseUrl.length > 0 && !baseUrl.endsWith("/")) baseUrl += "/";
@@ -226,7 +238,7 @@ var DigitalFrontierAS = (function () {
 
         this._finish = function () {
             if (context.state != "closed") context.close();
-            if (this.onEnd) this.onEnd();
+            if (this.onEnded) this.onEnded();
         };
 
 
@@ -339,6 +351,10 @@ var DigitalFrontierAS = (function () {
                     player._scheduleLoop(offset, loop, counter);
                 });
                 context.resume();
+                if (this.onPlaying && this.paused) {
+                    this.paused = false;
+                    this.onPlaying();
+                }
             }
         };
 
