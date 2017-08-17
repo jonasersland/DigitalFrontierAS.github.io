@@ -11,10 +11,12 @@ var DigitalFrontierAS = (function () {
             nextAfter = null,
             sampleCache = {},
             duration = 0.0,
+            loadAheadOffset = 0.0,
             compressorNode,
             destination,
 
-            LOAD_AHEAD_TIME = 10.0,
+            LOAD_AHEAD_TIME_MAX = 10.0,
+            LOAD_AHEAD_TIME_MIN = 1.0,
 
             TRIGGER_BUFFER = context.createBuffer(1, 1, context.sampleRate);
         
@@ -32,16 +34,17 @@ var DigitalFrontierAS = (function () {
         
         this.ended = false;
         this.playing = false;
-        this.paused = true;
-        this.readyState = 0; // TODO
+        this.waiting = true;
+        this.loadComplete = false;
+        //this.readyState = 0; // TODO
 
         // Event handlers
-        this.onCanPlay = null; // TODO
+        //this.onCanPlay = null; // TODO
         this.onEnded = null;
-        this.onPause = null; // TODO
-        this.onPlay = null; // TODO
+        //this.onPause = null; // TODO
+        //this.onPlay = null; // TODO
         this.onPlaying = null;
-        this.onWaiting = null; // TODO
+        this.onWaiting = null;
         
         
         this.onSequenceStart = null;
@@ -199,7 +202,8 @@ var DigitalFrontierAS = (function () {
         this.load = function (composition, baseUrl) {
             this.composition = composition;
             this.baseUrl = baseUrl;
-            this.paused = true;
+            this.waiting = true;
+            this.loadComplete = false;
             if (!baseUrl) baseUrl = "";
             baseUrl = baseUrl.trim();
             if (baseUrl.length > 0 && !baseUrl.endsWith("/")) baseUrl += "/";
@@ -308,7 +312,7 @@ var DigitalFrontierAS = (function () {
                 offset = 0.0;
                 if (layout[0].time < 0.0) offset -= layout[0].time; // In case of "prelude"
             }
-
+            
             var nextOffset = offset + sequence.numBeats * 60.0 / sequence.bpm; // Next sequence starts here
             var player = this;
             this.schedule(offset, function () { 
@@ -321,6 +325,18 @@ var DigitalFrontierAS = (function () {
                 if (player.onSequenceEnd) player.onSequenceEnd(nextOffset, loop.sequenceName, counter, loop.revolutions); 
             });
             this.scheduleLayout(layout, offset, function () {
+                loadAheadOffset = offset;
+                if (!player.loadComplete && nextOffset - LOAD_AHEAD_TIME_MAX > 0) {
+                    player.schedule(nextOffset - LOAD_AHEAD_TIME_MIN, function() {
+                        console.log("currentTime: " + player.currentTime() + ", loadAheadOffset: " + loadAheadOffset);
+                        if (!player.loadComplete && loadAheadOffset - player.currentTime() < LOAD_AHEAD_TIME_MIN) {
+                            console.log("Waiting!");
+                            context.suspend();
+                            player.waiting = true;
+                            if (player.onWaiting) player.onWaiting();
+                        }
+                    });
+                }
                 player._scheduleNextLoop(nextOffset, sequence, loop, counter);
             });
         };
@@ -340,19 +356,21 @@ var DigitalFrontierAS = (function () {
                     player.currentSequenceRevolutions = 0;
                 });
                 this.schedule(duration, function () { player._finish(); });
+                this.loadComplete = true;
                 context.resume();
                 return;
+            } else {
             }
             //var nextOffset = offset + sequence.numBeats * 60.0 / sequence.bpm; // Next sequence starts here
-            if (offset - this.currentTime() < LOAD_AHEAD_TIME) {
+            if (offset - this.currentTime() < LOAD_AHEAD_TIME_MAX) {
                 this._scheduleLoop(offset, loop, counter);
             } else {
-                this.schedule(offset - LOAD_AHEAD_TIME, function () {
+                this.schedule(offset - LOAD_AHEAD_TIME_MAX, function () {
                     player._scheduleLoop(offset, loop, counter);
                 });
                 context.resume();
-                if (this.onPlaying && this.paused) {
-                    this.paused = false;
+                if (this.onPlaying && this.waiting) {
+                    this.waiting = false;
                     this.onPlaying();
                 }
             }
@@ -388,7 +406,6 @@ var DigitalFrontierAS = (function () {
 
 
         this.loadSample = function (sample, ondone) {
-            var player = this;
             var request = new XMLHttpRequest();
             var url = sample;
             if (this.baseUrl) url = this.baseUrl + url;
