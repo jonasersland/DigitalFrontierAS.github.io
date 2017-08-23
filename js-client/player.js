@@ -53,6 +53,8 @@ var DigitalFrontierAS = (function () {
         this.onSampleStart = null;
         this.onSampleEnd = null;
         this.onBeat = null;
+        
+        let player = this;
 
         if (composition) { this.load(composition, baseUrl); }
         
@@ -61,7 +63,7 @@ var DigitalFrontierAS = (function () {
         // ------------------------------------------------------------------------------------------------
 
         // Put sequences into an object for easy access
-        function prepare(player) {
+        function prepare() {
             sequences = {};
             groups = {};
             nextAfter = [];
@@ -82,7 +84,7 @@ var DigitalFrontierAS = (function () {
         }
 
         
-        function tearDown(player) {
+        function tearDown() {
             Object.keys(groups).forEach(function (key) {
                 const group = groups[key];
                 if (group.gainNode) group.gainNode = undefined;
@@ -91,7 +93,7 @@ var DigitalFrontierAS = (function () {
         }
 
         
-        this.layOutSequence = function (sequence, layout, insertionPoint) {
+        function layOutSequence(sequence, layout, insertionPoint) {
             if (!layout) layout = [];
             if (!insertionPoint) insertionPoint = 0.0;
             for (let i = 0; i < sequence.groups.length; i++) {
@@ -106,10 +108,10 @@ var DigitalFrontierAS = (function () {
                 });
             }
             return layout;
-        };
+        }
 
 
-        this._nextLoop = function (offset, sequenceName) {
+        function nextLoop(offset, sequenceName) {
             if (!offset) offset = 0;
             let revolutions = 0;
             let sequence;
@@ -117,7 +119,7 @@ var DigitalFrontierAS = (function () {
                 if (nextAfter.length > 0 && nextAfter[nextAfter.length-1].time <= offset) {
                     sequenceName = nextAfter.pop().sequenceName;
                 } else if (!sequenceName) {
-                    sequenceName = randomElement(this.composition.start);
+                    sequenceName = randomElement(player.composition.start);
                 } else {
                     if (!sequence) sequence = sequences[sequenceName];
                     if (!sequence) throw Error("Could not find sequence '" + sequenceName + "'");
@@ -143,7 +145,13 @@ var DigitalFrontierAS = (function () {
                 sequenceName: sequenceName,
                 revolutions: revolutions
             };
-        };
+        }
+
+
+        function finish() {
+            if (context.state != "closed") context.close();
+            if (player.onEnded) player.onEnded();
+        }
 
 
         // ------------------------------------------------------------------------------------------------
@@ -195,7 +203,7 @@ var DigitalFrontierAS = (function () {
 
 
         // ------------------------------------------------------------------------------------------------
-        // High level control functions
+        // Public interface
         // ------------------------------------------------------------------------------------------------
 
 
@@ -208,7 +216,7 @@ var DigitalFrontierAS = (function () {
             baseUrl = baseUrl.trim();
             if (baseUrl.length > 0 && !baseUrl.endsWith("/")) baseUrl += "/";
 
-            prepare(this);
+            prepare();
         };
 
         this.play = function () {
@@ -225,11 +233,11 @@ var DigitalFrontierAS = (function () {
             //destination = context.destination;
             
             startTime = context.currentTime;
-            this._scheduleLoop();
+            scheduleLoop();
         };
 
         this.stop = function () {
-            tearDown(this);
+            tearDown();
         };
 
         this.pause = function () {
@@ -239,12 +247,6 @@ var DigitalFrontierAS = (function () {
         this.resume = function () {
             if (context.state != "closed") context.resume();
         };
-
-        this._finish = function () {
-            if (context.state != "closed") context.close();
-            if (this.onEnded) this.onEnded();
-        };
-
 
         this.currentTime = function () {
             return context.currentTime - startTime;
@@ -291,21 +293,31 @@ var DigitalFrontierAS = (function () {
             }
         };
 
+        this.schedule = function (offset, fn) {
+            if (fn) {
+                var source = context.createBufferSource();
+                source.buffer = TRIGGER_BUFFER;
+                source.connect(destination);
+                source.onended = function () { fn(offset); };
+                source.start(startTime + offset);
+            }
+        };
+        
 
         // ------------------------------------------------------------------------------------------------
         // Scheduling
         // ------------------------------------------------------------------------------------------------
 
-        this._scheduleLoop = function (offset, loop, counter) {
-            if (!loop) loop = this._nextLoop(offset);
+        function scheduleLoop(offset, loop, counter) {
+            if (!loop) loop = nextLoop(offset);
             if (!loop) {
-                this._finish();
+                finish();
                 return;
             }
             if (!counter) counter = 0;
             var sequence = sequences[loop.sequenceName];
 
-            var layout = this.layOutSequence(sequence);
+            var layout = layOutSequence(sequence);
 
             if (offset === undefined) {
                 // Very first sequence to be played
@@ -314,69 +326,67 @@ var DigitalFrontierAS = (function () {
             }
             
             var nextOffset = offset + sequence.numBeats * 60.0 / sequence.bpm; // Next sequence starts here
-            var player = this;
-            this.schedule(offset, function () { 
+            player.schedule(offset, function () { 
                 player.currentSequence = loop.sequenceName;
                 player.currentSequenceCounter = counter;
                 player.currentSequenceRevolutions = loop.revolutions;
                 if (player.onSequenceStart) player.onSequenceStart(offset, loop.sequenceName, counter, loop.revolutions);
             });
-            this.schedule(nextOffset, function () { 
+            player.schedule(nextOffset, function () { 
                 if (player.onSequenceEnd) player.onSequenceEnd(nextOffset, loop.sequenceName, counter, loop.revolutions); 
             });
-            this.scheduleLayout(layout, offset, function () {
+            scheduleLayout(layout, offset, function () {
                 loadAheadOffset = offset;
                 if (!player.loadComplete && nextOffset - LOAD_AHEAD_TIME_MAX > 0) {
                     player.schedule(nextOffset - LOAD_AHEAD_TIME_MIN, function() {
-                        console.log("currentTime: " + player.currentTime() + ", loadAheadOffset: " + loadAheadOffset);
+                        //console.log("currentTime: " + player.currentTime() + ", loadAheadOffset: " + loadAheadOffset);
                         if (!player.loadComplete && loadAheadOffset - player.currentTime() < LOAD_AHEAD_TIME_MIN) {
-                            console.log("Waiting!");
+                            //console.log("Waiting!");
                             context.suspend();
                             player.waiting = true;
                             if (player.onWaiting) player.onWaiting();
                         }
                     });
                 }
-                player._scheduleNextLoop(nextOffset, sequence, loop, counter);
+                scheduleNextLoop(nextOffset, sequence, loop, counter);
             });
-        };
+        }
 
-        this._scheduleNextLoop = function (offset, sequence, loop, counter) {
+        function scheduleNextLoop(offset, sequence, loop, counter) {
             counter++;
             if (counter == loop.revolutions) {
-                loop = this._nextLoop(offset, sequence.name);
+                loop = nextLoop(offset, sequence.name);
                 counter = 0;
             }
-            var player = this;
             if (!loop) {
                 // Nothing more to play
-                this.schedule(offset, function () { 
+                player.schedule(offset, function () { 
                     player.currentSequence = null;
                     player.currentSequenceCounter = 0;
                     player.currentSequenceRevolutions = 0;
                 });
-                this.schedule(duration, function () { player._finish(); });
-                this.loadComplete = true;
+                player.schedule(duration, finish);
+                player.loadComplete = true;
                 context.resume();
                 return;
             } else {
             }
             //var nextOffset = offset + sequence.numBeats * 60.0 / sequence.bpm; // Next sequence starts here
-            if (offset - this.currentTime() < LOAD_AHEAD_TIME_MAX) {
-                this._scheduleLoop(offset, loop, counter);
+            if (offset - player.currentTime() < LOAD_AHEAD_TIME_MAX) {
+                scheduleLoop(offset, loop, counter);
             } else {
-                this.schedule(offset - LOAD_AHEAD_TIME_MAX, function () {
-                    player._scheduleLoop(offset, loop, counter);
+                player.schedule(offset - LOAD_AHEAD_TIME_MAX, function () {
+                    scheduleLoop(offset, loop, counter);
                 });
                 context.resume();
-                if (this.onPlaying && this.waiting) {
-                    this.waiting = false;
-                    this.onPlaying();
+                if (player.onPlaying && player.waiting) {
+                    player.waiting = false;
+                    player.onPlaying();
                 }
             }
-        };
+        }
 
-        this.scheduleLayout = function (layout, offset, ondone) {
+        function scheduleLayout(layout, offset, ondone) {
             var counter = layout.length;
             function andThen () {
                 counter--;
@@ -384,31 +394,30 @@ var DigitalFrontierAS = (function () {
             }
             for (var i = 0; i < layout.length; i++) {
                 var element = layout[i];
-                this.scheduleElement(element, offset, andThen);
+                scheduleElement(element, offset, andThen);
             }
-        };
+        }
 
 
-        this.scheduleElement = function (element, offset, ondone) {
+        function scheduleElement(element, offset, ondone) {
             var sample = element.sample;
             var buffer = sampleCache[sample];
             if (buffer) {
-                this.scheduleBuffer(element.sequence, element.group, sample, buffer, offset + element.time);
+                scheduleBuffer(element.sequence, element.group, sample, buffer, offset + element.time);
                 if (ondone) ondone();
             } else {
-                var player = this;
-                this.loadSample(sample, function (buffer) {
-                    player.scheduleBuffer(element.sequence, element.group, sample, buffer, offset + element.time);
+                loadSample(sample, function (buffer) {
+                    scheduleBuffer(element.sequence, element.group, sample, buffer, offset + element.time);
                     if (ondone) ondone();
                 });
             }
-        };
+        }
 
 
-        this.loadSample = function (sample, ondone) {
+        function loadSample(sample, ondone) {
             var request = new XMLHttpRequest();
             var url = sample;
-            if (this.baseUrl) url = this.baseUrl + url;
+            if (player.baseUrl) url = player.baseUrl + url;
             request.open('GET', url, true);
             request.responseType = 'arraybuffer';
             request.onload = function () {
@@ -418,7 +427,7 @@ var DigitalFrontierAS = (function () {
                 });
             };
             request.send();
-        };
+        }
 
         function getGainNode(sequenceName, groupName) {
             const key = sequenceName + "." + groupName;
@@ -431,26 +440,15 @@ var DigitalFrontierAS = (function () {
             return group.gainNode;
         }
 
-        this.scheduleBuffer = function (sequence, group, sample, buffer, offset) {
+        function scheduleBuffer(sequence, group, sample, buffer, offset) {
             var source = context.createBufferSource();
             source.buffer = buffer;
             source.connect(getGainNode(sequence.name, group.name));
-            var player = this;
-            if (this.onSampleStart) this.schedule(offset, function (offs) { player.onSampleStart(offs, sample, buffer); });
-            if (this.onSampleEnd) source.onended = function () { player.onSampleEnd(offset + buffer.duration, sample, buffer); };
+            if (player.onSampleStart) player.schedule(offset, function (offs) { player.onSampleStart(offs, sample, buffer); });
+            if (player.onSampleEnd) source.onended = function () { player.onSampleEnd(offset + buffer.duration, sample, buffer); };
             duration = Math.max(duration, offset + buffer.duration);
             source.start(startTime + offset);
-        };
-
-        this.schedule = function (offset, fn) {
-            if (fn) {
-                var source = context.createBufferSource();
-                source.buffer = TRIGGER_BUFFER;
-                source.connect(destination);
-                source.onended = function () { fn(offset); };
-                source.start(startTime + offset);
-            }
-        };
+        }
 
     }
 
