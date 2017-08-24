@@ -1,0 +1,135 @@
+﻿{
+  "compressor": {
+    "threshold": -50,
+    "knee": 40,
+    "ratio": 20,
+    "attack": 0,
+    "release": 0.25
+  },
+  "name": "DRONE",
+  "start": [
+    "DRONE"
+  ],
+  "sequences": [
+    {
+      "name": "DRONE",
+      "bpm": 106,
+      "maxRevolutions": 160,
+      "minRevolutions": 120,
+      "numBeats": 16,
+      "next": [
+        ""
+      ],
+      "groups": [
+        {
+          "beat": 1,
+          "samples": [
+            "D_1.wav",
+            "D_2.wav",
+            "D_3.wav",
+            "D_4.wav"
+          ]
+        },
+        {
+          "beat": 9,
+          "samples": [
+            "D_1.wav",
+            "D_2.wav",
+            "D_3.wav",
+            "D_4.wav"
+          ]
+        },
+        {
+          "gain": 0.3,
+          "beat": 1.5,
+          "samples": [
+            "J60BITI5.wav",
+            "J60BITIII2.wav",
+            "J60BITIII4.wav",
+            "J60BITIII5.wav",
+            "J60BITIII6.wav",
+            {
+              "value": "J60BITIII10.wav",
+              "probability": 80
+            }
+          ]
+        },
+        {
+          "gain": 0.3,
+          "beat": 3.5,
+          "samples": [
+            "J60BITI5.wav",
+            "J60BITIII2.wav",
+            "J60BITIII4.wav",
+            "J60BITIII5.wav",
+            "J60BITIII6.wav",
+            {
+              "value": "J60BITIII10.wav",
+              "probability": 80
+            }
+          ]
+        },
+        {
+          "gain": 0.15,
+          "beat": 5.5,
+          "samples": [
+            "J60BITI5.wav",
+            "J60BITIII2.wav",
+            "J60BITIII4.wav",
+            "J60BITIII5.wav",
+            "J60BITIII6.wav",
+            {
+              "value": "J60BITIII10.wav",
+              "probability": 80
+            }
+          ]
+        },
+        {
+          "gain": 0.3,
+          "beat": 9.5,
+          "samples": [
+            {
+              "value": "J60BITI5.wav",
+              "probability": 60
+            },
+            "J60BITI9.wav",
+            "J60BITI4.wav",
+            "J60BITI7.wav",
+            "J60BITI6.wav",
+            "J60BITI10.wav"
+          ]
+        },
+        {
+          "gain": 0.3,
+          "beat": 13.5,
+          "samples": [
+            {
+              "value": "J60BITI5.wav",
+              "probability": 40
+            },
+            "J60BITI2.wav",
+            "J60BITI4.wav",
+            "J60BITI5.wav",
+            "J60BITI6.wav",
+            "J60BITI10.wav"
+          ]
+        },
+        {
+          "gain": 0.3,
+          "beat": 15.5,
+          "samples": [
+            {
+              "value": "J60BITI5.wav",
+              "probability": 40
+            },
+            "J60BITI2.wav",
+            "J60BITI4.wav",
+            "J60BITI5.wav",
+            "J60BITI6.wav",
+            "J60BITI10.wav"
+          ]
+        }
+      ]
+    }
+  ]
+}

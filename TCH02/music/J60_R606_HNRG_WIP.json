@@ -2,14 +2,18 @@
   "compressor": {
     "threshold": -30,
     "knee": 30,
-    "ratio": 17,
-    "attack": 0.01,
+    "ratio": 0,
+    "attack": 0.1,
     "release": 0.25
   },
   "name": "J60_R606_NRG",
   "start": [
     "INTRO 1",
     "R606_VC10",
+    {
+      "value": 8,
+      "probability": 80
+    },
     "8 CS",
     "8 Z501 CS",
     "R606",
@@ -129,7 +133,7 @@
           ]
         },
         {
-          "gain": 0.5,
+          "gain": 2,
           "beat": 1,
           "samples": [
             {
@@ -152,7 +156,7 @@
           ]
         },
         {
-          "gain": 0.75,
+          "gain": 2,
           "beat": 3,
           "samples": [
             "J60BITIII1.wav",
@@ -175,7 +179,7 @@
           ]
         },
         {
-          "gain": 0.5,
+          "gain": 2,
           "beat": 5,
           "samples": [
             "J60BITIV1.wav",
@@ -197,8 +201,8 @@
           ]
         },
         {
-          "gain": 0.5,
-          "beat": 0,
+          "gain": 2,
+          "beat": 7,
           "samples": [
             "J60BITVII1.wav",
             "J60BITVII2.wav",
@@ -217,7 +221,7 @@
           ]
         },
         {
-          "gain": 2,
+          "gain": 1.5,
           "beat": 1,
           "samples": [
             "R606_1.wav",
@@ -229,7 +233,7 @@
           ]
         },
         {
-          "gain": 2,
+          "gain": 1.5,
           "beat": 3,
           "samples": [
             "R606_1.wav",
@@ -250,7 +254,7 @@
         },
         {
           "beat": 5,
-          "gain": 2,
+          "gain": 1.5,
           "samples": [
             "R606_1.wav",
             "R606_3.wav",
@@ -261,7 +265,7 @@
           ]
         },
         {
-          "gain": 2,
+          "gain": 1.5,
           "beat": 7,
           "samples": [
             "R606_1.wav",
@@ -309,6 +313,7 @@
           ]
         },
         {
+          "gain": 2,
           "beat": 7,
           "samples": [
             "J60BITVII1.wav",
@@ -415,7 +420,7 @@
           ]
         },
         {
-          "gain": 0.5,
+          "gain": 2,
           "beat": 1,
           "samples": [
             {
@@ -441,7 +446,7 @@
           ]
         },
         {
-          "gain": 0.5,
+          "gain": 2,
           "beat": 3,
           "samples": [
             "J60BITIII1.wav",
@@ -464,7 +469,7 @@
           ]
         },
         {
-          "gain": 0.5,
+          "gain": 2,
           "beat": 5,
           "samples": [
             "J60BITIV1.wav",
@@ -486,7 +491,7 @@
           ]
         },
         {
-          "gain": 0.75,
+          "gain": 2,
           "beat": 7,
           "samples": [
             "J60BITVII1.wav",
@@ -710,7 +715,7 @@
           ]
         },
         {
-          "gain": 0.5,
+          "gain": 2,
           "beat": 1,
           "samples": [
             {
@@ -732,7 +737,7 @@
           ]
         },
         {
-          "gain": 0.5,
+          "gain": 2,
           "beat": 3,
           "samples": [
             "J60BITIII1.wav",
@@ -754,7 +759,7 @@
           ]
         },
         {
-          "gain": 0.5,
+          "gain": 2,
           "beat": 5,
           "samples": [
             "J60BITIV1.wav",
@@ -776,7 +781,7 @@
           ]
         },
         {
-          "gain": 0.75,
+          "gain": 2,
           "beat": 7,
           "samples": [
             "J60BITVII1.wav",
@@ -903,7 +908,7 @@
           ]
         },
         {
-          "gain": 0.5,
+          "gain": 2,
           "beat": 1,
           "samples": [
             {
@@ -925,7 +930,7 @@
           ]
         },
         {
-          "gain": 0.75,
+          "gain": 2,
           "beat": 3,
           "samples": [
             "J60BITIII1.wav",
@@ -947,7 +952,7 @@
           ]
         },
         {
-          "gain": 0.5,
+          "gain": 2,
           "beat": 5,
           "samples": [
             "J60BITIV1.wav",
@@ -969,7 +974,7 @@
           ]
         },
         {
-          "gain": 0.75,
+          "gain": 2,
           "beat": 7,
           "samples": [
             "J60BITVII1.wav",
@@ -1076,7 +1081,7 @@
           ]
         },
         {
-          "gain": 1,
+          "gain": 2,
           "beat": 1,
           "samples": [
             "S.wav",
@@ -1087,7 +1092,7 @@
           ]
         },
         {
-          "gain": 1,
+          "gain": 2,
           "beat": 7,
           "samples": [
             "J60BITI1.wav",
@@ -1150,6 +1155,7 @@
           ]
         },
         {
+          "gain": 2,
           "beat": 15,
           "samples": [
             "J60BITI1.wav",
@@ -1161,6 +1167,7 @@
           ]
         },
         {
+          "gain": 2,
           "beat": 17,
           "samples": [
             "J60BITI1.wav",
@@ -1197,7 +1204,7 @@
           ]
         },
         {
-          "gain": 1,
+          "gain": 2,
           "beat": 1,
           "samples": [
             "S.wav",
@@ -1208,7 +1215,7 @@
           ]
         },
         {
-          "gain": 1,
+          "gain": 2,
           "beat": 7,
           "samples": [
             "J60BITI1.wav",
@@ -1271,6 +1278,7 @@
           ]
         },
         {
+          "gain": 2,
           "beat": 15,
           "samples": [
             "J60BITI1.wav",
@@ -1489,6 +1497,7 @@
           ]
         },
         {
+          "gain": 2,
           "beat": 17,
           "samples": [
             "J60BITI1.wav",
@@ -1865,7 +1874,7 @@
           ]
         },
         {
-          "gain": 0.75,
+          "gain": 2,
           "beat": 1,
           "samples": [
             {
@@ -1887,7 +1896,7 @@
           ]
         },
         {
-          "gain": 0.5,
+          "gain": 2,
           "beat": 3,
           "samples": [
             "J60BITIII1.wav",
@@ -1909,7 +1918,7 @@
           ]
         },
         {
-          "gain": 0.5,
+          "gain": 2,
           "beat": 5,
           "samples": [
             "J60BITIII1.wav",
@@ -1931,7 +1940,7 @@
           ]
         },
         {
-          "gain": 0.5,
+          "gain": 2,
           "beat": 7,
           "samples": [
             "J60BITVII1.wav",
@@ -2050,7 +2059,7 @@
           ]
         },
         {
-          "gain": 0.5,
+          "gain": 2,
           "beat": 1,
           "samples": [
             {
@@ -2072,7 +2081,7 @@
           ]
         },
         {
-          "gain": 0.75,
+          "gain": 2,
           "beat": 3,
           "samples": [
             "J60BITIII1.wav",
@@ -2094,7 +2103,7 @@
           ]
         },
         {
-          "gain": 0.5,
+          "gain": 2,
           "beat": 5,
           "samples": [
             "J60BITIII1.wav",
@@ -2116,7 +2125,7 @@
           ]
         },
         {
-          "gain": 0.75,
+          "gain": 2,
           "beat": 7,
           "samples": [
             "J60BITVII1.wav",
@@ -2217,7 +2226,7 @@
       ],
       "groups": [
         {
-          "gain": 0.75,
+          "gain": 2,
           "beat": 1,
           "samples": [
             "J60BITI1.wav",
@@ -2253,7 +2262,7 @@
           ]
         },
         {
-          "gain": 0.75,
+          "gain": 2,
           "beat": 5,
           "samples": [
             "J60BITI1.wav",
@@ -2267,7 +2276,7 @@
           ]
         },
         {
-          "gain": 0.8,
+          "gain": 2,
           "beat": 9,
           "samples": [
             "J60BITI1.wav",
@@ -2296,7 +2305,7 @@
       ],
       "groups": [
         {
-          "gain": 0.75,
+          "gain": 2,
           "beat": 1,
           "samples": [
             "J60BITI1.wav",
@@ -2470,7 +2479,7 @@
           ]
         },
         {
-          "gain": 0.75,
+          "gain": 2,
           "beat": 5,
           "samples": [
             "J60BITI1.wav",
@@ -2484,7 +2493,7 @@
           ]
         },
         {
-          "gain": 0.8,
+          "gain": 2,
           "beat": 9,
           "samples": [
             "J60BITI1.wav",
@@ -2966,6 +2975,7 @@
           ]
         },
         {
+          "gain": 2,
           "beat": 1,
           "samples": [
             "J60BITI1.wav",
@@ -3106,6 +3116,7 @@
           ]
         },
         {
+          "gain": 2,
           "beat": 1,
           "samples": [
             "J60BITI1.wav",

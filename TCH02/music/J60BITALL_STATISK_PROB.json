@@ -2,7 +2,7 @@
   "name": "TCH02",
   "start": [
     "VII6",
-    "III2",
+    "I10",
     "III4",
     "IV1",
     "IV2"
@@ -15,7 +15,7 @@
       "minRevolutions": 4,
       "numBeats": 2,
       "next": [
-        "III2",
+        "I10",
         "III4",
         "IV1",
         "IV2"
@@ -72,7 +72,7 @@
       ]
     },
     {
-      "name": "III2",
+      "name": "I10",
       "bpm": 106,
       "maxRevolutions": 50,
       "minRevolutions": 4,
@@ -99,7 +99,7 @@
             "J60BITI10.wav",
             "J60BITIII1.wav",
             {
-              "value": "J60BITIII2.wav",
+              "value": "J60BITI10.wav",
               "probability": 80
             },
             "J60BITIII3.wav",
@@ -142,7 +142,7 @@
       "numBeats": 2,
       "next": [
         "VII6",
-        "III2",
+        "I10",
         "IV1",
         "IV2"
       ],
@@ -205,7 +205,7 @@
       "numBeats": 2,
       "next": [
         "VII6",
-        "III2",
+        "I10",
         "III4",
         "IV2"
       ],
@@ -288,7 +288,7 @@
       "numBeats": 2,
       "next": [
         "VII6",
-        "III2",
+        "I10",
         "III4",
         "IV1"
       ],
