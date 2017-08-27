@@ -1,6 +1,5 @@
 <html>
 <head>
-<script src="https://www.gstatic.com/cv/js/sender/v1/cast_sender.js?loadCastFramework=1" ></script>
 <script src="/js-client/player.js" ></script>
 <script>
 
@@ -49,22 +48,6 @@ function resumeSong() {
 
 function stopSong() {
 	player.stop();
-}
-
-function init() {
-	try {
-		var request = new XMLHttpRequest();
-		request.open('GET', "music/Side A.json", true);
-		request.onload = function () {
-			var song = JSON.parse(request.responseText);
-			player.load(song, "music/");
-			var image = document.getElementById("image");
-			image.src = "playCROP.png";
-			image.style.display = "block";
-		}
-		request.send();
-	}
-	catch (e) {}
 }
 
 var playing = false;

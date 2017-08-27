@@ -58,6 +58,7 @@ var DigitalFrontierAS = (function () {
 
         if (composition) { this.load(composition, baseUrl); }
         
+        
         // ------------------------------------------------------------------------------------------------
         // Structure and layout
         // ------------------------------------------------------------------------------------------------
@@ -220,6 +221,7 @@ var DigitalFrontierAS = (function () {
         };
 
         this.play = function () {
+            this.playing = true;
             if (context.state !== "closed") context.close();
             context = new window.AudioContext();
             context.suspend();
@@ -303,7 +305,27 @@ var DigitalFrontierAS = (function () {
             }
         };
         
+        
+        function checkLoadAheadStatus() {
+            if (!player.playing) return;
+            if (player.loadComplete) return;
+            //if (loadAheadOffset < LOAD_AHEAD_TIME_MAX) return;
+            if (loadAheadOffset - player.currentTime() < LOAD_AHEAD_TIME_MIN) {
+                if (!player.waiting) {
+                    //console.log("Waiting!");
+                    context.suspend();
+                    player.waiting = true;
+                    if (player.onWaiting) player.onWaiting();
+                }
+            } else if (player.waiting) {
+                context.resume();
+                player.waiting = false;
+                if (player.onPlaying) player.onPlaying();
+            }
+        }
 
+        setInterval(checkLoadAheadStatus, 100);
+        
         // ------------------------------------------------------------------------------------------------
         // Scheduling
         // ------------------------------------------------------------------------------------------------
@@ -337,17 +359,6 @@ var DigitalFrontierAS = (function () {
             });
             scheduleLayout(layout, offset, function () {
                 loadAheadOffset = offset;
-                if (!player.loadComplete && nextOffset - LOAD_AHEAD_TIME_MAX > 0) {
-                    player.schedule(nextOffset - LOAD_AHEAD_TIME_MIN, function() {
-                        //console.log("currentTime: " + player.currentTime() + ", loadAheadOffset: " + loadAheadOffset);
-                        if (!player.loadComplete && loadAheadOffset - player.currentTime() < LOAD_AHEAD_TIME_MIN) {
-                            //console.log("Waiting!");
-                            context.suspend();
-                            player.waiting = true;
-                            if (player.onWaiting) player.onWaiting();
-                        }
-                    });
-                }
                 scheduleNextLoop(nextOffset, sequence, loop, counter);
             });
         }
@@ -367,7 +378,6 @@ var DigitalFrontierAS = (function () {
                 });
                 player.schedule(duration, finish);
                 player.loadComplete = true;
-                context.resume();
                 return;
             } else {
             }
@@ -378,11 +388,6 @@ var DigitalFrontierAS = (function () {
                 player.schedule(offset - LOAD_AHEAD_TIME_MAX, function () {
                     scheduleLoop(offset, loop, counter);
                 });
-                context.resume();
-                if (player.onPlaying && player.waiting) {
-                    player.waiting = false;
-                    player.onPlaying();
-                }
             }
         }
 
