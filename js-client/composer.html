@@ -20,14 +20,24 @@
         player.onSequenceStart = function (offset, sequence, counter, revolutions) {
             console.log("Sequence started at " + offset + ". currentTime = " + player.currentTime() + ", sequence: " + sequence + ", " + counter + "/" + revolutions);
         };
+        /*
         player.onSequenceEnd = function (offset, sequence, counter, revolutions) {
             console.log("Sequence ended at " + offset + ". currentTime = " + player.currentTime() + ", sequence: " + sequence + ", " + counter + "/" + revolutions);
         };
+        */
         player.onSampleStart = function (offset, sample, buffer) {
             console.log("Sample started at " + offset + ". currentTime = " + player.currentTime() + ", sample: " + sample + ", numberOfChannels: " + buffer.numberOfChannels);
         };
+        /*
         player.onSampleEnd = function (offset, sample, buffer) {
             console.log("Sample ended at " + offset + ". currentTime = " + player.currentTime() + ", sample: " + sample + ", numberOfChannels: " + buffer.numberOfChannels);
+        };
+        */
+        player.onWaiting = function () {
+            console.log("Waiting! currentTime: " + player.currentTime());
+        };
+        player.onPlaying = function () {
+            console.log("Playing! currentTime: " + player.currentTime());
         };
         player.play();
     }
@@ -180,7 +190,7 @@
 <body onload="init()" valign="top">
 
 	<div id="loader">
-		<div id="sourceDiv"><span class="prompt">Source URL:</span> <input type="text" id="sourceUrl" value="/TCH01/music/Side-A_UPDATE.json"></div>
+		<div id="sourceDiv"><span class="prompt">Source URL:</span> <input type="text" id="sourceUrl" value="/TCH02/music/J60_R606_HNRG_WIP.json"></div>
 		<div id="baseUrlDiv"><span class="prompt">Samples base URL:</span> <input type="text" id="baseUrl"></div>
 		<button type="button" onclick="load()">Load</button>
 		<button type="button" onclick="save()">Save</button>
