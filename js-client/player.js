@@ -225,6 +225,7 @@ var DigitalFrontierAS = (function () {
             if (baseUrl.length > 0 && !baseUrl.endsWith("/")) baseUrl += "/";
 
             prepare();
+            loadAheadOffset = 0.0;
         };
 
         this.play = function () {
@@ -252,6 +253,7 @@ var DigitalFrontierAS = (function () {
             startTime = context.currentTime;
             loop = null;
             firstTime = true;
+            loadAheadOffset = 0.0;
             loadAhead();
         };
 
