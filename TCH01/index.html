@@ -1,12 +1,14 @@
 <html>
 <head>
+    <!--
 <script src="https://www.gstatic.com/cv/js/sender/v1/cast_sender.js?loadCastFramework=1" ></script>
+-->
 <script src="/js-client/player.js" ></script>
 <script>
 
 var player = new DigitalFrontierAS.Player();
 
-player.onEnd = function () {
+player.onEnded = function () {
 	var image = document.getElementById("image");
 	image.src = "TROPICAL-GIF-creditzNY.gif";
 	playing = false;
@@ -86,7 +88,7 @@ initializeCastApi = function() {
 
 </script>
 
-
+<!--
 <script type="text/javascript">
   var applicationID = "F8F7D2ED";
   var namespace = 'urn:x-cast:com.google.cast.sample.helloworld';
@@ -204,7 +206,7 @@ initializeCastApi = function() {
 	dw.innerHTML += '\n' + JSON.stringify(message);
   }
 </script>
-
+-->
 
 </head>
 
@@ -213,7 +215,7 @@ initializeCastApi = function() {
 
 <body onload="init()" valign="top">
 
-	<button is="google-cast-button"></button>
+	<!--<button is="google-cast-button"></button>-->
 
 	<img src="splash.jpg" style="width: 375px" id="image" onclick="imageClicked()"/>
 

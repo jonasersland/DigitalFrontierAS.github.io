@@ -14,25 +14,21 @@ var DigitalFrontierAS = (function () {
             loadAheadOffset = 0.0,
             compressorNode,
             destination,
+            
+            loop = null,
 
             LOAD_AHEAD_TIME_MAX = 10.0,
             LOAD_AHEAD_TIME_MIN = 1.0,
 
             TRIGGER_BUFFER = context.createBuffer(1, 1, context.sampleRate);
         
-        function byTime(a,b) {
-            if (a.time < b.time) return -1;
-            if (a.time > b.time) return 1;
-            return 0;
-        }
-
         this.composition = null;
 
         this.currentSequence = null;
         this.currentSequenceCounter = 0;
         this.currentSequenceRevolutions = 0;
         
-        this.ended = false;
+        //this.ended = false; // TODO
         this.playing = false;
         this.waiting = true;
         this.loadComplete = false;
@@ -91,6 +87,8 @@ var DigitalFrontierAS = (function () {
                 if (group.gainNode) group.gainNode = undefined;
             });
             if (context.state != "closed") context.close();
+            player.playing = false;
+            player.loadComplete = false;
         }
 
         
@@ -143,21 +141,30 @@ var DigitalFrontierAS = (function () {
             } while (revolutions === 0);
             
             return {
+                offset: offset,
                 sequenceName: sequenceName,
-                revolutions: revolutions
+                revolutions: revolutions,
+                counter: 0
             };
         }
 
 
         function finish() {
-            if (context.state != "closed") context.close();
+            tearDown();
             if (player.onEnded) player.onEnded();
         }
+
 
 
         // ------------------------------------------------------------------------------------------------
         // Utilities
         // ------------------------------------------------------------------------------------------------
+
+        function byTime(a,b) {
+            if (a.time < b.time) return -1;
+            if (a.time > b.time) return 1;
+            return 0;
+        }
 
         function randomElement (array) {
             if (!array) return null;
@@ -221,7 +228,15 @@ var DigitalFrontierAS = (function () {
         };
 
         this.play = function () {
+            this.currentSequence = null;
+            this.currentSequenceCounter = 0;
+            this.currentSequenceRevolutions = 0;
+
+            this.ended = false;
+            this.waiting = true;
+            this.loadComplete = false;
             this.playing = true;
+            
             if (context.state !== "closed") context.close();
             context = new window.AudioContext();
             context.suspend();
@@ -235,7 +250,9 @@ var DigitalFrontierAS = (function () {
             //destination = context.destination;
             
             startTime = context.currentTime;
-            scheduleLoop();
+            loop = null;
+            firstTime = true;
+            loadAhead();
         };
 
         this.stop = function () {
@@ -297,7 +314,7 @@ var DigitalFrontierAS = (function () {
 
         this.schedule = function (offset, fn) {
             if (fn) {
-                var source = context.createBufferSource();
+                let source = context.createBufferSource();
                 source.buffer = TRIGGER_BUFFER;
                 source.connect(destination);
                 source.onended = function () { fn(offset); };
@@ -309,10 +326,8 @@ var DigitalFrontierAS = (function () {
         function checkLoadAheadStatus() {
             if (!player.playing) return;
             if (player.loadComplete) return;
-            //if (loadAheadOffset < LOAD_AHEAD_TIME_MAX) return;
             if (loadAheadOffset - player.currentTime() < LOAD_AHEAD_TIME_MIN) {
                 if (!player.waiting) {
-                    //console.log("Waiting!");
                     context.suspend();
                     player.waiting = true;
                     if (player.onWaiting) player.onWaiting();
@@ -326,87 +341,100 @@ var DigitalFrontierAS = (function () {
 
         setInterval(checkLoadAheadStatus, 100);
         
+        
+        let firstTime = true;
+        
+        function loadAhead() {
+            if (!player.playing) return;
+            if (firstTime) {
+                loop = nextLoop();
+                firstTime = false;
+                scheduleLoop();
+                return;
+            } 
+            if (!loop) return;
+            let nextOffset = loop.nextOffset;
+            if (nextOffset && nextOffset - player.currentTime() < LOAD_AHEAD_TIME_MAX) {
+                let counter = loop.counter;
+                counter++;
+                if (counter == loop.revolutions) {
+                    loop = nextLoop(nextOffset, loop.sequenceName);
+                } else {
+                    loop = {
+                        offset: nextOffset,
+                        sequenceName: loop.sequenceName,
+                        revolutions: loop.revolutions,
+                        counter: counter
+                    };
+                }
+                if (loop) {
+                    scheduleLoop();
+                } else {
+                    // Nothing more to play
+                    player.schedule(nextOffset, function () { 
+                        player.currentSequence = null;
+                        player.currentSequenceCounter = 0;
+                        player.currentSequenceRevolutions = 0;
+                    });
+                    player.schedule(duration, finish);
+                    player.loadComplete = true;
+                }
+            }
+        }
+
+
+        setInterval(loadAhead, 100);
+        
+
         // ------------------------------------------------------------------------------------------------
         // Scheduling
         // ------------------------------------------------------------------------------------------------
 
-        function scheduleLoop(offset, loop, counter) {
-            if (!loop) loop = nextLoop(offset);
-            if (!loop) {
-                finish();
-                return;
-            }
-            if (!counter) counter = 0;
-            var sequence = sequences[loop.sequenceName];
+        function scheduleLoop() {
+            let sequence = sequences[loop.sequenceName];
 
-            var layout = layOutSequence(sequence);
+            let layout = layOutSequence(sequence);
 
-            if (offset === undefined) {
-                // Very first sequence to be played
-                offset = 0.0;
-                if (layout[0].time < 0.0) offset -= layout[0].time; // In case of "prelude"
+            if (loop.offset + layout[0].time < 0.0) {
+                // This should only happen the very first loop, in case of "prelude"
+                loop.offset -= layout[0].time;
             }
+            let offset = loop.offset;
             
-            var nextOffset = offset + sequence.numBeats * 60.0 / sequence.bpm; // Next sequence starts here
+            let nextOffset = offset + sequence.numBeats * 60.0 / sequence.bpm; // Next sequence starts here
+            let currentLoop = loop;
             player.schedule(offset, function () { 
-                player.currentSequence = loop.sequenceName;
-                player.currentSequenceCounter = counter;
-                player.currentSequenceRevolutions = loop.revolutions;
-                if (player.onSequenceStart) player.onSequenceStart(offset, loop.sequenceName, counter, loop.revolutions);
+                player.currentSequence = currentLoop.sequenceName;
+                player.currentSequenceCounter = currentLoop.counter;
+                player.currentSequenceRevolutions = currentLoop.revolutions;
+                if (player.onSequenceStart) player.onSequenceStart(offset, currentLoop.sequenceName, currentLoop.counter, currentLoop.revolutions);
             });
             player.schedule(nextOffset, function () { 
-                if (player.onSequenceEnd) player.onSequenceEnd(nextOffset, loop.sequenceName, counter, loop.revolutions); 
+                if (player.onSequenceEnd) player.onSequenceEnd(nextOffset, currentLoop.sequenceName, currentLoop.counter, currentLoop.revolutions); 
             });
             scheduleLayout(layout, offset, function () {
-                loadAheadOffset = offset;
-                scheduleNextLoop(nextOffset, sequence, loop, counter);
+                loadAheadOffset = Math.max(loadAheadOffset, nextOffset);
+                currentLoop.nextOffset = nextOffset;
             });
         }
 
-        function scheduleNextLoop(offset, sequence, loop, counter) {
-            counter++;
-            if (counter == loop.revolutions) {
-                loop = nextLoop(offset, sequence.name);
-                counter = 0;
-            }
-            if (!loop) {
-                // Nothing more to play
-                player.schedule(offset, function () { 
-                    player.currentSequence = null;
-                    player.currentSequenceCounter = 0;
-                    player.currentSequenceRevolutions = 0;
-                });
-                player.schedule(duration, finish);
-                player.loadComplete = true;
-                return;
-            } else {
-            }
-            //var nextOffset = offset + sequence.numBeats * 60.0 / sequence.bpm; // Next sequence starts here
-            if (offset - player.currentTime() < LOAD_AHEAD_TIME_MAX) {
-                scheduleLoop(offset, loop, counter);
-            } else {
-                player.schedule(offset - LOAD_AHEAD_TIME_MAX, function () {
-                    scheduleLoop(offset, loop, counter);
-                });
-            }
-        }
 
         function scheduleLayout(layout, offset, ondone) {
-            var counter = layout.length;
+            let counter = layout.length;
             function andThen () {
                 counter--;
                 if (ondone && counter === 0) ondone();
             }
-            for (var i = 0; i < layout.length; i++) {
-                var element = layout[i];
+            for (let i = 0; i < layout.length; i++) {
+                let element = layout[i];
                 scheduleElement(element, offset, andThen);
             }
         }
 
 
         function scheduleElement(element, offset, ondone) {
-            var sample = element.sample;
-            var buffer = sampleCache[sample];
+            let sample = element.sample;
+            let buffer = sampleCache[sample];
             if (buffer) {
                 scheduleBuffer(element.sequence, element.group, sample, buffer, offset + element.time);
                 if (ondone) ondone();
@@ -420,8 +448,8 @@ var DigitalFrontierAS = (function () {
 
 
         function loadSample(sample, ondone) {
-            var request = new XMLHttpRequest();
-            var url = sample;
+            const request = new XMLHttpRequest();
+            let url = sample;
             if (player.baseUrl) url = player.baseUrl + url;
             request.open('GET', url, true);
             request.responseType = 'arraybuffer';
@@ -446,7 +474,8 @@ var DigitalFrontierAS = (function () {
         }
 
         function scheduleBuffer(sequence, group, sample, buffer, offset) {
-            var source = context.createBufferSource();
+            if (context.state === "closed") return;
+            const source = context.createBufferSource();
             source.buffer = buffer;
             source.connect(getGainNode(sequence.name, group.name));
             if (player.onSampleStart) player.schedule(offset, function (offs) { player.onSampleStart(offs, sample, buffer); });
