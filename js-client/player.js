@@ -437,12 +437,13 @@ var DigitalFrontierAS = (function () {
         function scheduleElement(element, offset, ondone) {
             let sample = element.sample;
             let buffer = sampleCache[sample];
+            const currentContext = context;
             if (buffer) {
-                scheduleBuffer(element.sequence, element.group, sample, buffer, offset + element.time);
+                scheduleBuffer(currentContext, element.sequence, element.group, sample, buffer, offset + element.time);
                 if (ondone) ondone();
             } else {
                 loadSample(sample, function (buffer) {
-                    scheduleBuffer(element.sequence, element.group, sample, buffer, offset + element.time);
+                    scheduleBuffer(currentContext, element.sequence, element.group, sample, buffer, offset + element.time);
                     if (ondone) ondone();
                 });
             }
@@ -475,7 +476,7 @@ var DigitalFrontierAS = (function () {
             return group.gainNode;
         }
 
-        function scheduleBuffer(sequence, group, sample, buffer, offset) {
+        function scheduleBuffer(context, sequence, group, sample, buffer, offset) {
             if (context.state === "closed") return;
             const source = context.createBufferSource();
             source.buffer = buffer;
