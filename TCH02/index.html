@@ -22,8 +22,13 @@ player.onEnded = function () {
 player.onPlaying = function () {
 	var image = document.getElementById("image");
 	var video = document.getElementById("video");
-	video.play();
-	image.style.display = "none";
+    
+    var isPlaying = video.currentTime > 0 && !video.paused && !video.ended && video.readyState > 2;
+
+    if (!isPlaying) {
+        video.play();
+        image.style.display = "none";
+    }
 }
 
 player.onWaiting = function () {
