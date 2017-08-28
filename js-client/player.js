@@ -64,6 +64,7 @@ var DigitalFrontierAS = (function () {
             sequences = {};
             groups = {};
             nextAfter = [];
+            LOAD_AHEAD_TIME_MIN = 0.5;
             for (let i = 0; i < player.composition.sequences.length; i++) {
                 const sequence = player.composition.sequences[i];
                 sequences[sequence.name] = sequence;
@@ -75,6 +76,10 @@ var DigitalFrontierAS = (function () {
                     if (!group.name) group.name = "" + j;
                     const key = sequence.name + "." + group.name;
                     groups[key] = group;
+                    if (group.beat < 0) {
+                        let min = 0.5 - group.beat * 60.0 / sequence.bpm;
+                        LOAD_AHEAD_TIME_MIN = Math.max(LOAD_AHEAD_TIME_MIN, min);
+                    }
                 }
             }
             nextAfter = nextAfter.sort(byTime).reverse();
