@@ -251,7 +251,7 @@ var DigitalFrontierAS = (function () {
             compressorNode.connect(context.destination);
             
             destination = compressorNode;
-            this.refreshCompressor();
+            this.refreshCompressor(this.composition.compressor);
             
             //destination = context.destination;
             
