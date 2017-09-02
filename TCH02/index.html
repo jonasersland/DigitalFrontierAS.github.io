@@ -19,6 +19,8 @@
 var player = new DigitalFrontierAS.Player();
 
 var compositions = ["music/J60_R606_HNRG_WIP.json", "music/KOMP_WIP.json", "music/J60BITALL.json", "music/J60BITALL_STATISK_PROB.json", "music/J60_BPM.json"];
+    
+var songUrl = "";
 
 var ready = false;
 
@@ -40,6 +42,7 @@ player.onPlaying = function () {
     if (!isPlaying) {
         video.play();
         image.style.display = "none";
+        ga('send', 'event', 'DAM', 'wait-resume', songUrl);
     }
 }
 
@@ -49,22 +52,7 @@ player.onWaiting = function () {
 	video.pause();
     image.src = "loading.gif";
 	image.style.display = "block";
-}
-
-function playSong() {
-	player.play();
-}
-
-function pauseSong() {
-	player.pause();
-}
-
-function resumeSong() {
-	player.resume();
-}
-
-function stopSong() {
-	player.stop();
+    ga('send', 'event', 'DAM', 'wait', songUrl);
 }
 
 var playing = false;
@@ -87,8 +75,9 @@ function imageClicked() {
 			image.style.display = "block";
 			playing = false;
 			video.pause();
-		} else {
-	        var songUrl = randomElement(compositions);
+            ga('send', 'event', 'DAM', 'stop', songUrl);
+        } else {
+	        songUrl = randomElement(compositions);
 	        try {
 	            var request = new XMLHttpRequest();
 	            request.open('GET', songUrl, true);
@@ -105,6 +94,7 @@ function imageClicked() {
 	            request.send();
 	        }
 	        catch (e) {}
+            ga('send', 'event', 'DAM', 'play', songUrl);
 		}
 	}
 }
