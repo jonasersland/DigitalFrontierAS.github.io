@@ -310,11 +310,13 @@ var DigitalFrontierAS = (function () {
                 if (c) {
                     compressorNode.threshold.value = (c.threshold === undefined) ? -50 : c.threshold;
                     compressorNode.knee.value = (c.knee === undefined) ? 40 : c.knee;
-                    compressorNode.ratio.value = (!c.ratio) ? 12 : c.ratio;
+                    // In Web Audio API 20 means no compression, 1 means full compression. This is backwards compared to what
+                    // a musician would expect, which is that 1 means no compression and 20 means full compression.
+                    compressorNode.ratio.value = (!c.ratio) ? 12 : 21 - c.ratio;
                     compressorNode.attack.value = (c.attack === undefined) ? 0 : c.attack;
                     compressorNode.release.value = (c.release === undefined) ? 0.25 : c.release;
                 } else {
-                    compressorNode.ratio.value = 1;
+                    compressorNode.ratio.value = 20;
                 }
             }
         };
