@@ -306,7 +306,7 @@ var DigitalFrontierAS = (function () {
         
         this.refreshCompressor = function (c) {
             if (compressorNode) {
-                if (!c) c = this.composition || this.composition.compressor;
+                if (!c) c = this.composition && this.composition.compressor;
                 if (c) {
                     compressorNode.threshold.value = (c.threshold === undefined) ? -50 : c.threshold;
                     compressorNode.knee.value = (c.knee === undefined) ? 40 : c.knee;
