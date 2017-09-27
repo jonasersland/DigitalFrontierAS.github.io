@@ -40,7 +40,7 @@
           ]
         },
         {
-          "gain": 0.3,
+          "gain": 1,
           "beat": 1.5,
           "samples": [
             "J60BITI5.wav",
@@ -55,7 +55,7 @@
           ]
         },
         {
-          "gain": 0.3,
+          "gain": 1,
           "beat": 3.5,
           "samples": [
             "J60BITI5.wav",
@@ -70,7 +70,7 @@
           ]
         },
         {
-          "gain": 0.15,
+          "gain": 1,
           "beat": 5.5,
           "samples": [
             "J60BITI5.wav",
@@ -85,7 +85,7 @@
           ]
         },
         {
-          "gain": 0.3,
+          "gain": 1,
           "beat": 9.5,
           "samples": [
             {
@@ -100,7 +100,7 @@
           ]
         },
         {
-          "gain": 0.3,
+          "gain": 1,
           "beat": 13.5,
           "samples": [
             {
@@ -115,7 +115,7 @@
           ]
         },
         {
-          "gain": 0.3,
+          "gain": 1,
           "beat": 15.5,
           "samples": [
             {
