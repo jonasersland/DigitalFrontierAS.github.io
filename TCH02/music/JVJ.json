@@ -1,7 +1,7 @@
 ﻿{
   "name": "JVJ",
   "start": [
-    "JVJ VII"
+    "JVJ I"
   ],
   "sequences": [
     {
@@ -65,8 +65,8 @@
     {
       "name": "JVJ I",
       "bpm": 106,
-      "maxRevolutions": 10,
-      "minRevolutions": 1,
+      "maxRevolutions": 100,
+      "minRevolutions": 100,
       "numBeats": 16,
       "next": [
         "JVJ I",
@@ -96,6 +96,16 @@
         {
           "gain": 1,
           "beat": 1,
+          "samples": [
+            "J60248I1.wav",
+            "J60248I2.wav",
+            "J60248I3.wav",
+            "J60248I4.wav"
+          ]
+        },
+        {
+          "gain": 1,
+          "beat": 9,
           "samples": [
             "J60248I1.wav",
             "J60248I2.wav",
@@ -153,8 +163,33 @@
           "gain": 1,
           "beat": 1,
           "samples": [
-            "S.wav",
-            "SWI.wav"
+            {
+              "value": "S.wav",
+              "probability": 65
+            },
+            "SWI.wav",
+            "P_X.wav",
+            {
+              "value": "B_Gm1.wav",
+              "probability": 6
+            },
+            {
+              "value": "B_Gm3.wav",
+              "probability": 6
+            }
+          ]
+        },
+        {
+          "gain": 1,
+          "beat": 10,
+          "samples": [
+            {
+              "value": "S.wav",
+              "probability": 50
+            },
+            "B_Gm1.wav",
+            "B_Gm2.wav",
+            "B_Gm3.wav"
           ]
         }
       ]
@@ -188,6 +223,16 @@
         {
           "gain": 1,
           "beat": 1,
+          "samples": [
+            "J60248III1.wav",
+            "J60248III2.wav",
+            "J60248III3.wav",
+            "J60248III4.wav"
+          ]
+        },
+        {
+          "gain": 1,
+          "beat": 9,
           "samples": [
             "J60248III1.wav",
             "J60248III2.wav",
@@ -270,6 +315,16 @@
         {
           "gain": 1,
           "beat": 1,
+          "samples": [
+            "J60248IV1.wav",
+            "J60248IV2.wav",
+            "J60248IV3.wav",
+            "J60248IV4.wav"
+          ]
+        },
+        {
+          "gain": 1,
+          "beat": 9,
           "samples": [
             "J60248IV1.wav",
             "J60248IV2.wav",
@@ -408,8 +463,8 @@
     {
       "name": "JVJ VI",
       "bpm": 106,
-      "maxRevolutions": 10,
-      "minRevolutions": 1,
+      "maxRevolutions": 100,
+      "minRevolutions": 10,
       "numBeats": 16,
       "next": [
         "JVJ I",
@@ -434,6 +489,16 @@
         {
           "gain": 1,
           "beat": 1,
+          "samples": [
+            "J60248VI1.wav",
+            "J60248VI2.wav",
+            "J60248VI3.wav",
+            "J60248VI4.wav"
+          ]
+        },
+        {
+          "gain": 1,
+          "beat": 9,
           "samples": [
             "J60248VI1.wav",
             "J60248VI2.wav",
@@ -488,11 +553,53 @@
           ]
         },
         {
+          "gain": 0.7,
+          "beat": 11,
+          "samples": [
+            "ZORG_I_1.wav",
+            "ZORG_I_2.wav",
+            "ZORG_I_3.wav",
+            "ZORG_I_4.wav",
+            "ZORG_I_5.wav",
+            "ZORG_III_1.wav",
+            "ZORG_III_2.wav",
+            "ZORG_III_3.wav",
+            "ZORG_III_4.wav",
+            "ZORG_III_5.wav",
+            {
+              "value": "S.wav",
+              "probability": 50
+            }
+          ]
+        },
+        {
+          "gain": 0.7,
+          "beat": 13,
+          "samples": [
+            "ZORG_IV_1.wav",
+            "ZORG_IV_2.wav",
+            "ZORG_IV_3.wav",
+            "ZORG_IV_4.wav",
+            "ZORG_IV_5.wav",
+            {
+              "value": "S.wav",
+              "probability": 50
+            }
+          ]
+        },
+        {
           "gain": 1,
           "beat": 1,
           "samples": [
-            "S.wav",
-            "SWVI.wav"
+            {
+              "value": "S.wav",
+              "probability": 60
+            },
+            "SWVI.wav",
+            {
+              "value": "PVPADCRASH.wav",
+              "probability": 10
+            }
           ]
         }
       ]
@@ -526,6 +633,16 @@
         {
           "gain": 1,
           "beat": 1,
+          "samples": [
+            "J60248VII1.wav",
+            "J60248VII2.wav",
+            "J60248VII3.wav",
+            "J60248VII4.wav"
+          ]
+        },
+        {
+          "gain": 1,
+          "beat": 9,
           "samples": [
             "J60248VII1.wav",
             "J60248VII2.wav",
