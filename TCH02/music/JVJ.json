@@ -1,7 +1,7 @@
 ﻿{
   "name": "JVJ",
   "start": [
-    "JVJ I"
+    "JVJ VI"
   ],
   "sequences": [
     {
@@ -463,8 +463,8 @@
     {
       "name": "JVJ VI",
       "bpm": 106,
-      "maxRevolutions": 100,
-      "minRevolutions": 10,
+      "maxRevolutions": 10,
+      "minRevolutions": 1,
       "numBeats": 16,
       "next": [
         "JVJ I",
