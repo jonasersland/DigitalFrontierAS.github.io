@@ -1,7 +1,7 @@
 <html>
 <head>
 <script src="/js-client/player.js" ></script>
-    
+
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -12,14 +12,14 @@
   ga('send', 'pageview');
 
 </script>
-    
+
 <script>
 
 /* global DigitalFrontierAS */
 var player = new DigitalFrontierAS.Player();
 
 var compositions = ["music/TCH02.json"];
-    
+
 var songUrl = "";
 
 var ready = false;
@@ -36,7 +36,7 @@ player.onEnded = function () {
 player.onPlaying = function () {
 	var image = document.getElementById("image");
 	var video = document.getElementById("video");
-    
+
     var isPlaying = video.currentTime > 0 && !video.paused && !video.ended && video.readyState > 2;
 
     if (!isPlaying) {
@@ -103,7 +103,7 @@ window.onload = function () {
 	var image = document.getElementById("image");
 	var video = document.getElementById("video");
 	image.src = "playCROP.png";
-	video.playbackRate = 3.0;
+	video.playbackRate = 11;
 	ready = true;
 }
 
@@ -122,18 +122,16 @@ window.onload = function () {
 		background-color: #cfacd6;
 	}
 	#image {
-		display: block;
-		margin-left: auto;
-		margin-right: auto;	
-		width: 400px;
-		height: 400px;
-		text-align: center;
-    /*
-		vertical-align: middle;
-		display: table-cell;
-		text-align: center;
-		*/
-	}
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
 	#imagediv {
 		background: rgba(255,255,255,0.0);
 		border: 1px solid black;

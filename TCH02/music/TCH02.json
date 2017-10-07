@@ -8,6 +8,10 @@
   },
   "name": "TCH02",
   "start": [
+    "A 6+6+6",
+    "A PIANO",
+    "A 8+6",
+    "A 8 BREAK",
     106,
     2076,
     "I10",
@@ -17,10 +21,475 @@
     "JVJ V",
     {
       "value": "INTRO",
-      "probability": 50
+      "probability": 30
     }
   ],
   "sequences": [
+    {
+      "name": "A 8+6",
+      "bpm": 106,
+      "maxRevolutions": 8,
+      "minRevolutions": 2,
+      "divisibleBy": 2,
+      "numBeats": 14,
+      "next": [
+        "A 12",
+        {
+          "value": "JVJ 8+6",
+          "probability": 5
+        }
+      ],
+      "groups": [
+        {
+          "beat": 1,
+          "samples": [
+            "A4_8_1.wav",
+            {
+              "value": "A4_8_2.wav",
+              "probability": 5
+            },
+            "A4_8_3.wav",
+            "A4_8_X.wav",
+            "S.wav"
+          ]
+        },
+        {
+          "beat": 1,
+          "samples": [
+            "J60BITI1.wav",
+            {
+              "value": "S.wav",
+              "probability": 10
+            }
+          ]
+        },
+        {
+          "beat": 1,
+          "samples": [
+            {
+              "value": "P_X.wav",
+              "probability": 20
+            },
+            "B_Gm1.wav",
+            "B_Gm2.wav",
+            "B_Gm3.wav",
+            {
+              "value": "S.wav",
+              "probability": 50
+            }
+          ]
+        },
+        {
+          "beat": 1,
+          "samples": [
+            "VC10_8_1.wav",
+            {
+              "value": "VC10_8_2.wav",
+              "probability": 10
+            },
+            "VC10_8_3.wav",
+            "VC10_8_X.wav",
+            "VC10_8_X2.wav",
+            "S.wav"
+          ]
+        },
+        {
+          "gain": 0.75,
+          "beat": 7,
+          "samples": [
+            "B_Fm1.wav",
+            "B_Fm2.wav",
+            "B_Fm3.wav",
+            {
+              "value": "S.wav",
+              "probability": 50
+            }
+          ]
+        },
+        {
+          "beat": 9,
+          "samples": [
+            "J60BITI1.wav",
+            {
+              "value": "S.wav",
+              "probability": 10
+            }
+          ]
+        },
+        {
+          "beat": 9,
+          "samples": [
+            "VC10_6_1.wav",
+            "VC10_6_2.wav",
+            "VC10_6_3.wav",
+            "VC10_6_X.wav",
+            "VC10_6_X2.wav"
+          ]
+        },
+        {
+          "beat": 9,
+          "samples": [
+            "A4_6_1.wav",
+            "A4_6_2.wav",
+            "A4_6_3.wav",
+            "A4_6_X.wav",
+            "S.wav"
+          ]
+        },
+        {
+          "beat": 9,
+          "samples": [
+            "B_Gm1.wav",
+            "B_Gm2.wav",
+            "B_Gm3.wav",
+            "P_X.wav",
+            "S.wav"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "A PIANO",
+      "bpm": 106,
+      "maxRevolutions": 6,
+      "divisibleBy": 2,
+      "minRevolutions": 2,
+      "numBeats": 14,
+      "next": [
+        "A 8+6",
+        {
+          "value": "JVJ I",
+          "probability": 2.5
+        },
+        {
+          "value": "INTRO",
+          "probability": 5
+        }
+      ],
+      "groups": [
+        {
+          "beat": 1,
+          "samples": [
+            "VC10_8_1.wav",
+            {
+              "value": "VC10_8_2.wav",
+              "probability": 10
+            },
+            {
+              "value": "S.wav",
+              "probability": 75
+            },
+            "VC10_8_3.wav"
+          ]
+        },
+        {
+          "beat": 1,
+          "samples": [
+            "J60BITI1.wav",
+            {
+              "value": "S.wav",
+              "probability": 10
+            }
+          ]
+        },
+        {
+          "gain": 0.75,
+          "beat": 1,
+          "samples": [
+            "P_8_1.wav",
+            "P_8_2.wav",
+            "P_8_3.wav"
+          ]
+        },
+        {
+          "beat": 1,
+          "samples": [
+            {
+              "value": "P_X.wav",
+              "probability": 80
+            },
+            "B_Gm1.wav",
+            "B_Gm2.wav",
+            "B_Gm3.wav",
+            {
+              "value": "S.wav",
+              "probability": 15
+            }
+          ]
+        },
+        {
+          "beat": 1,
+          "samples": [
+            "A4_8_1.wav",
+            "A4_8_3.wav",
+            "A4_8_X.wav"
+          ]
+        },
+        {
+          "beat": 7,
+          "samples": [
+            "B_Fm1.wav",
+            "B_Fm2.wav",
+            "B_Fm3.wav",
+            {
+              "value": "S.wav",
+              "probability": 90
+            }
+          ]
+        },
+        {
+          "beat": 9,
+          "samples": [
+            "VC10_6_1.wav",
+            "VC10_6_2.wav",
+            "VC10_6_3.wav",
+            "VC10_6_X.wav",
+            "VC10_6_X2.wav"
+          ]
+        },
+        {
+          "gain": 0.75,
+          "beat": 9,
+          "samples": [
+            "P_6_1.wav",
+            "P_6_2.wav"
+          ]
+        },
+        {
+          "gain": 0.25,
+          "beat": 9,
+          "samples": [
+            "Z501_I-III-IV_1.wav",
+            "Z501_I-III-IV_2.wav",
+            "Z501_I-III-IV_3.wav",
+            "Z501_I-III-IV_4.wav",
+            "Z501_I-III-IV_5.wav",
+            "Z501_I-III-IV_6.wav",
+            {
+              "value": "S.wav",
+              "probability": 60
+            }
+          ]
+        },
+        {
+          "beat": 9,
+          "samples": [
+            "A4_6_1.wav",
+            "A4_6_2.wav",
+            "A4_6_3.wav",
+            "S.wav"
+          ]
+        },
+        {
+          "beat": 9,
+          "samples": [
+            "B_Gm1.wav",
+            "B_Gm2.wav",
+            "B_Gm3.wav",
+            "P_X.wav",
+            "S.wav"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "A 12",
+      "bpm": 106,
+      "maxRevolutions": 1,
+      "minRevolutions": 1,
+      "numBeats": 12,
+      "next": [
+        "A PIANO",
+        "A 8 BREAK",
+        "A 6+6+6",
+        {
+          "value": 424,
+          "probability": 5
+        },
+        {
+          "value": "III4",
+          "probability": 5
+        }
+      ],
+      "groups": [
+        {
+          "gain": 0.8,
+          "beat": 1,
+          "samples": [
+            "J60BITI1.wav",
+            {
+              "value": "S.wav",
+              "probability": 10
+            }
+          ]
+        },
+        {
+          "gain": 1,
+          "beat": 1,
+          "samples": [
+            "A4_12_1.wav",
+            "Z_12_1.wav"
+          ]
+        },
+        {
+          "gain": 1.25,
+          "beat": 1,
+          "samples": [
+            "VC10_12_1.wav",
+            "S.wav"
+          ]
+        },
+        {
+          "gain": 0.8,
+          "beat": 5,
+          "samples": [
+            "J60BITI1.wav",
+            "J60BITIII4.wav",
+            "J60BITVII6.wav",
+            "J60BITVII10.wav",
+            {
+              "value": "S.wav",
+              "probability": 10
+            }
+          ]
+        },
+        {
+          "beat": 9,
+          "samples": [
+            "J60BITI1.wav",
+            "J60BITIV1.wav",
+            {
+              "value": "S.wav",
+              "probability": 10
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "A 6+6+6",
+      "bpm": 106,
+      "maxRevolutions": 1,
+      "minRevolutions": 1,
+      "numBeats": 16,
+      "next": [
+        "A 8 BREAK",
+        {
+          "value": 106,
+          "probability": 5
+        }
+      ],
+      "groups": [
+        {
+          "gain": 1,
+          "beat": 1,
+          "samples": [
+            "B_HOOK_1.wav",
+            {
+              "value": "S.wav",
+              "probability": 30
+            }
+          ]
+        },
+        {
+          "gain": 1,
+          "beat": 1,
+          "samples": [
+            "S.wav",
+            {
+              "value": "J60BITI1.wav",
+              "probability": 90
+            }
+          ]
+        },
+        {
+          "gain": 1,
+          "beat": 7,
+          "samples": [
+            "J60BITI1.wav",
+            "S.wav"
+          ]
+        },
+        {
+          "gain": 1,
+          "beat": 13,
+          "samples": [
+            "S.wav",
+            {
+              "value": "P_X.wav",
+              "probability": 40
+            }
+          ]
+        },
+        {
+          "gain": 1,
+          "beat": 13,
+          "samples": [
+            "S.wav",
+            {
+              "value": "P_X.wav",
+              "probability": 40
+            }
+          ]
+        },
+        {
+          "gain": 1,
+          "beat": 1,
+          "samples": [
+            "A4_6_1.wav",
+            "A4_6_2.wav",
+            "A4_6_3.wav"
+          ]
+        },
+        {
+          "gain": 1,
+          "beat": 7,
+          "samples": [
+            "A4_6_1.wav",
+            "A4_6_2.wav",
+            "A4_6_3.wav"
+          ]
+        },
+        {
+          "gain": 1,
+          "beat": 13,
+          "samples": [
+            "A4_6_1.wav",
+            "A4_6_2.wav",
+            "A4_6_3.wav",
+            "A4_6_3.wav",
+            "VC10_6_1.wav",
+            "VC10_6_2.wav",
+            "VC10_6_3.wav",
+            "VC10_6_X.wav",
+            "VC10_6_X2.wav"
+          ]
+        },
+        {
+          "beat": 15,
+          "samples": [
+            "J60BITI1.wav",
+            "J60BITIII4.wav",
+            {
+              "value": "S.wav",
+              "probability": 10
+            }
+          ]
+        },
+        {
+          "beat": 17,
+          "samples": [
+            "J60BITI1.wav",
+            "J60BITVII6.wav",
+            "J60BITVII10.wav",
+            {
+              "value": "S.wav",
+              "probability": 10
+            }
+          ]
+        }
+      ]
+    },
     {
       "name": "INTRO",
       "bpm": 106,
@@ -61,6 +530,66 @@
             "J60INT2.wav",
             "J60INT3.wav",
             "J60INT4.wav"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "A 8 BREAK",
+      "bpm": 106,
+      "maxRevolutions": 1,
+      "minRevolutions": 1,
+      "numBeats": 8,
+      "next": [
+        "A PIANO",
+        "A 8+6",
+        {
+          "value": "JVJ I",
+          "probability": 5
+        },
+        {
+          "value": "JVJ 24",
+          "probability": 5
+        }
+      ],
+      "groups": [
+        {
+          "gain": 1,
+          "beat": 1,
+          "samples": [
+            "VC10_8_1.wav",
+            "VC10_8_2.wav",
+            "VC10_8_3.wav",
+            "VC10_8_X.wav",
+            "VC10_8_X2.wav"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "A END",
+      "bpm": 106,
+      "maxRevolutions": 1,
+      "minRevolutions": 1,
+      "numBeats": 4,
+      "next": [
+        ""
+      ],
+      "groups": [
+        {
+          "gain": 1,
+          "beat": 1,
+          "samples": [
+            "P_X.wav"
+          ]
+        },
+        {
+          "gain": 1,
+          "beat": 1,
+          "samples": [
+            "VC10_6_1.wav",
+            "A4_8_X.wav",
+            "J60BITI1.wav"
           ]
         }
       ]
@@ -141,11 +670,12 @@
       "next": [
         1696,
         848,
+        "JVJ 16 ",
         "JVJ 16 "
       ],
       "groups": [
         {
-          "gain": 2,
+          "gain": 0.2,
           "beat": 1,
           "samples": [
             {
@@ -198,7 +728,7 @@
         },
         {
           "beat": 7,
-          "gain": 2,
+          "gain": 1,
           "samples": [
             "J60BITI1.wav",
             "J60BITI2.wav",
@@ -249,7 +779,7 @@
           ]
         },
         {
-          "gain": 2,
+          "gain": 1,
           "beat": 13,
           "samples": [
             "J60BITI1.wav",
@@ -301,7 +831,7 @@
           ]
         },
         {
-          "gain": 2,
+          "gain": 1,
           "beat": 19,
           "samples": [
             "J60BITI1.wav",
@@ -2318,7 +2848,6 @@
             "J6024III_X4.wav",
             "J6024III_X5.wav",
             "J6024III_X6.wav",
-            "J6024III_X7.wav",
             "J6024III_X8.wav",
             "J6024III_X9.wav",
             "J6024III_X10.wav"
@@ -2896,7 +3425,7 @@
       "minRevolutions": 1,
       "numBeats": 16,
       "next": [
-        "JVJ ALL",
+        "JVJ 16",
         "JVJ I",
         "JVJ III",
         "JVJ IV",
@@ -3238,7 +3767,8 @@
           "beat": 1,
           "samples": [
             "J60BITI1.wav",
-            "J60BITI2.wav"
+            "J60BITI2.wav",
+            "VC10_6_1.wav"
           ]
         }
       ]
