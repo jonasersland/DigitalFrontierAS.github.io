@@ -1,4 +1,4 @@
-﻿{
+{
   "compressor": {
     "threshold": -30,
     "knee": 40,
@@ -7,6 +7,7 @@
     "release": 0.25
   },
   "name": "TCH02",
+  "extensions": [".mp3"],
   "start": [
     "A 6+6+6",
     "A PIANO",

@@ -14,6 +14,7 @@ var DigitalFrontierAS = (function () {
             loadAheadOffset = 0.0,
             compressorNode,
             destination,
+            extensions,
             
             loop = null,
 
@@ -83,6 +84,8 @@ var DigitalFrontierAS = (function () {
                 }
             }
             nextAfter = nextAfter.sort(byTime).reverse();
+            extensions = player.composition.extensions;
+            if (!extensions) extensions = [];
         }
 
         
@@ -457,17 +460,30 @@ var DigitalFrontierAS = (function () {
         }
 
 
-        function loadSample(sample, ondone) {
+        function loadSample(sample, ondone, exts) {
             const request = new XMLHttpRequest();
+            if (!exts) exts = extensions;
             let url = sample;
             if (player.baseUrl) url = player.baseUrl + url;
+            if (exts.length > 0) {
+                const dotPos = url.lastIndexOf(".");
+                if (dotPos > 0) url = url.substring(0, dotPos);
+                url += exts[0];
+            }
             request.open('GET', url, true);
             request.responseType = 'arraybuffer';
-            request.onload = function () {
-                context.decodeAudioData(request.response, function (buffer) {
-                    sampleCache[sample] = buffer;
-                    if (ondone) ondone(buffer);
-                });
+            request.onloadend = function () {
+                if (request.status === 404) {
+                    if (exts.length > 0) {
+                        exts.shift();
+                        loadSample(sample, ondone, exts);
+                    }
+                } else if (request.status === 200) {
+                    context.decodeAudioData(request.response, function (buffer) {
+                        sampleCache[sample] = buffer;
+                        if (ondone) ondone(buffer);
+                    });
+                }
             };
             request.send();
         }
