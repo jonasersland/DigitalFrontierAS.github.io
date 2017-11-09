@@ -46,6 +46,12 @@ player.onPlaying = function () {
     }
 }
 
+/* Video synchronisation */
+player.onGroupStart = function () {
+	console.log(songUrl);	
+}
+/* Video synchronisation */
+
 player.onWaiting = function () {
 	var image = document.getElementById("image");
 	var video = document.getElementById("video");
